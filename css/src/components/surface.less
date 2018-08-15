@@ -1,0 +1,200 @@
+@import "../common/colors.less";
+@import "../common/global-constants.less";
+
+/* vlastnosti společné všem povrchům */
+
+.szn-surface {
+	border-radius: unit(4 / 16, rem);
+	box-sizing: border-box;
+	border: unit(1 / 16, rem) solid transparent; /* kvuli vysokemu kontrastu je treba mit border, i kdyz ho zrovna nevizualizujeme */
+	transition: box-shadow 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+	&:focus {
+		outline: none; /* outline resime sami pomoci stinu, takze ten systemovy chceme pryc */
+	}
+
+	&.szn-surface_clickable {
+		cursor: pointer;
+	}
+	
+	&.szn-surface_disabled {
+		cursor: default;
+		color: @colorTextDisabled;
+	}
+}
+
+/* povrch 00 - neviditelný */
+
+.szn-surface_00,
+.szn-surface_00.szn-surface_clickable:hover {
+	background: transparent;
+	color: @colorText;
+	box-shadow: none;
+}
+
+.szn-surface_00.szn-surface_clickable:focus {
+	box-shadow: @shadowOutline;
+}
+
+.szn-surface_00.szn-surface_clickable:active {
+	box-shadow: none;
+}
+
+/* povrch 01 */
+
+.szn-surface_01 {
+	background: transparent;
+	color: @colorText;
+	border-color: @colorBg224;
+	box-shadow: none;
+
+	&.szn-surface_clickable {
+		&:hover {
+			border-color: @colorBg192;
+		}
+
+		&:focus {
+			box-shadow: @shadowOutline;
+		}
+
+		&:active {
+			border-color: @colorBg160;
+			box-shadow: none;
+		}
+	}
+
+	&.szn-surface_disabled {
+		border-color: @colorBg224;
+	}
+}
+
+/* povrch 02 */
+
+@shadowSurface02Hover: 0 1px 3px 0 fade(@colorShadow, 10%), 0 2px 8px 0 fade(@colorShadow, 5%);
+
+.szn-surface_02 {
+	background: @colorBg255;
+	color: @colorText;
+	box-shadow: none;
+
+	&.szn-surface_clickable {
+		&:hover {
+			box-shadow: @shadowSurface02Hover;
+		}
+
+		&:focus {
+			box-shadow: @shadowOutline;
+		}
+
+		&:hover:focus:not(:active) {
+			box-shadow: @shadowSurface02Hover, @shadowOutline;
+		}
+
+		&:active {
+			box-shadow: 0 1px 1px 0 fade(@colorShadow, 25%), 0 1px 2px 0 fade(@colorShadow, 10%);
+		}
+	}
+
+	&.szn-surface_disabled {
+		box-shadow: none;
+	}
+}
+
+/* povrch 03 */
+
+@shadowSurface03: 0 0 1px 0 fade(@colorShadow, 25%);
+@shadowSurface03Hover: 0 0 1px 0 fade(@colorShadow, 35%), 0 1px 4px 0 fade(@colorShadow, 10%), 0 2px 8px 0 fade(@colorShadow, 5%);
+
+.szn-surface_03 {
+	background: @colorBg255;
+	color: @colorText;
+	box-shadow: @shadowSurface03;
+
+	&.szn-surface_clickable {
+		&:hover {
+			box-shadow: @shadowSurface03Hover;
+		}
+
+		&:focus {
+			box-shadow: @shadowSurface03, @shadowOutline;
+		}
+
+		&:hover:focus:not(:active) {
+			box-shadow: @shadowSurface03Hover, @shadowOutline;
+		}
+
+		&:active {
+			box-shadow: 0 0 1px 0 fade(@colorShadow, 50%), 0 1px 3px 0 fade(@colorShadow, 30%);
+		}
+	}
+
+	&.szn-surface_disabled {
+		box-shadow: 0 0 1px 0 fade(@colorShadow, 25%);
+	}
+}
+
+/* povrch 04 */
+
+@shadowSurface04: 0 1px 3px 0 fade(@colorShadow, 10%), 0 16px 24px -16px fade(@colorShadow, 10%);
+@shadowSurface04Hover: 0 1px 6px 0 fade(@colorShadow, 20%), 0 16px 32px -16px fade(@colorShadow, 30%);
+
+.szn-surface_04 {
+	background: @colorBg255;
+	color: @colorText;
+	box-shadow: @shadowSurface04;
+
+	&.szn-surface_clickable {
+		&:hover {
+			box-shadow: @shadowSurface04Hover;
+		}
+
+		&:focus {
+			box-shadow: @shadowSurface04, @shadowOutline;
+		}
+
+		&:hover:focus:not(:active) {
+			box-shadow: @shadowSurface04Hover, @shadowOutline;
+		}
+
+		&:active {
+			box-shadow: 0 1px 4px 0 fade(@colorShadow, 20%), 0 1px 3px 0 fade(@colorShadow, 30%);
+		}
+	}
+
+	&.szn-surface_disabled {
+		box-shadow: 0 1px 3px 0 fade(@colorShadow, 10%), 0 16px 24px -16px fade(@colorShadow, 10%);
+	}
+}
+
+/* povrch 05 */
+
+@shadowSurface05: 0 0 1px 0 fade(@colorShadow, 20%), 0 1px 4px 0 fade(@colorShadow, 20%), 0 16px 24px -16px fade(@colorShadow, 30%);
+@shadowSurface05Hover: 0 0 1px 0 fade(@colorShadow, 30%), 0 1px 6px 0 fade(@colorShadow, 30%), 0 16px 32px -16px fade(@colorShadow, 50%);
+
+.szn-surface_05 {
+	background: @colorBg255;
+	color: @colorText;
+	box-shadow: @shadowSurface05;
+
+	&.szn-surface_clickable {
+		&:hover {
+			box-shadow: @shadowSurface05Hover;
+		}
+
+		&:focus {
+			box-shadow: @shadowSurface05, @shadowOutline;
+		}
+
+		&:hover:focus:not(:active) {
+			box-shadow: @shadowSurface05Hover, @shadowOutline;
+		}
+
+		&:active {
+			box-shadow: 0 0 1px 0 fade(@colorShadow, 30%), 0 1px 6px 0 fade(@colorShadow, 30%), 0 1px 4px 0 fade(@colorShadow, 50%);
+		}
+	}
+
+	&.szn-surface_disabled {
+		box-shadow: 0 0 1px 0 fade(@colorShadow, 20%), 0 1px 4px 0 fade(@colorShadow, 20%), 0 16px 24px -16px fade(@colorShadow, 30%);
+	}
+}

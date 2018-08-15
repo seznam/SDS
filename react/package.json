@@ -1,0 +1,24 @@
+{
+	"name": "@szn-ds/react",
+	"version": "0.2.3",
+	"description": "React implementation of Seznam Design System components",
+	"author": {
+		"name": "Jakub Kraft",
+		"email": "jakub.kraft@firma.seznam.cz"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-react": "^6.24.1",
+		"eslint": "^5.1.0",
+		"eslint-plugin-react": "^7.10.0",
+		"react": "^16.4.1"
+	},
+	"scripts": {
+		"build": "",
+		"clear": "rm -rf dist/*"
+	},
+	"files": [
+		"dist/*"
+	]
+}

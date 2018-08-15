@@ -1,0 +1,113 @@
+@import "../common/colors.less";
+@import "../common/global-constants.less";
+
+.szn-button {
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	vertical-align: middle;
+	height: unit(48 / 16, rem);
+	max-width: 100%;
+	font-weight: bold;
+	padding: 0 unit(12 / 16, rem);
+	/*line-height: 24 / 16;*/
+	user-select: none;
+
+	& > * {
+		/* obsah tlačítka a zvlášť SVG je dobré nenechat chytat kliknutí */
+		pointer-events: none;
+		/* následující pravidla zamezí pohybu obsahu tlačítka při active stavu v IE11 */
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+
+	.szn-button-text {
+		margin: 0 unit(12 / 16, rem);
+	}
+
+	.szn-icon {
+		color: lighten(@colorText, 62.6%);
+		width: unit(24 / 16, rem);
+		height: unit(24 / 16, rem);
+	}
+
+	&.szn-surface_disabled {
+		.szn-icon {
+			color: lighten(@colorTextDisabled, 12.5%);
+		}
+	}
+
+	&::-moz-focus-inner {
+		border: 0;
+	}
+}
+
+.szn-button_small {
+	height: unit(40 / 16, rem);
+	font-weight: bold;
+	padding: 0 unit(8 / 16, rem);
+
+	.szn-button-text {
+		margin: 0 unit(8 / 16, rem);
+	}
+
+	.szn-icon:not(:only-child) {
+		margin: 0 unit(4 / 16, rem);
+	}
+}
+
+/* modifikace pravidel Button a Surface - mozna je lepsi misto, kde to delat, ale zatim ho neznam */
+
+.szn-button {
+	&.szn-surface_00, &.szn-surface_01 {
+		font-weight: normal;
+	}
+}
+
+/* primární tlačítko dost ignoruje povrchy a vypadá si, jak se mu zachce - bohužel */
+
+@shadowButtonPrimary: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@colorAccent, 40%);
+@shadowButtonPrimaryHover: 0 unit(12 / 16, rem) unit(24 / 16, rem) unit(-6 / 16, rem) fade(@colorAccent, 60%);
+
+.szn-button_primary {
+	background: @colorAccent;
+	color: @colorTextAccent;
+	box-shadow: @shadowButtonPrimary;
+
+	.szn-icon {
+		color: currentColor;
+	}
+
+	&.szn-surface_clickable {
+		&:hover {
+			background: @colorAccentHover;
+			color: @colorTextAccentHover;
+			box-shadow: @shadowButtonPrimaryHover;
+		}
+
+		&:focus {
+			background: @colorAccentFocus;
+			color: @colorTextAccentFocus;
+			box-shadow: @shadowButtonPrimary, @shadowOutline;
+		}
+
+		&:hover:focus:not(:active) {
+			background: @colorAccentHover;
+			color: @colorTextAccentHover;
+			box-shadow: @shadowButtonPrimaryHover, @shadowOutline;
+		}
+
+		&:active {
+			background: @colorAccentActive;
+			color: @colorTextAccentActive;
+			box-shadow: none;
+		}
+	}
+
+	&.szn-surface_disabled {
+		background: @colorAccentDisabled;
+		color: @colorTextAccentDisabled;
+		box-shadow: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@colorAccent, 40%);
+	}
+}
