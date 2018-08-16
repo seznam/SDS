@@ -1,0 +1,23 @@
+{
+	"name": "@szn-ds/helpers",
+	"version": "0.1.0",
+	"description": "Helper functions for SDS components",
+	"author": {
+		"name": "Jakub Kraft",
+		"email": "jakub.kraft@firma.seznam.cz"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"eslint": "^5.1.0"
+	},
+	"scripts": {
+		"build": "npx babel index.js -o helpers.js",
+		"post": "npm publish --registry https://npm.dev.dszn.cz"
+	},
+	"files": [
+		"helpers.js"
+	],
+	"main": "helpers.js"
+}

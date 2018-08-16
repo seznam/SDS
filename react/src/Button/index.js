@@ -1,5 +1,5 @@
 import React from "react";
-import { withPureClick, blurAfterClick } from "../../lib/helpers";
+import { withPureClick, blurAfterClick } from "@szn-ds/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
 

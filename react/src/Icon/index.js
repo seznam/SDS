@@ -1,5 +1,5 @@
 import React from "react";
-import { getIconString } from "../../lib/icons";
+import { getIconString } from "@szn-ds/icons";
 
 /**
  * Komponenta Icon představující jednu z vestavěných SVG ikon dodávaných v rámci design systému
