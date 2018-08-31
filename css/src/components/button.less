@@ -12,6 +12,7 @@
 	padding: 0 unit(12 / 16, rem);
 	/*line-height: 24 / 16;*/
 	user-select: none;
+	position: relative;
 
 	& > * {
 		/* obsah tlačítka a zvlášť SVG je dobré nenechat chytat kliknutí */
@@ -62,6 +63,22 @@
 .szn-button {
 	&.szn-surface_00, &.szn-surface_01 {
 		font-weight: normal;
+	}
+}
+
+/* modifikace pravidel Button a Spinner - mozna je lepsi misto, kde to delat, ale zatim ho neznam */
+
+.szn-button.szn-button_loading {
+	color: @colorAccent;
+
+	& > :not(.szn-spinner) {
+		opacity: 0;
+	}
+
+	& > .szn-spinner {
+		position: absolute;
+		left: calc(50% - 0.75em);
+		top: calc(50% - 0.75em);
 	}
 }
 

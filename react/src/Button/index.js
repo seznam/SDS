@@ -2,6 +2,7 @@ import React from "react";
 import { withPureClick, blurAfterClick } from "@szn-ds/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
+import Spinner from "../Spinner";
 
 const spaceClick = onClick => {
 	return e => {
@@ -22,6 +23,7 @@ const spaceClick = onClick => {
  * @param {string} [props.icon=""] Ikona
  * @param {string} [props.text=""] Text uvnitř tlačítka
  * @param {boolean} [props.disabled=false] Pokud je nastaveno, tlačítko je zakázané a nereaguje
+ * @param {boolean} [props.loading=false] Pokud je nastaveno, tlačítko obsahuje Spinner a zároveň je stejně jako v případě disabled=true zakázané a nereaguje
  * @param {string} [props.href] Pokud je uvedeno, bude se tlačítko renderovat jako odkaz a kromě obyčejného kliknutí primárním tlačítkem se tak bude i chovat
  * @param {function} [props.onClick] Posluchač události click
  */
@@ -33,6 +35,7 @@ const Button = ({
 	icon = "",
 	text = "",
 	disabled = false,
+	loading = false,
 	href,
 	onClick,
 	...props
@@ -41,11 +44,15 @@ const Button = ({
 		"szn-button",
 		primary ? "szn-button_primary" : "",
 		small ? "szn-button_small szn-typography_body-small" : "szn-typography_body",
+		loading ? "szn-button_loading" : "",
 		className
 	].join(" ");
 
 	// pokud má href, bude se renderovat jako odkaz, jinak tlačítko
 	const isLink = !!href;
+
+	// co je loading, je zároveň technicky taky disabled
+	disabled = disabled || loading;
 
 	// různé podmíněné atributy
 	const conditionalProps = {};
@@ -72,6 +79,7 @@ const Button = ({
 		{...conditionalProps}
 		{...props}
 	>
+		{loading ? <Spinner /> : null}
 		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="szn-button-text">{text}</span> : null}
 	</Surface>;
 };

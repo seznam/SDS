@@ -1,10 +1,10 @@
 {
 	"name": "@szn-ds/css",
-	"version": "0.3.3",
+	"version": "0.3.4",
 	"description": "CSS implementing the principles of Seznam Design System ready to be included in a project",
 	"author": {
-		"name" : "Jakub Kraft",
-		"email" : "jakub.kraft@firma.seznam.cz"
+		"name": "Jakub Kraft",
+		"email": "jakub.kraft@firma.seznam.cz"
 	},
 	"devDependencies": {
 		"less": "^3.8.1",
