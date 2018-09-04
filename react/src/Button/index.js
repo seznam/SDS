@@ -13,13 +13,19 @@ const spaceClick = onClick => {
 	};
 };
 
+const SIZES = {
+	"x-small": "szn-button_xsmall szn-typography_caption",
+	small: "szn-button_small szn-typography_body-small",
+	regular: "szn-typography_body"
+};
+
 /**
  * Komponenta Button představující primární a sekundární samostatná tlačítka
  * @param {object} props Objekt s atributy komponenty
  * @param {number} [props.surface=5] Povrch 0-5, v případě, že je tlačítko primární, jeho hodnota se ignoruje
  * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Button interně využívá
  * @param {boolean} [props.primary=false] Pokud je nastaveno, je tlačítko v accent barvě, jinak je sekundární a ctí zvolený povrch
- * @param {boolean} [props.small=false] Pokud je nastaveno, je tlačítko malé, jinak je v normální velikosti
+ * @param {string} [props.size="regular"] Pokud je nastaveno, je tlačítko malé, jinak je v normální velikosti
  * @param {string} [props.icon=""] Ikona
  * @param {string} [props.text=""] Text uvnitř tlačítka
  * @param {boolean} [props.disabled=false] Pokud je nastaveno, tlačítko je zakázané a nereaguje
@@ -31,7 +37,7 @@ const Button = ({
 	surface = 5,
 	className,
 	primary = false,
-	small = false,
+	size = "regular",
 	icon = "",
 	text = "",
 	disabled = false,
@@ -43,7 +49,7 @@ const Button = ({
 	const combinedClassName = [
 		"szn-button",
 		primary ? "szn-button_primary" : "",
-		small ? "szn-button_small szn-typography_body-small" : "szn-typography_body",
+		SIZES[size in SIZES ? size : "regular"],
 		loading ? "szn-button_loading" : "",
 		className
 	].join(" ");

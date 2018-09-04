@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/react",
-	"version": "0.2.6",
+	"version": "0.2.7",
 	"description": "React implementation of Seznam Design System components",
 	"author": {
 		"name": "Jakub Kraft",
