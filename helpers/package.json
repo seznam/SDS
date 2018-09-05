@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/helpers",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Helper functions for SDS components",
 	"author": {
 		"name": "Jakub Kraft",
@@ -14,10 +14,13 @@
 	},
 	"scripts": {
 		"build": "npx babel index.js -o helpers.js",
-		"post": "npm publish --registry https://npm.dev.dszn.cz"
+		"post": "npm publish"
 	},
 	"files": [
 		"helpers.js"
 	],
-	"main": "helpers.js"
+	"main": "helpers.js",
+	"publishConfig": {
+		"registry": "https://npm.dev.dszn.cz"
+	}
 }

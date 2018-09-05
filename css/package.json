@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/css",
-	"version": "0.3.5",
+	"version": "0.3.7",
 	"description": "CSS implementing the principles of Seznam Design System ready to be included in a project",
 	"author": {
 		"name": "Jakub Kraft",
@@ -13,11 +13,11 @@
 	},
 	"scripts": {
 		"//": "minifikace je fake a oboje by melo jeste pouzivat autoprefixer",
-		"build:css": "mkdir dist && lessc src/sds.less dist/sds-${npm_package_version}.css",
-		"build:minified": "npm run build:css && lessc src/sds.less dist/sds-${npm_package_version}.min.css",
+		"build:css": "mkdir dist && lessc src/sds.less dist/sds-${npm_package_version}.css --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
+		"build:minified": "npm run build:css && lessc src/sds.less dist/sds-${npm_package_version}.min.css --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
 		"build": "npm run build:minified",
 		"clear": "rm -rf dist",
-		"post": "cp package.json dist && cp README.md dist && cp -R src dist && npm publish dist"
+		"post": "cp package.json dist && cp README.md dist && cp -a -R src/. dist/ && npm publish dist"
 	},
 	"main": "sds-${npm_package_version}.min.css",
 	"publishConfig": {

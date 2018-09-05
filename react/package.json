@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/react",
-	"version": "0.2.7",
+	"version": "0.2.8",
 	"description": "React implementation of Seznam Design System components",
 	"author": {
 		"name": "Jakub Kraft",
@@ -19,6 +19,9 @@
 	"scripts": {
 		"build": "./build.sh",
 		"clear": "rm -rf dist",
-		"post": "cp package.json dist && cp README.md dist && npm publish dist --registry https://npm.dev.dszn.cz"
+		"post": "cp package.json dist && cp README.md dist && npm publish dist"
+	},
+	"publishConfig": {
+		"registry": "https://npm.dev.dszn.cz"
 	}
 }
