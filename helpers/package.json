@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/helpers",
-	"version": "0.1.1",
+	"version": "0.1.3",
 	"description": "Helper functions for SDS components",
 	"author": {
 		"name": "Jakub Kraft",
@@ -8,18 +8,21 @@
 	},
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
-		"eslint": "^5.1.0"
+		"eslint": "^5.5.0"
 	},
 	"scripts": {
 		"build": "npx babel index.js -o helpers.js",
 		"post": "npm publish"
 	},
 	"files": [
-		"helpers.js"
+		"helpers.js",
+		"index.js"
 	],
 	"main": "helpers.js",
+	"module": "index.js",
 	"publishConfig": {
 		"registry": "https://npm.dev.dszn.cz"
 	}
