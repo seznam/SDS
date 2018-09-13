@@ -67,8 +67,8 @@ const Button = ({
 		if (isLink) { conditionalProps.href = href; }
 	}
 	if (isLink) {
-		conditionalProps.onClick = blurAfterClick(withPureClick(onClick));
-		conditionalProps.onKeyPress = blurAfterClick(spaceClick(onClick));
+		conditionalProps.onClick = blurAfterClick(onClick ? withPureClick(onClick) : null);
+		conditionalProps.onKeyPress = blurAfterClick(onClick ? spaceClick(onClick) : null);
 		conditionalProps.rel = "noreferrer noopener";
 	} else {
 		conditionalProps.type = "button";
