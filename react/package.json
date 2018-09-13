@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/react",
-	"version": "0.2.8",
+	"version": "0.2.10",
 	"description": "React implementation of Seznam Design System components",
 	"author": {
 		"name": "Jakub Kraft",
@@ -25,5 +25,5 @@
 	"publishConfig": {
 		"registry": "https://npm.dev.dszn.cz"
 	},
-	"main": "index.js"
+	"main": "main.js"
 }
