@@ -11,17 +11,19 @@
 		"@szn-ds/icons": "^0.1.0",
 		"babel-cli": "^6.26.0",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
 		"eslint": "^5.1.0",
 		"eslint-plugin-react": "^7.10.0",
 		"react": "^16.4.1"
 	},
 	"scripts": {
-		"build": "./build.sh",
+		"build": "babel src --out-dir dist",
 		"clear": "rm -rf dist",
 		"post": "cp package.json dist && cp README.md dist && npm publish dist"
 	},
 	"publishConfig": {
 		"registry": "https://npm.dev.dszn.cz"
-	}
+	},
+	"main": "index.js"
 }
