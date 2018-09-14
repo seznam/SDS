@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/react",
-	"version": "0.2.10",
+	"version": "0.2.11",
 	"description": "React implementation of Seznam Design System components",
 	"author": {
 		"name": "Jakub Kraft",
@@ -12,19 +12,24 @@
 		"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
 		"@babel/preset-env": "^7.0.0",
 		"@babel/preset-react": "^7.0.0",
-		"@szn-ds/helpers": "^0.1.0",
-		"@szn-ds/icons": "^0.1.0",
 		"eslint": "^5.1.0",
 		"eslint-plugin-react": "^7.10.0",
-		"react": "^16.4.1"
+		"rollup": "^0.65.2",
+		"rollup-plugin-node-resolve": "^3.4.0"
 	},
 	"scripts": {
-		"build": "babel src --out-dir dist",
+		"build": "babel src --out-dir dist && ./node_modules/rollup/bin/rollup --config && cp package.json dist && cp README.md dist",
 		"clear": "rm -rf dist",
-		"post": "cp package.json dist && cp README.md dist && npm publish dist"
+		"post": "npm publish dist"
 	},
 	"publishConfig": {
 		"registry": "https://npm.dev.dszn.cz"
 	},
-	"main": "main.js"
+	"main": "main.js",
+	"module": "index.js",
+	"dependencies": {
+		"react": "^16.4.1",
+		"@szn-ds/helpers": "^0.1.3",
+		"@szn-ds/icons": "^0.1.0"
+	}
 }
