@@ -6,7 +6,7 @@ const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen
  * @param {number} depth Depth of the surface from 0 to 5
  */
 const surfaceClassName = depth => {
-	const prefix = "szn-surface_0";
+	const prefix = "sznds-surface_0";
 	return prefix + ([0, 1, 2, 3, 4, 5].indexOf(depth) !== -1 ? depth : "0");
 };
 
@@ -28,9 +28,9 @@ const Surface = ({
 	...props
 }) => {
 	const combinedClassName = [
-		"szn-surface",
-		clickable ? "szn-surface_clickable" : "",
-		disabled ? "szn-surface_disabled" : "",
+		"sznds-surface",
+		clickable ? "sznds-surface_clickable" : "",
+		disabled ? "sznds-surface_disabled" : "",
 		surfaceClassName(surface),
 		className
 	].join(" ");

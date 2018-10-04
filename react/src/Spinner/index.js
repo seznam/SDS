@@ -7,7 +7,7 @@ import React from "react";
  */
 const Spinner = ({ className, ...props }) => {
 	const combinedClassName = [
-		"szn-spinner",
+		"sznds-spinner",
 		className
 	].join(" ");
 
