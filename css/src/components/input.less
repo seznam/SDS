@@ -1,0 +1,60 @@
+@import "../common/colors.less";
+
+.sznds-input {
+	display: inline-flex;
+	padding: 0;
+	color: @szndsColorTextDisabled;
+
+	input {
+		height: unit(46 / 16, rem);
+		padding: unit(11 / 16, rem);
+		border: 0;
+		background: transparent;
+		outline: 0;
+		box-sizing: border-box;
+		color: @szndsColorText;
+		order: 2;
+	}
+
+	&.sznds-input_icon-left {
+		input {
+			padding-left: 0;
+		}
+	}
+
+	&.sznds-input_icon-right {
+		input {
+			padding-right: 0;
+		}
+	}
+
+	.sznds-input__sznds-icon_left {
+		order: 1;
+	}
+
+	.sznds-input__sznds-icon_right {
+		order: 3;
+	}
+
+	.sznds-icon {
+		padding: unit(11 / 16, rem);
+		color: currentColor;
+		display: flex;
+	}
+
+	button {
+		border: none;
+		background: transparent;
+		outline: none;
+		margin: 0;
+		padding: 0;
+		cursor: pointer;
+		color: @szndsColorTextDisabled;
+		width: unit(46 / 16, rem);
+		height: unit(46 / 16, rem);
+
+		&:hover, &:active, &:focus {
+			color: @szndsColorText;
+		}
+	}
+}

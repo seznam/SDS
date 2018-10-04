@@ -1,0 +1,40 @@
+@import "../common/colors.less";
+@import "../common/global-constants.less";
+
+@shadowInputSurface: inset 0 unit(2 / 16, rem) unit(3 / 16, rem) 0 fade(@szndsColorShadow, 15%);
+@shadowErrorInputSurface: inset 0 0 0 unit(1 / 16, rem) @szndsColorError;
+
+.sznds-inputsurface {
+	border: 1px solid @szndsColorBg224;
+	border-radius: unit(4 / 16, rem);
+	background: @szndsColorBg255;
+	color: @szndsColorText;
+	box-shadow: @shadowInputSurface;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	height: unit(48 / 16, rem);
+	padding: unit(12 / 16, rem);
+	transition: @szndsOutlineTransition;
+
+	::placeholder {
+		color: @szndsColorPlaceholder;
+	}
+}
+
+.sznds-inputsurface_error {
+	border-color: @szndsColorError;
+	box-shadow: inset 0 0 0 unit(1 / 16, rem) @szndsColorError, @shadowInputSurface;
+
+	&:focus, &.sznds-inputsurface_focused {
+		box-shadow: @szndsShadowOutline, @shadowErrorInputSurface, @shadowInputSurface;
+	}
+}
+
+.sznds-inputsurface:focus, .sznds-inputsurface_focused {
+	box-shadow: @szndsShadowOutline, @shadowInputSurface;
+	outline: none; /* outline resime sami pomoci stinu, takze ten systemovy chceme pryc */
+}
+
+.sznds-inputsurface_disabled {
+	background: @szndsColorBg248;
+}

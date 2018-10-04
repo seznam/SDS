@@ -7,7 +7,7 @@
 	border-radius: unit(4 / 16, rem);
 	box-sizing: border-box;
 	border: unit(1 / 16, rem) solid transparent; /* kvuli vysokemu kontrastu je treba mit border, i kdyz ho zrovna nevizualizujeme */
-	transition: @outlineTransition;
+	transition: @szndsOutlineTransition;
 	-webkit-tap-highlight-color: transparent;
 
 	&:focus {
@@ -34,7 +34,7 @@
 }
 
 .sznds-surface_00.sznds-surface_clickable:focus {
-	box-shadow: @shadowOutline;
+	box-shadow: @szndsShadowOutline;
 }
 
 .sznds-surface_00.sznds-surface_clickable:active {
@@ -55,7 +55,7 @@
 		}
 
 		&:focus {
-			box-shadow: @shadowOutline;
+			box-shadow: @szndsShadowOutline;
 		}
 
 		&:active {
@@ -84,11 +84,11 @@
 		}
 
 		&:focus {
-			box-shadow: @shadowOutline;
+			box-shadow: @szndsShadowOutline;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @shadowOutline, @shadowSurface02Hover;
+			box-shadow: @szndsShadowOutline, @shadowSurface02Hover;
 		}
 
 		&:active {
@@ -117,11 +117,11 @@
 		}
 
 		&:focus {
-			box-shadow: @shadowOutline, @shadowSurface03;
+			box-shadow: @szndsShadowOutline, @shadowSurface03;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @shadowOutline, @shadowSurface03Hover;
+			box-shadow: @szndsShadowOutline, @shadowSurface03Hover;
 		}
 
 		&:active {
@@ -150,11 +150,11 @@
 		}
 
 		&:focus {
-			box-shadow: @shadowOutline, @shadowSurface04;
+			box-shadow: @szndsShadowOutline, @shadowSurface04;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @shadowOutline, @shadowSurface04Hover;
+			box-shadow: @szndsShadowOutline, @shadowSurface04Hover;
 		}
 
 		&:active {
@@ -183,11 +183,11 @@
 		}
 
 		&:focus {
-			box-shadow: @shadowOutline, @shadowSurface05;
+			box-shadow: @szndsShadowOutline, @shadowSurface05;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @shadowOutline, @shadowSurface05Hover;
+			box-shadow: @szndsShadowOutline, @shadowSurface05Hover;
 		}
 
 		&:active {
