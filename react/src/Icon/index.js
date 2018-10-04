@@ -9,7 +9,7 @@ import { getIconString } from "@szn-ds/icons";
  */
 const Icon = ({ symbol = "alert", className }) => {
 	const combinedClassName = [
-		"szn-icon",
+		"sznds-icon",
 		className
 	].join(" ");
 

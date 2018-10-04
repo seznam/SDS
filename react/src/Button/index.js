@@ -14,9 +14,9 @@ const spaceClick = onClick => {
 };
 
 const SIZES = {
-	"x-small": "szn-button_xsmall szn-typography_caption",
-	small: "szn-button_small szn-typography_body-small",
-	regular: "szn-typography_body"
+	"x-small": "sznds-button_xsmall sznds-typography_caption",
+	small: "sznds-button_small sznds-typography_body-small",
+	regular: "sznds-typography_body"
 };
 
 /**
@@ -47,10 +47,10 @@ const Button = ({
 	...props
 }) => {
 	const combinedClassName = [
-		"szn-button",
-		primary ? "szn-button_primary" : "",
+		"sznds-button",
+		primary ? "sznds-button_primary" : "",
 		SIZES[size in SIZES ? size : "regular"],
-		loading ? "szn-button_loading" : "",
+		loading ? "sznds-button_loading" : "",
 		className
 	].join(" ");
 
@@ -86,7 +86,7 @@ const Button = ({
 		{...props}
 	>
 		{loading ? <Spinner /> : null}
-		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="szn-button-text">{text}</span> : null}
+		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sznds-button-text">{text}</span> : null}
 	</Surface>;
 };
 
