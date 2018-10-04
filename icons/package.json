@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/icons",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Icons for SDS components",
 	"author": {
 		"name": "Jakub Kraft",
@@ -20,6 +20,7 @@
 		"icons.js"
 	],
 	"main": "icons.js",
+	"module": "index.js",
 	"publishConfig": {
 		"registry": "https://npm.dev.dszn.cz"
 	}
