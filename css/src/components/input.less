@@ -52,9 +52,10 @@
 		color: @szndsColorTextDisabled;
 		width: unit(46 / 16, rem);
 		height: unit(46 / 16, rem);
+		transition: @szndsColorTransition;
 
 		&:hover, &:active, &:focus {
-			color: @szndsColorText;
+			color: darken(@szndsColorTextDisabled, 23.5%);
 		}
 	}
 }

@@ -64,16 +64,16 @@ const Button = ({
 	const conditionalProps = {};
 	if (!disabled) {
 		// je tady a ne mimo podmínku o disabled, protože odkaz nejde jen tak zakázat, aby nefungoval, nesmí mít href
-		if (isLink) { conditionalProps.href = href; }
+		if (isLink) {
+			conditionalProps.href = href;
+			conditionalProps.onClick = blurAfterClick(onClick ? withPureClick(onClick) : null);
+			conditionalProps.onKeyPress = blurAfterClick(onClick ? spaceClick(onClick) : null);
+			conditionalProps.rel = "noreferrer noopener";
+		} else {
+			conditionalProps.onClick = blurAfterClick(onClick);
+		}
 	}
-	if (isLink) {
-		conditionalProps.onClick = blurAfterClick(onClick ? withPureClick(onClick) : null);
-		conditionalProps.onKeyPress = blurAfterClick(onClick ? spaceClick(onClick) : null);
-		conditionalProps.rel = "noreferrer noopener";
-	} else {
-		conditionalProps.type = "button";
-		conditionalProps.onClick = blurAfterClick(onClick);
-	}
+	if (!isLink) { conditionalProps.type = "button"; }
 
 	return <Surface
 		tagName={isLink ? "a" : "button"}

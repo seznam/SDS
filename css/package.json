@@ -1,6 +1,6 @@
 {
 	"name": "@szn-ds/css",
-	"version": "0.4.0",
+	"version": "0.4.2",
 	"description": "CSS implementing the principles of Seznam Design System ready to be included in a project",
 	"author": {
 		"name": "Jakub Kraft",

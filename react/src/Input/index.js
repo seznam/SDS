@@ -53,8 +53,8 @@ class Input extends React.Component {
 
 		return <InputSurface tagName="div" className={combinedClassName} focused={this.state.focused} error={error}>
 			<input {...props} className="sznds-typography_body" onFocus={this.handleFocus} onBlur={this.handleBlur} />
-			{iconLeft ? (onIconLeftClick ? <button type="button" tabindex="-1" className="sznds-input__sznds-icon_left sznds-typography_body" onClick={onIconLeftClick}>{leftIcon}</button> : leftIcon) : null}
-			{iconRight ? (onIconRightClick ? <button type="button" tabindex="-1" className="sznds-input__sznds-icon_right sznds-typography_body" onClick={onIconRightClick}>{rightIcon}</button> : rightIcon) : null}
+			{iconLeft ? (onIconLeftClick ? <button type="button" tabIndex="-1" className="sznds-input__sznds-icon_left sznds-typography_body" onClick={onIconLeftClick}>{leftIcon}</button> : leftIcon) : null}
+			{iconRight ? (onIconRightClick ? <button type="button" tabIndex="-1" className="sznds-input__sznds-icon_right sznds-typography_body" onClick={onIconRightClick}>{rightIcon}</button> : rightIcon) : null}
 		</InputSurface>;
 	}
 }

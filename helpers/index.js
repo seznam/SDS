@@ -18,6 +18,19 @@ export const withPureClick = onClick => {
 export const blurAfterClick = onClick => {
 	return e => {
 		if (onClick) { onClick(e); }
-		if (e.target.blur && typeof e.target.blur === "function") { e.target.blur(); }
+		if (e.currentTarget.blur && typeof e.currentTarget.blur === "function") { e.currentTarget.blur(); }
+	};
+};
+
+/**
+ * Higher order function to be used as an event handler of a keypress event that is emulating a button behavior (click with spacebar key) on a link
+ * @param {function} onClick The event handler to be called
+ */
+export const spaceClick = onClick => {
+	return e => {
+		if (e.key === " ") {
+			e.preventDefault();
+			if (onClick) { onClick(e); }
+		}
 	};
 };
