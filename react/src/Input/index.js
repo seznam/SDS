@@ -17,16 +17,18 @@ class Input extends React.Component {
 		this.handleBlur = this.handleBlur.bind(this);
 	}
 
-	handleFocus() {
+	handleFocus(e) {
 		this.setState(() => ({
 			focused: true
 		}));
+		this.props.onFocus && typeof this.props.onFocus === "function" && this.props.onFocus(e);
 	}
 
-	handleBlur() {
+	handleBlur(e) {
 		this.setState(() => ({
 			focused: false
 		}));
+		this.props.onBlur && typeof this.props.onBlur === "function" && this.props.onBlur(e);
 	}
 
 	render() {
