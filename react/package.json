@@ -1,7 +1,7 @@
 {
-	"name": "@szn-ds/react",
-	"version": "0.2.16",
-	"description": "React implementation of Seznam Design System components",
+	"name": "@sammas/react",
+	"version": "0.0.1",
+	"description": "React implementation of some common components done in Seznam.cz's design system Sammas.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"
@@ -12,7 +12,7 @@
 		"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
 		"@babel/preset-env": "^7.1.0",
 		"@babel/preset-react": "^7.0.0",
-		"eslint": "^5.6.1",
+		"eslint": "^5.8.0",
 		"eslint-plugin-react": "^7.11.1",
 		"rollup": "^0.65.2",
 		"rollup-plugin-node-resolve": "^3.4.0"
@@ -20,16 +20,13 @@
 	"scripts": {
 		"build": "babel src --out-dir dist && ./node_modules/rollup/bin/rollup --config && cp package.json dist && cp README.md dist",
 		"clear": "rm -rf dist",
-		"post": "npm publish dist"
-	},
-	"publishConfig": {
-		"registry": "https://npm.dev.dszn.cz"
+		"post": "npm publish --access=public dist"
 	},
 	"main": "main.js",
 	"module": "index.js",
 	"dependencies": {
-		"@szn-ds/helpers": "^0.1.3",
-		"@szn-ds/icons": "^0.1.2",
-		"react": "^16.5.2"
+		"@sammas/helpers": "^0.0.1",
+		"@sammas/icons": "^0.0.1",
+		"react": "^16.6.0"
 	}
 }

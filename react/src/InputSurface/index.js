@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "@sammas/helpers";
 
 const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen"];
 
@@ -10,22 +11,24 @@ const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen
  * @param {string} [props.disabled=false] Je vykreslovaný prvek zakázán
  * @param {string} [props.error=false] Je hodnota prvku neplatná?
  */
-const InputSurface = ({
+const InputSurface = React.forwardRef(({
 	className,
 	tagName = "div",
 	disabled = false,
 	error = false,
 	focused = false,
 	...props
-}) => {
-	const combinedClassName = [
-		"sznds-inputsurface",
-		"sznds-typography_body",
-		disabled ? "sznds-inputsurface_disabled" : "",
-		error ? "sznds-inputsurface_error" : "",
-		focused ? "sznds-inputsurface_focused" : "",
+}, ref) => {
+	const classes = classNames([
+		"sammas-inputsurface",
+		"sammas-typography_body",
+		{
+			"sammas-inputsurface_disabled": disabled,
+			"sammas-inputsurface_error": error,
+			"sammas-inputsurface_focused": focused
+		},
 		className
-	].join(" ");
+	]);
 
 	const MainTag = tagName;
 
@@ -34,7 +37,7 @@ const InputSurface = ({
 	if (disabled) { conditionalProps["aria-disabled"] = "true"; }
 	if (DISABLABLE.indexOf(tagName) !== -1) { conditionalProps.disabled = disabled; }
 
-	return <MainTag className={combinedClassName} {...conditionalProps} {...props} />;
-};
+	return <MainTag className={classes} ref={ref} {...conditionalProps} {...props} />;
+});
 
 export default InputSurface;

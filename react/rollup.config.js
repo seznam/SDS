@@ -6,7 +6,7 @@ export default {
 	output: {
 		file: "dist/main.js",
 		format: "cjs",
-		name: "SZNDSReact"
+		name: "sammasReact"
 	},
 	plugins: [
 		resolve({
@@ -15,5 +15,5 @@ export default {
 			modulesOnly: true
 		})
 	],
-	external: [ "react", "@szn-ds/helpers", "@szn-ds/icons" ]
+	external: [ "react", "@sammas/helpers", "@sammas/icons" ]
 };

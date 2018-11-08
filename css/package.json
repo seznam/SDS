@@ -1,7 +1,8 @@
 {
-	"name": "@szn-ds/css",
-	"version": "0.4.2",
-	"description": "CSS implementing the principles of Seznam Design System ready to be included in a project",
+	"name": "@sammas/css",
+	"version": "0.0.2",
+	"description": "CSS implementing the principles of Seznam.cz's design system Sammas.",
+	"license": "MIT",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"
@@ -12,15 +13,11 @@
 		"less-plugin-clean-css": "^1.5.1"
 	},
 	"scripts": {
-		"//": "minifikace je fake a oboje by melo jeste pouzivat autoprefixer",
-		"build:css": "mkdir dist && lessc src/sds.less dist/sds-${npm_package_version}.css --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
-		"build:minified": "npm run build:css && lessc src/sds.less dist/sds-${npm_package_version}.min.css --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
-		"build": "npm run build:minified",
+		"build:css": "mkdir dist && lessc src/sammas.less dist/sammas-${npm_package_version}.css --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
+		"build:minified": "npm run build:css && lessc src/sammas.less dist/sammas-${npm_package_version}.min.css --clean-css=\"--s1 --advanced\" --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
+		"build": "npm run clear && npm run build:minified && cp -a -R src/. dist/ && cp package.json dist && cp README.md dist",
 		"clear": "rm -rf dist",
-		"post": "cp package.json dist && cp README.md dist && cp -a -R src/. dist/ && npm publish dist"
+		"post": "npm publish --access=public dist"
 	},
-	"main": "sds-${npm_package_version}.min.css",
-	"publishConfig": {
-		"registry": "https://npm.dev.dszn.cz"
-	}
+	"main": "sammas-${npm_package_version}.min.css"
 }

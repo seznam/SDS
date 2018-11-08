@@ -1,55 +1,54 @@
-/* hlavní barva */
+/* accent color */
 
-/* v běžné podobě */
-@szndsColorAccent: #cc0000;
-/* zvýrazněná varianta - hover */
-@szndsColorAccentHover: darken(@szndsColorAccent, 8.6%);
-/* zvýrazněná varianta - active */
-@szndsColorAccentActive: darken(@szndsColorAccent, 8.6%);
-/* zvýrazněná varianta - focus */
-@szndsColorAccentFocus: @szndsColorAccent;
-/* zvýrazněná varianta - disabled */
-@szndsColorAccentDisabled: #cc6060;
+/* regular */
+@sammasColorAccent: #00ff00;
+/* highlighted - hover */
+@sammasColorAccentHover: darken(@sammasColorAccent, 8.6%);
+/* highlighted - active */
+@sammasColorAccentActive: darken(@sammasColorAccent, 8.6%);
+/* highlighted - focus */
+@sammasColorAccentFocus: @sammasColorAccent;
+/* highlighted - disabled */
+@sammasColorAccentDisabled: #cc6060;
 
-/* barvy textu */
+/* text colors */
 
-/* na světlém (běžném) pozadí */
-@szndsColorText: #000000;
-/* u disablovaných prvků */
-@szndsColorTextDisabled: lighten(@szndsColorText, 62.6%);
-/* světlejší varianta */
-@szndsColorTextLight: #404040;
-/* placeholder */
-@szndsColorPlaceholder: #808080;
+/* on light (default) background */
+@sammasColorText: #000000;
+/* on disabled elements */
+@sammasColorTextDisabled: lighten(@sammasColorText, 62.6%);
+/* light variant */
+@sammasColorTextLight: #404040;
+/* placeholder text */
+@sammasColorPlaceholder: #808080;
 
-/* na hlavní barvě */
-@szndsColorTextAccent: #ffffff;
-/* na hlavní barvě zvýrazněná varianta - hover */
-@szndsColorTextAccentHover: @szndsColorTextAccent;
-/* na hlavní barvě zvýrazněná varianta - active */
-@szndsColorTextAccentActive: @szndsColorTextAccent;
-/* na hlavní barvě zvýrazněná varianta - focus */
-@szndsColorTextAccentFocus: @szndsColorTextAccent;
-/* na hlavní barvě zvýrazněná varianta - disabled */
-@szndsColorTextAccentDisabled: darken(@szndsColorTextAccent, 12%);
+/* on accent color background */
+@sammasColorTextAccent: #ffffff;
+/* on accent color background - hover */
+@sammasColorTextAccentHover: @sammasColorTextAccent;
+/* on accent color background - active */
+@sammasColorTextAccentActive: @sammasColorTextAccent;
+/* on accent color background - focus */
+@sammasColorTextAccentFocus: @sammasColorTextAccent;
+/* on accent color background - disabled */
+@sammasColorTextAccentDisabled: darken(@sammasColorTextAccent, 12%);
 
-/* barvy pozadí od nejtmavší po nejsvětlejší */
-/* TODO: lépe specifikovat jejich účel a tedy možná přejmenovat z konkrétních barev na název evokující ten účel */
+/* background colors from darkest to lightest */
 
-@szndsColorBg128: #808080;
-@szndsColorBg160: #a0a0a0;
-@szndsColorBg192: #c0c0c0;
-@szndsColorBg224: #e0e0e0;
-@szndsColorBg232: #e8e8e8;
-@szndsColorBg240: #f0f0f0;
-@szndsColorBg248: #f8f8f8;
-@szndsColorBg255: #ffffff;
+@sammasColorBg128: #808080;
+@sammasColorBg160: #a0a0a0;
+@sammasColorBg192: #c0c0c0;
+@sammasColorBg224: #e0e0e0;
+@sammasColorBg232: #e8e8e8;
+@sammasColorBg240: #f0f0f0;
+@sammasColorBg248: #f8f8f8;
+@sammasColorBg255: #ffffff;
 
-/* další globální barvy, odvozené lokální jsou u příslušných komponent */
+/* other global colors, derived local ones are wit their respective components */
 
 /* outline */
-@szndsColorOutline: #80c0ff;
-/* stín */
-@szndsColorShadow: #000000;
-/* chyba */
-@szndsColorError: #cc0000;
+@sammasColorOutline: #80c0ff;
+/* shadow */
+@sammasColorShadow: #000000;
+/* error */
+@sammasColorError: #cc0000;

@@ -1,22 +1,22 @@
 @import "../common/colors.less";
 
-.sznds-labelwrapper {
+.sammas-labelwrapper {
 	display: inline-flex;
 	flex-direction: column;
 	vertical-align: middle;
 
 	label {
 		display: flex;
-
-		& > .sznds-labelwrapper__div p {
-			height: unit(20 / 16, rem);
-			margin: unit(4 / 16, rem) 0 0 0;
-			color: @szndsColorPlaceholder;
-		}
 	}
 }
 
-.sznds-labelwrapper_column {
+.sammas-labelwrapper__description {
+	height: unit(20 / 16, rem);
+	margin: unit(4 / 16, rem) 0 0 0;
+	color: @sammasColorPlaceholder;
+}
+
+.sammas-labelwrapper--column {
 	label {
 		flex-direction: column;
 
@@ -30,7 +30,7 @@
 	}
 }
 
-.sznds-labelwrapper_row {
+.sammas-labelwrapper--row {
 	label {
 		flex-direction: row;
 
@@ -40,10 +40,8 @@
 	}
 }
 
-.sznds-labelwrapper_error {
-	label {
-		& > .sznds-labelwrapper__div p {
-			color: @szndsColorError;
-		}
+.sammas-labelwrapper_error {
+	.sammas-labelwrapper__description {
+		color: @sammasColorError;
 	}
 }

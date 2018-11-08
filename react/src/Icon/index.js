@@ -1,5 +1,5 @@
 import React from "react";
-import { getIconString } from "@szn-ds/icons";
+import { getIconString } from "@sammas/icons";
 
 /**
  * Komponenta Icon představující jednu z vestavěných SVG ikon dodávaných v rámci design systému
@@ -8,13 +8,8 @@ import { getIconString } from "@szn-ds/icons";
  * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Icon interně využívá
  */
 const Icon = ({ symbol = "alert", className }) => {
-	const combinedClassName = [
-		"sznds-icon",
-		className
-	].join(" ");
-
 	return (
-		<span className={combinedClassName}>
+		<span className={`sammas-icon ${className}`}>
 			<svg x="0px" y="0px" viewBox="0 0 24 24" dangerouslySetInnerHTML = {{ __html: getIconString(symbol) }}></svg>
 		</span>
 	);

@@ -1,4 +1,5 @@
 import React from "react";
+import { classNames } from "@sammas/helpers";
 import InputSurface from "../InputSurface";
 import Icon from "../Icon";
 
@@ -42,21 +43,23 @@ class Input extends React.Component {
 			...props
 		} = this.props;
 
-		const combinedClassName = [
-			"sznds-input",
-			"sznds-typography_body",
-			iconLeft ? "sznds-input_icon-left" : "",
-			iconRight ? "sznds-input_icon-right" : "",
+		const classes = classNames([
+			"sammas-input",
+			"sammas-typography_body",
+			{
+				"sammas-input_icon-left": iconLeft,
+				"sammas-input_icon-right": iconRight
+			},
 			className
-		].join(" ");
+		]);
 
-		const leftIcon = iconLeft ? <Icon symbol={iconLeft} className="sznds-input__sznds-icon_left" /> : null;
-		const rightIcon = iconRight ? <Icon symbol={iconRight} className="sznds-input__sznds-icon_right" /> : null;
+		const leftIcon = iconLeft ? <Icon symbol={iconLeft} className="sammas-input__sammas-icon_left" /> : null;
+		const rightIcon = iconRight ? <Icon symbol={iconRight} className="sammas-input__sammas-icon_right" /> : null;
 
-		return <InputSurface tagName="div" className={combinedClassName} focused={this.state.focused} error={error}>
-			<input {...props} className="sznds-typography_body" onFocus={this.handleFocus} onBlur={this.handleBlur} />
-			{iconLeft ? (onIconLeftClick ? <button type="button" tabIndex="-1" className="sznds-input__sznds-icon_left sznds-typography_body" onClick={onIconLeftClick}>{leftIcon}</button> : leftIcon) : null}
-			{iconRight ? (onIconRightClick ? <button type="button" tabIndex="-1" className="sznds-input__sznds-icon_right sznds-typography_body" onClick={onIconRightClick}>{rightIcon}</button> : rightIcon) : null}
+		return <InputSurface tagName="div" className={classes} focused={this.state.focused} error={error}>
+			<input {...props} className="sammas-typography_body" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+			{iconLeft ? (onIconLeftClick ? <button type="button" tabIndex="-1" className="sammas-input__sammas-icon_left sammas-typography_body" onClick={onIconLeftClick}>{leftIcon}</button> : leftIcon) : null}
+			{iconRight ? (onIconRightClick ? <button type="button" tabIndex="-1" className="sammas-input__sammas-icon_right sammas-typography_body" onClick={onIconRightClick}>{rightIcon}</button> : rightIcon) : null}
 		</InputSurface>;
 	}
 }

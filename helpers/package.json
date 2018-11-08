@@ -1,7 +1,7 @@
 {
-	"name": "@szn-ds/helpers",
-	"version": "0.1.6",
-	"description": "Helper functions for SDS components",
+	"name": "@sammas/helpers",
+	"version": "0.0.1",
+	"description": "Helper Javascript functions for Sammas components. Framework agnostic ES6 and ES5 traspiled code.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"
@@ -11,19 +11,16 @@
 		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
-		"eslint": "^5.5.0"
+		"eslint": "^5.7.0"
 	},
 	"scripts": {
 		"build": "npx babel index.js -o helpers.js",
-		"post": "npm publish"
+		"post": "npm publish --access=public"
 	},
 	"files": [
 		"helpers.js",
 		"index.js"
 	],
 	"main": "helpers.js",
-	"module": "index.js",
-	"publishConfig": {
-		"registry": "https://npm.dev.dszn.cz"
-	}
+	"module": "index.js"
 }

@@ -5,6 +5,7 @@ import Surface from "./Surface";
 import LabelWrapper from "./LabelWrapper";
 import InputSurface from "./InputSurface";
 import Input from "./Input";
+import Textarea from "./Textarea";
 
 export {
 	Button,
@@ -13,5 +14,6 @@ export {
 	Surface,
 	LabelWrapper,
 	InputSurface,
-	Input
+	Input,
+	Textarea
 };

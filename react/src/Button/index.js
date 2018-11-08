@@ -1,37 +1,31 @@
 import React from "react";
-import { withPureClick, blurAfterClick } from "@szn-ds/helpers";
+import { withPureClick, blurAfterClick, spaceClick, withPreventDefault, classNames } from "@sammas/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
 import Spinner from "../Spinner";
 
-const spaceClick = onClick => {
-	return e => {
-		if (e.key === " ") {
-			e.preventDefault();
-			if (onClick) { onClick(e); }
-		}
-	};
-};
+
 
 const SIZES = {
-	"x-small": "sznds-button_xsmall sznds-typography_caption",
-	small: "sznds-button_small sznds-typography_body-small",
-	regular: "sznds-typography_body"
+	"x-small": "sammas-button--xsmall sammas-typography_caption",
+	small: "sammas-button--small sammas-typography_body--small",
+	regular: "sammas-typography_body"
 };
 
 /**
- * Komponenta Button představující primární a sekundární samostatná tlačítka
- * @param {object} props Objekt s atributy komponenty
- * @param {number} [props.surface=5] Povrch 0-5, v případě, že je tlačítko primární, jeho hodnota se ignoruje
- * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Button interně využívá
- * @param {boolean} [props.primary=false] Pokud je nastaveno, je tlačítko v accent barvě, jinak je sekundární a ctí zvolený povrch
- * @param {string} [props.size="regular"] Pokud je nastaveno, je tlačítko malé, jinak je v normální velikosti
- * @param {string} [props.icon=""] Ikona
- * @param {string} [props.text=""] Text uvnitř tlačítka
- * @param {boolean} [props.disabled=false] Pokud je nastaveno, tlačítko je zakázané a nereaguje
- * @param {boolean} [props.loading=false] Pokud je nastaveno, tlačítko obsahuje Spinner a zároveň je stejně jako v případě disabled=true zakázané a nereaguje
- * @param {string} [props.href] Pokud je uvedeno, bude se tlačítko renderovat jako odkaz a kromě obyčejného kliknutí primárním tlačítkem se tak bude i chovat
- * @param {function} [props.onClick] Posluchač události click
+ * Button represents a primary or secondary standalone button
+ * @param {object} props An object with props
+ * @param {number} [props.surface=5] Surface level 0-5; if Button is primary, value of this prop is ignored
+ * @param {string} [props.className] Space separated list of CSS classes to be added to those that Button uses internaly
+ * @param {boolean} [props.primary=false] If set, Button is rendered in accent color, otherwise the color is derived from given Surface
+ * @param {string} [props.size="regular"] One of the sizes "x-small", "small" or "regular"
+ * @param {string} [props.icon=""] Icon
+ * @param {string} [props.text=""] Button's label
+ * @param {boolean} [props.disabled=false] If true, Button is rendered as disabled and does not react to any action
+ * @param {boolean} [props.loading=false] If true, Button is rendered with a Spinner inside and also behaves as disabled
+ * @param {string} [props.href] If set, Button shall be rendered as an "a" tag and can be CTRL + clicked, bookmarked etc.
+ * @param {function} [props.onClick] An onClick event listener (also triggered if the Button is focused and spacebar is pressed)
+ * @param {boolean} [props.noPreventDefault=false] If true, even the default action for click event shall not be prevented (even if onClick and href are set at the same time!)
  */
 const Button = ({
 	surface = 5,
@@ -43,31 +37,40 @@ const Button = ({
 	disabled = false,
 	loading = false,
 	href,
-	onClick,
+	onClick = null,
+	noPreventDefault = false,
 	...props
 }) => {
-	const combinedClassName = [
-		"sznds-button",
-		primary ? "sznds-button_primary" : "",
-		SIZES[size in SIZES ? size : "regular"],
-		loading ? "sznds-button_loading" : "",
-		className
-	].join(" ");
+	// a Button without any contents is not allowed
+	if (!icon && !text) {
+		throw new Error("Button has to have an icon or text.");
+	}
 
-	// pokud má href, bude se renderovat jako odkaz, jinak tlačítko
+	const classes = classNames([
+		"sammas-button",
+		SIZES[size in SIZES ? size : "regular"],
+		{
+			"sammas-button--primary": primary,
+			"sammas-button--loading": loading
+		},
+		className
+	]);
+
+	// a "button" is rendered without a href prop, an "a" otherwise
 	const isLink = !!href;
 
-	// co je loading, je zároveň technicky taky disabled
+	// technicaly, whatever is loading is also disabled at the moment
 	disabled = disabled || loading;
 
-	// různé podmíněné atributy
+	// various conditional props
 	const conditionalProps = {};
 	if (!disabled) {
-		// je tady a ne mimo podmínku o disabled, protože odkaz nejde jen tak zakázat, aby nefungoval, nesmí mít href
+		// inside of this !disabled condition, because an "a" is truly unclickable only if href is left out
 		if (isLink) {
 			conditionalProps.href = href;
-			conditionalProps.onClick = blurAfterClick(onClick ? withPureClick(onClick) : null);
-			conditionalProps.onKeyPress = blurAfterClick(onClick ? spaceClick(onClick) : null);
+			const click = blurAfterClick(noPreventDefault ? onClick : withPreventDefault(onClick));
+			conditionalProps.onClick = withPureClick(click);
+			conditionalProps.onKeyPress = spaceClick(click);
 			conditionalProps.rel = "noreferrer noopener";
 		} else {
 			conditionalProps.onClick = blurAfterClick(onClick);
@@ -78,7 +81,7 @@ const Button = ({
 	return <Surface
 		tagName={isLink ? "a" : "button"}
 		surface={primary ? 5 : surface }
-		className={combinedClassName}
+		className={classes}
 		clickable={!disabled}
 		disabled={disabled}
 		role="button"
@@ -86,7 +89,7 @@ const Button = ({
 		{...props}
 	>
 		{loading ? <Spinner /> : null}
-		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sznds-button-text">{text}</span> : null}
+		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sammas-button__text">{text}</span> : null}
 	</Surface>;
 };
 

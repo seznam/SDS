@@ -1,7 +1,7 @@
 {
-	"name": "@szn-ds/icons",
-	"version": "0.1.2",
-	"description": "Icons for SDS components",
+	"name": "@sammas/icons",
+	"version": "0.0.1",
+	"description": "Icons for Sammas components.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"
@@ -14,14 +14,11 @@
 	},
 	"scripts": {
 		"build": "npx babel index.js -o icons.js",
-		"post": "npm publish"
+		"post": "npm publish --access=public"
 	},
 	"files": [
 		"icons.js"
 	],
 	"main": "icons.js",
-	"module": "index.js",
-	"publishConfig": {
-		"registry": "https://npm.dev.dszn.cz"
-	}
+	"module": "index.js"
 }

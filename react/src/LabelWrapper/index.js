@@ -1,9 +1,10 @@
 import React from "react";
+import { classNames } from "@sammas/helpers";
 
 /**
- * Komponenta Surface zapouzdřuje nastavení povrchu
- * @param {object} props Objekt s atributy komponenty
- * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Surface interně využívá
+ * LabelWrapper provides encapsulation for label, anything that is supposed to be a form field and optional description
+ * @param {object} props An object with props
+ * @param {string} [props.className] Space separated list of CSS classes to be added to those that LabelWrapper uses internaly
  */
 const LabelWrapper = ({
 	className,
@@ -14,20 +15,20 @@ const LabelWrapper = ({
 	children,
 	...props
 }) => {
-	const combinedClassName = [
-		"sznds-labelwrapper",
-		"sznds-typography_body",
-		layout === "column" ? "sznds-labelwrapper_column" : "sznds-labelwrapper_row",
-		errorDescription ? "sznds-labelwrapper_error" : "",
+	const classes = classNames([
+		"sammas-labelwrapper",
+		"sammas-typography_body",
+		layout === "column" ? "sammas-labelwrapper--column" : "sammas-labelwrapper--row",
+		{ "sammas-labelwrapper_error": errorDescription },
 		className
-	].join(" ");
+	]);
 
-	return <div className={combinedClassName} {...props}>
+	return <div className={classes} {...props}>
 		<label>
 			<span>{label}:</span>
-			<div className="sznds-labelwrapper__div">
+			<div className="sammas-labelwrapper__div">
 				{children}
-				<p className="sznds-typography_body-small">{errorDescription ? errorDescription : description}</p>
+				<p className="sammas-labelwrapper__description sammas-typography_body--small">{errorDescription ? errorDescription : description}</p>
 			</div>
 		</label>
 	</div>;

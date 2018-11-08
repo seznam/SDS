@@ -1,40 +1,40 @@
 @import "../common/colors.less";
 @import "../common/global-constants.less";
 
-@shadowInputSurface: inset 0 unit(2 / 16, rem) unit(3 / 16, rem) 0 fade(@szndsColorShadow, 15%);
-@shadowErrorInputSurface: inset 0 0 0 unit(1 / 16, rem) @szndsColorError;
+@shadowInputSurface: inset 0 unit(2 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 15%);
+@shadowErrorInputSurface: inset 0 0 0 unit(1 / 16, rem) @sammasColorError;
 
-.sznds-inputsurface {
-	border: unit(1 / 16, rem) solid @szndsColorBg224;
+.sammas-inputsurface {
+	border: unit(1 / 16, rem) solid @sammasColorBg224;
 	border-radius: unit(4 / 16, rem);
-	background: @szndsColorBg255;
-	color: @szndsColorText;
+	background: @sammasColorBg255;
+	color: @sammasColorText;
 	box-shadow: @shadowInputSurface;
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
 	height: unit(48 / 16, rem);
 	padding: unit(12 / 16, rem);
-	transition: @szndsOutlineTransition;
+	transition: @sammasOutlineTransition;
 
 	::placeholder {
-		color: @szndsColorPlaceholder;
+		color: @sammasColorPlaceholder;
 	}
 }
 
-.sznds-inputsurface_error {
-	border-color: @szndsColorError;
-	box-shadow: inset 0 0 0 unit(1 / 16, rem) @szndsColorError, @shadowInputSurface;
+.sammas-inputsurface_error {
+	border-color: @sammasColorError;
+	box-shadow: inset 0 0 0 unit(1 / 16, rem) @sammasColorError, @shadowInputSurface;
 
-	&:focus, &.sznds-inputsurface_focused {
-		box-shadow: @szndsShadowOutline, @shadowErrorInputSurface, @shadowInputSurface;
+	&:focus, &.sammas-inputsurface_focused {
+		box-shadow: @sammasShadowOutline, @shadowErrorInputSurface, @shadowInputSurface;
 	}
 }
 
-.sznds-inputsurface:focus, .sznds-inputsurface_focused {
-	box-shadow: @szndsShadowOutline, @shadowInputSurface;
-	outline: none; /* outline resime sami pomoci stinu, takze ten systemovy chceme pryc */
+.sammas-inputsurface:focus, .sammas-inputsurface_focused {
+	box-shadow: @sammasShadowOutline, @shadowInputSurface;
+	outline: none; /* we handle outline ourselves, so we get rid of the native one */
 }
 
-.sznds-inputsurface_disabled {
-	background: @szndsColorBg248;
+.sammas-inputsurface_disabled {
+	background: @sammasColorBg248;
 }

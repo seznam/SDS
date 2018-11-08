@@ -1,7 +1,7 @@
 @import "../common/colors.less";
 @import "../common/global-constants.less";
 
-.sznds-button {
+.sammas-button {
 	text-decoration: none;
 	display: inline-flex;
 	justify-content: center;
@@ -10,33 +10,28 @@
 	height: unit(48 / 16, rem);
 	max-width: 100%;
 	font-weight: bold;
-	padding: 0 unit(12 / 16, rem);
-	/*line-height: 24 / 16;*/
+	padding: 0 unit((12 - (2 * @sammasBorderWidth)) / 16, rem);
 	user-select: none;
 	position: relative;
 
 	& > * {
-		/* obsah tlačítka a zvlášť SVG je dobré nenechat chytat kliknutí */
+		/* no contents of a button should get its own clicks etc. */
 		pointer-events: none;
-		/* následující pravidla zamezí pohybu obsahu tlačítka při active stavu v IE11 */
+		/* rules for IE11 that prevent the 1px movement of contents while button is active */
 		position: relative;
 		top: 0;
 		left: 0;
 	}
 
-	.sznds-button-text {
-		margin: 0 unit(12 / 16, rem);
-	}
-
-	.sznds-icon {
-		color: lighten(@szndsColorText, 62.6%);
+	.sammas-icon {
+		color: lighten(@sammasColorText, 62.6%);
 		width: unit(24 / 16, rem);
 		height: unit(24 / 16, rem);
 	}
 
-	&.sznds-surface_disabled {
-		.sznds-icon {
-			color: lighten(@szndsColorTextDisabled, 12.5%);
+	&.sammas-surface--disabled {
+		.sammas-icon {
+			color: lighten(@sammasColorTextDisabled, 12.5%);
 		}
 	}
 
@@ -45,106 +40,110 @@
 	}
 }
 
-.sznds-button_small {
+.sammas-button__text {
+	margin: 0 unit(12 / 16, rem);
+}
+
+.sammas-button--small {
 	height: unit(40 / 16, rem);
 	font-weight: bold;
-	padding: 0 unit(8 / 16, rem);
+	padding: 0 unit((8 - (2 * @sammasBorderWidth)) / 16, rem);
 
-	.sznds-button-text {
+	.sammas-button__text {
 		margin: 0 unit(8 / 16, rem);
 	}
 
-	.sznds-icon:not(:only-child):first-child {
+	.sammas-icon:not(:only-child):first-child {
 		margin: 0 unit(4 / 16, rem);
 	}
 }
 
-.sznds-button_xsmall {
+.sammas-button--xsmall {
 	height: unit(32 / 16, rem);
 	font-weight: normal;
-	padding: 0 unit(6 / 16, rem);
+	padding: 0 unit((6 - (2 * @sammasBorderWidth)) / 16, rem);
 
-	.sznds-button-text {
+	.sammas-button__text {
 		margin: 0 unit(6 / 16, rem);
 	}
 
-	.sznds-icon:not(:only-child):first-child {
+	.sammas-icon:not(:only-child):first-child {
 		margin: 0 unit(4 / 16, rem);
 	}
 
-	.sznds-icon {
+	.sammas-icon {
 		width: 1.25rem;
 		height: 1.25rem;
 	}
 }
 
-/* modifikace pravidel Button a Surface - mozna je lepsi misto, kde to delat, ale zatim ho neznam */
+/* Button-specific changes to Surface rules - maybe there is a better way of doing this */
 
-.sznds-button {
-	&.sznds-surface_00, &.sznds-surface_01 {
+.sammas-button {
+	&.sammas-surface--00, &.sammas-surface--01 {
 		font-weight: normal;
 	}
 }
 
-/* modifikace pravidel Button a Spinner - mozna je lepsi misto, kde to delat, ale zatim ho neznam */
+/* Button-specific changes to Spinner rules - maybe there is a better way of doing this */
 
-.sznds-button.sznds-button_loading {
-	color: @szndsColorAccent;
+.sammas-button.sammas-button--loading {
+	color: @sammasColorAccent;
 
-	& > :not(.sznds-spinner) {
+	& > :not(.sammas-spinner) {
 		opacity: 0;
 	}
 
-	& > .sznds-spinner {
+	& > .sammas-spinner {
 		position: absolute;
 		left: calc(50% - 0.75em);
 		top: calc(50% - 0.75em);
 	}
 }
 
-/* primární tlačítko dost ignoruje povrchy a vypadá si, jak se mu zachce - bohužel */
+/* a primary Button largely ignores the Surface rules, unfortunatelly */
 
-@shadowButtonPrimary: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@szndsColorAccent, 40%);
-@shadowButtonPrimaryHover: 0 unit(12 / 16, rem) unit(24 / 16, rem) unit(-6 / 16, rem) fade(@szndsColorAccent, 60%);
+@shadowButtonPrimary: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sammasColorAccent, 40%);
+@shadowButtonPrimaryHover: 0 unit(12 / 16, rem) unit(24 / 16, rem) unit(-6 / 16, rem) fade(@sammasColorAccent, 60%);
 
-.sznds-button_primary {
-	background: @szndsColorAccent;
-	color: @szndsColorTextAccent;
+.sammas-button--primary {
+	background: @sammasColorAccent;
+	color: @sammasColorTextAccent;
 	box-shadow: @shadowButtonPrimary;
 
-	.sznds-icon {
+	.sammas-icon {
 		color: currentColor;
 	}
 
-	&.sznds-surface_clickable {
+	&.sammas-surface--clickable {
 		&:hover {
-			background: @szndsColorAccentHover;
-			color: @szndsColorTextAccentHover;
+			background: @sammasColorAccentHover;
+			color: @sammasColorTextAccentHover;
 			box-shadow: @shadowButtonPrimaryHover;
 		}
 
 		&:focus {
-			background: @szndsColorAccentFocus;
-			color: @szndsColorTextAccentFocus;
-			box-shadow: @shadowButtonPrimary, @szndsShadowOutline;
+			background: @sammasColorAccentFocus;
+			color: @sammasColorTextAccentFocus;
+			box-shadow: @shadowButtonPrimary, @sammasShadowOutline;
 		}
 
 		&:hover:focus:not(:active) {
-			background: @szndsColorAccentHover;
-			color: @szndsColorTextAccentHover;
-			box-shadow: @shadowButtonPrimaryHover, @szndsShadowOutline;
+			background: @sammasColorAccentHover;
+			color: @sammasColorTextAccentHover;
+			box-shadow: @shadowButtonPrimaryHover, @sammasShadowOutline;
 		}
 
 		&:active {
-			background: @szndsColorAccentActive;
-			color: @szndsColorTextAccentActive;
+			background: @sammasColorAccentActive;
+			color: @sammasColorTextAccentActive;
 			box-shadow: none;
 		}
 	}
 
-	&.sznds-surface_disabled {
-		background: @szndsColorAccentDisabled;
-		color: @szndsColorTextAccentDisabled;
-		box-shadow: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@szndsColorAccent, 40%);
+	&.sammas-surface--disabled {
+		background: @sammasColorAccentDisabled;
+		color: @sammasColorTextAccentDisabled;
+		box-shadow: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sammasColorAccent, 40%);
 	}
 }

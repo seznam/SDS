@@ -1,10 +1,13 @@
 @import "./colors.less";
 
-/* outline stín, co se různě kombinuje s existujícími stíny */
-@szndsShadowOutline: 0 0 0 unit(2 / 16, rem) @szndsColorOutline;
+/* outline style for cards, buttons, etc. */
+@sammasShadowOutline: 0 0 0 unit(2 / 16, rem) @sammasColorOutline;
 
-/* transition pro outline a stín všeobecně */
-@szndsOutlineTransition: box-shadow 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+/* outline transition for buttons, cards, form fields, etc. */
+@sammasOutlineTransition: box-shadow 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
-/* transition barvy */
-@szndsColorTransition: color 100ms cubic-bezier(0.215, 0.61, 0.355, 1);
+/* default color transition */
+@sammasColorTransition: color 100ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+/* default border width in pixels */
+@sammasBorderWidth: 1;

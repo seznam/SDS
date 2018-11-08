@@ -3,199 +3,203 @@
 
 /* vlastnosti společné všem povrchům */
 
-.sznds-surface {
+.sammas-surface {
 	border-radius: unit(4 / 16, rem);
 	box-sizing: border-box;
-	border: unit(1 / 16, rem) solid transparent; /* kvuli vysokemu kontrastu je treba mit border, i kdyz ho zrovna nevizualizujeme */
-	transition: @szndsOutlineTransition;
+	border: unit(@sammasBorderWidth / 16, rem) solid transparent; /* kvuli vysokemu kontrastu je treba mit border, i kdyz ho zrovna nevizualizujeme */
+	transition: @sammasOutlineTransition;
 	-webkit-tap-highlight-color: transparent;
 
 	&:focus {
 		outline: none; /* outline resime sami pomoci stinu, takze ten systemovy chceme pryc */
 	}
+}
 
-	&.sznds-surface_clickable {
-		cursor: pointer;
-	}
-	
-	&.sznds-surface_disabled {
-		cursor: default;
-		color: @szndsColorTextDisabled;
-	}
+.sammas-surface--sharp {
+	border-radius: 0;
+}
+
+.sammas-surface--clickable {
+	cursor: pointer;
+}
+
+.sammas-surface--disabled {
+	cursor: default;
+	color: @sammasColorTextDisabled;
 }
 
 /* povrch 00 - neviditelný */
 
-.sznds-surface_00,
-.sznds-surface_00.sznds-surface_clickable:hover {
+.sammas-surface--00,
+.sammas-surface--00.sammas-surface--clickable:hover {
 	background: transparent;
-	color: @szndsColorText;
+	color: @sammasColorText;
 	box-shadow: none;
 }
 
-.sznds-surface_00.sznds-surface_clickable:focus {
-	box-shadow: @szndsShadowOutline;
+.sammas-surface--00.sammas-surface--clickable:focus {
+	box-shadow: @sammasShadowOutline;
 }
 
-.sznds-surface_00.sznds-surface_clickable:active {
+.sammas-surface--00.sammas-surface--clickable:active {
 	box-shadow: none;
 }
 
 /* povrch 01 */
 
-.sznds-surface_01 {
+.sammas-surface--01 {
 	background: transparent;
-	color: @szndsColorText;
-	border-color: @szndsColorBg224;
+	color: @sammasColorText;
+	border-color: @sammasColorBg224;
 	box-shadow: none;
 
-	&.sznds-surface_clickable {
+	&.sammas-surface--clickable {
 		&:hover {
-			border-color: @szndsColorBg192;
+			border-color: @sammasColorBg192;
 		}
 
 		&:focus {
-			box-shadow: @szndsShadowOutline;
+			box-shadow: @sammasShadowOutline;
 		}
 
 		&:active {
-			border-color: @szndsColorBg160;
+			border-color: @sammasColorBg160;
 			box-shadow: none;
 		}
 	}
 
-	&.sznds-surface_disabled {
-		border-color: @szndsColorBg224;
+	&.sammas-surface--disabled {
+		border-color: @sammasColorBg224;
 	}
 }
 
 /* povrch 02 */
 
-@shadowSurface02Hover: 0 1px 3px 0 fade(@szndsColorShadow, 10%), 0 2px 8px 0 fade(@szndsColorShadow, 5%);
+@shadowSurface02Hover: 0 1px 3px 0 fade(@sammasColorShadow, 10%), 0 2px 8px 0 fade(@sammasColorShadow, 5%);
 
-.sznds-surface_02 {
-	background: @szndsColorBg255;
-	color: @szndsColorText;
+.sammas-surface--02 {
+	background: @sammasColorBg255;
+	color: @sammasColorText;
 	box-shadow: none;
 
-	&.sznds-surface_clickable {
+	&.sammas-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface02Hover;
 		}
 
 		&:focus {
-			box-shadow: @szndsShadowOutline;
+			box-shadow: @sammasShadowOutline;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @szndsShadowOutline, @shadowSurface02Hover;
+			box-shadow: @sammasShadowOutline, @shadowSurface02Hover;
 		}
 
 		&:active {
-			box-shadow: 0 1px 1px 0 fade(@szndsColorShadow, 25%), 0 1px 2px 0 fade(@szndsColorShadow, 10%);
+			box-shadow: 0 1px 1px 0 fade(@sammasColorShadow, 25%), 0 1px 2px 0 fade(@sammasColorShadow, 10%);
 		}
 	}
 
-	&.sznds-surface_disabled {
+	&.sammas-surface--disabled {
 		box-shadow: none;
 	}
 }
 
 /* povrch 03 */
 
-@shadowSurface03: 0 0 1px 0 fade(@szndsColorShadow, 25%);
-@shadowSurface03Hover: 0 0 1px 0 fade(@szndsColorShadow, 35%), 0 1px 4px 0 fade(@szndsColorShadow, 10%), 0 2px 8px 0 fade(@szndsColorShadow, 5%);
+@shadowSurface03: 0 0 1px 0 fade(@sammasColorShadow, 25%);
+@shadowSurface03Hover: 0 0 1px 0 fade(@sammasColorShadow, 35%), 0 1px 4px 0 fade(@sammasColorShadow, 10%), 0 2px 8px 0 fade(@sammasColorShadow, 5%);
 
-.sznds-surface_03 {
-	background: @szndsColorBg255;
-	color: @szndsColorText;
+.sammas-surface--03 {
+	background: @sammasColorBg255;
+	color: @sammasColorText;
 	box-shadow: @shadowSurface03;
 
-	&.sznds-surface_clickable {
+	&.sammas-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface03Hover;
 		}
 
 		&:focus {
-			box-shadow: @szndsShadowOutline, @shadowSurface03;
+			box-shadow: @sammasShadowOutline, @shadowSurface03;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @szndsShadowOutline, @shadowSurface03Hover;
+			box-shadow: @sammasShadowOutline, @shadowSurface03Hover;
 		}
 
 		&:active {
-			box-shadow: 0 0 1px 0 fade(@szndsColorShadow, 50%), 0 1px 3px 0 fade(@szndsColorShadow, 30%);
+			box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 50%), 0 1px 3px 0 fade(@sammasColorShadow, 30%);
 		}
 	}
 
-	&.sznds-surface_disabled {
-		box-shadow: 0 0 1px 0 fade(@szndsColorShadow, 25%);
+	&.sammas-surface--disabled {
+		box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 25%);
 	}
 }
 
 /* povrch 04 */
 
-@shadowSurface04: 0 1px 3px 0 fade(@szndsColorShadow, 10%), 0 16px 24px -16px fade(@szndsColorShadow, 10%);
-@shadowSurface04Hover: 0 1px 6px 0 fade(@szndsColorShadow, 20%), 0 16px 32px -16px fade(@szndsColorShadow, 30%);
+@shadowSurface04: 0 1px 3px 0 fade(@sammasColorShadow, 10%), 0 16px 24px -16px fade(@sammasColorShadow, 10%);
+@shadowSurface04Hover: 0 1px 6px 0 fade(@sammasColorShadow, 20%), 0 16px 32px -16px fade(@sammasColorShadow, 30%);
 
-.sznds-surface_04 {
-	background: @szndsColorBg255;
-	color: @szndsColorText;
+.sammas-surface--04 {
+	background: @sammasColorBg255;
+	color: @sammasColorText;
 	box-shadow: @shadowSurface04;
 
-	&.sznds-surface_clickable {
+	&.sammas-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface04Hover;
 		}
 
 		&:focus {
-			box-shadow: @szndsShadowOutline, @shadowSurface04;
+			box-shadow: @sammasShadowOutline, @shadowSurface04;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @szndsShadowOutline, @shadowSurface04Hover;
+			box-shadow: @sammasShadowOutline, @shadowSurface04Hover;
 		}
 
 		&:active {
-			box-shadow: 0 1px 4px 0 fade(@szndsColorShadow, 20%), 0 1px 3px 0 fade(@szndsColorShadow, 30%);
+			box-shadow: 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 1px 3px 0 fade(@sammasColorShadow, 30%);
 		}
 	}
 
-	&.sznds-surface_disabled {
-		box-shadow: 0 1px 3px 0 fade(@szndsColorShadow, 10%), 0 16px 24px -16px fade(@szndsColorShadow, 10%);
+	&.sammas-surface--disabled {
+		box-shadow: 0 1px 3px 0 fade(@sammasColorShadow, 10%), 0 16px 24px -16px fade(@sammasColorShadow, 10%);
 	}
 }
 
 /* povrch 05 */
 
-@shadowSurface05: 0 0 1px 0 fade(@szndsColorShadow, 20%), 0 1px 4px 0 fade(@szndsColorShadow, 20%), 0 16px 24px -16px fade(@szndsColorShadow, 30%);
-@shadowSurface05Hover: 0 0 1px 0 fade(@szndsColorShadow, 30%), 0 1px 6px 0 fade(@szndsColorShadow, 30%), 0 16px 32px -16px fade(@szndsColorShadow, 50%);
+@shadowSurface05: 0 0 1px 0 fade(@sammasColorShadow, 20%), 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 16px 24px -16px fade(@sammasColorShadow, 30%);
+@shadowSurface05Hover: 0 0 1px 0 fade(@sammasColorShadow, 30%), 0 1px 6px 0 fade(@sammasColorShadow, 30%), 0 16px 32px -16px fade(@sammasColorShadow, 50%);
 
-.sznds-surface_05 {
-	background: @szndsColorBg255;
-	color: @szndsColorText;
+.sammas-surface--05 {
+	background: @sammasColorBg255;
+	color: @sammasColorText;
 	box-shadow: @shadowSurface05;
 
-	&.sznds-surface_clickable {
+	&.sammas-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface05Hover;
 		}
 
 		&:focus {
-			box-shadow: @szndsShadowOutline, @shadowSurface05;
+			box-shadow: @sammasShadowOutline, @shadowSurface05;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @szndsShadowOutline, @shadowSurface05Hover;
+			box-shadow: @sammasShadowOutline, @shadowSurface05Hover;
 		}
 
 		&:active {
-			box-shadow: 0 0 1px 0 fade(@szndsColorShadow, 30%), 0 1px 6px 0 fade(@szndsColorShadow, 30%), 0 1px 4px 0 fade(@szndsColorShadow, 50%);
+			box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 30%), 0 1px 6px 0 fade(@sammasColorShadow, 30%), 0 1px 4px 0 fade(@sammasColorShadow, 50%);
 		}
 	}
 
-	&.sznds-surface_disabled {
-		box-shadow: 0 0 1px 0 fade(@szndsColorShadow, 20%), 0 1px 4px 0 fade(@szndsColorShadow, 20%), 0 16px 24px -16px fade(@szndsColorShadow, 30%);
+	&.sammas-surface--disabled {
+		box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 20%), 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 16px 24px -16px fade(@sammasColorShadow, 30%);
 	}
 }
