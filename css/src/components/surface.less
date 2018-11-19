@@ -45,6 +45,10 @@
 	box-shadow: none;
 }
 
+.sammas-surface--00.sammas-surface--disabled {
+	color: @sammasColorTextDisabled;
+}
+
 /* povrch 01 */
 
 .sammas-surface--01 {
@@ -70,6 +74,7 @@
 
 	&.sammas-surface--disabled {
 		border-color: @sammasColorBg224;
+		color: @sammasColorTextDisabled;
 	}
 }
 
@@ -102,6 +107,7 @@
 
 	&.sammas-surface--disabled {
 		box-shadow: none;
+		color: @sammasColorTextDisabled;
 	}
 }
 
@@ -135,6 +141,7 @@
 
 	&.sammas-surface--disabled {
 		box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 25%);
+		color: @sammasColorTextDisabled;
 	}
 }
 
@@ -168,6 +175,7 @@
 
 	&.sammas-surface--disabled {
 		box-shadow: 0 1px 3px 0 fade(@sammasColorShadow, 10%), 0 16px 24px -16px fade(@sammasColorShadow, 10%);
+		color: @sammasColorTextDisabled;
 	}
 }
 
@@ -201,5 +209,6 @@
 
 	&.sammas-surface--disabled {
 		box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 20%), 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 16px 24px -16px fade(@sammasColorShadow, 30%);
+		color: @sammasColorTextDisabled;
 	}
 }
