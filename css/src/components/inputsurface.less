@@ -21,20 +21,20 @@
 	}
 }
 
-.sammas-inputsurface_error {
-	border-color: @sammasColorError;
-	box-shadow: inset 0 0 0 unit(1 / 16, rem) @sammasColorError, @shadowInputSurface;
-
-	&:focus, &.sammas-inputsurface_focused {
-		box-shadow: @sammasShadowOutline, @shadowErrorInputSurface, @shadowInputSurface;
-	}
-}
-
-.sammas-inputsurface:focus, .sammas-inputsurface_focused {
+.sammas-inputsurface:focus, .sammas-inputsurface--focused {
 	box-shadow: @sammasShadowOutline, @shadowInputSurface;
 	outline: none; /* we handle outline ourselves, so we get rid of the native one */
 }
 
-.sammas-inputsurface_disabled {
+.sammas-inputsurface--error {
+	border-color: @sammasColorError;
+	box-shadow: inset 0 0 0 unit(1 / 16, rem) @sammasColorError, @shadowInputSurface;
+
+	&:focus, &.sammas-inputsurface--focused {
+		box-shadow: @sammasShadowOutline, @shadowErrorInputSurface, @shadowInputSurface;
+	}
+}
+
+.sammas-inputsurface--disabled {
 	background: @sammasColorBg248;
 }

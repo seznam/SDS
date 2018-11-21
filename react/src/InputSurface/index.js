@@ -12,7 +12,7 @@ const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen
  * @param {string} [props.error=false] Je hodnota prvku neplatná?
  */
 const InputSurface = React.forwardRef(({
-	className,
+	className = "",
 	tagName = "div",
 	disabled = false,
 	error = false,
@@ -23,9 +23,9 @@ const InputSurface = React.forwardRef(({
 		"sammas-inputsurface",
 		"sammas-typography_body",
 		{
-			"sammas-inputsurface_disabled": disabled,
-			"sammas-inputsurface_error": error,
-			"sammas-inputsurface_focused": focused
+			"sammas-inputsurface--disabled": disabled,
+			"sammas-inputsurface--error": error,
+			"sammas-inputsurface--focused": focused
 		},
 		className
 	]);
