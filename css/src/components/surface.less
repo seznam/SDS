@@ -23,11 +23,6 @@
 	cursor: pointer;
 }
 
-.sammas-surface--disabled {
-	cursor: default;
-	color: @sammasColorTextDisabled;
-}
-
 /* povrch 00 - neviditelný */
 
 .sammas-surface--00,
@@ -202,4 +197,9 @@
 	&.sammas-surface--disabled {
 		box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 20%), 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 16px 24px -16px fade(@sammasColorShadow, 30%);
 	}
+}
+
+.sammas-surface--disabled {
+	cursor: default;
+	color: @sammasColorTextDisabled;
 }
