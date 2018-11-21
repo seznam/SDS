@@ -7,7 +7,7 @@ import { classNames } from "@sammas/helpers";
  * @param {string} [props.className] Space separated list of CSS classes to be added to those that LabelWrapper uses internaly
  */
 const LabelWrapper = ({
-	className,
+	className = "",
 	label = "",
 	layout = "column",
 	description = "",

@@ -6,7 +6,7 @@ import { classNames } from "@sammas/helpers";
  * @param {object} props Objekt s atributy komponenty
  * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Icon interně využívá
  */
-const Spinner = ({ className, ...props }) => {
+const Spinner = ({ className = "", ...props }) => {
 	return (
 		<span className={classNames(["sammas-spinner", className])} {...props}></span>
 	);

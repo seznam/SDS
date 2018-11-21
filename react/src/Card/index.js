@@ -15,7 +15,7 @@ import Surface from "../Surface";
 const Card = ({
 	tagName = "div",
 	surface = 5,
-	className,
+	className = "",
 	disabled = false,
 	href,
 	onClick,

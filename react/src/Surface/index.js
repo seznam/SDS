@@ -23,7 +23,7 @@ const surfaceClassName = depth => {
  */
 const Surface = React.forwardRef(({
 	surface = 0,
-	className,
+	className = "",
 	tagName = "div",
 	clickable = false,
 	disabled = false,

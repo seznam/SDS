@@ -29,7 +29,7 @@ const SIZES = {
  */
 const Button = ({
 	surface = 5,
-	className,
+	className = "",
 	primary = false,
 	size = "regular",
 	icon = "",

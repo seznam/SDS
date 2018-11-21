@@ -34,7 +34,7 @@ class Input extends React.Component {
 
 	render() {
 		let {
-			className,
+			className = "",
 			iconLeft,
 			iconRight,
 			onIconLeftClick,
