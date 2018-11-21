@@ -27,6 +27,7 @@
 		color: lighten(@sammasColorText, 62.6%);
 		width: unit(24 / 16, rem);
 		height: unit(24 / 16, rem);
+		flex: 0 0 auto;
 	}
 
 	&.sammas-surface--disabled {
@@ -35,6 +36,7 @@
 		}
 	}
 
+	/* remove the default focused look in Firefox */
 	&::-moz-focus-inner {
 		border: 0;
 	}
@@ -42,6 +44,9 @@
 
 .sammas-button__text {
 	margin: 0 unit(12 / 16, rem);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .sammas-button--small {
@@ -96,8 +101,8 @@
 
 	& > .sammas-spinner {
 		position: absolute;
-		left: calc(50% - 0.75em);
-		top: calc(50% - 0.75em);
+		left: ~"calc(50% - "unit(12 / 16, em)~")";
+		top: ~"calc(50% - "unit(12 / 16, em)~")";
 	}
 }
 
