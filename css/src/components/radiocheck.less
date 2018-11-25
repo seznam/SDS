@@ -1,0 +1,74 @@
+@import "../common/colors.less";
+@import "../common/global-constants.less";
+
+.sammas-radiocheck {
+	cursor: pointer;
+	display: inline-flex;
+	max-width: 100%;
+	user-select: none;
+	color: @sammasColorText;
+}
+
+.sammas-radiocheck__input {
+	position: absolute;
+	opacity: 0;
+	height: 0;
+	width: 0;
+}
+
+.sammas-radiocheck__switch {
+	width: unit(24 / 16, rem);
+	height: unit(24 / 16, rem);
+	display: block;
+	box-sizing: border-box;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.sammas-radiocheck__switch__border {
+	stroke-width: 1;
+	stroke: @sammasColorFormBorder;
+	fill: @sammasColorBg255;
+}
+
+.sammas-radiocheck__switch__focus,
+.sammas-radiocheck__switch__error,
+.sammas-radiocheck__switch__mark {
+	stroke: none;
+	fill: none;
+}
+
+.sammas-radiocheck__label {
+	margin: 0 0 0 unit(12 / 16, rem);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+input:focus ~ .sammas-radiocheck__switch {
+	.sammas-radiocheck__switch__focus {
+		stroke-width: 2;
+		stroke: @sammasColorOutline;
+	}
+}
+
+input:checked ~ .sammas-radiocheck__switch {
+	.sammas-radiocheck__switch__mark {
+		fill: @sammasColorText;
+	}
+}
+
+.sammas-radiocheck--disabled {
+	color: @sammasColorTextDisabled;
+
+	.sammas-radiocheck__switch__border {
+		stroke: @sammasColorFormBorderDisabled;
+	}
+}
+
+.sammas-radiocheck--error {
+	.sammas-radiocheck__switch__error {
+		stroke-width: 2;
+		stroke: @sammasColorError;
+	}
+}
