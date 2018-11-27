@@ -6,6 +6,8 @@ import LabelWrapper from "./LabelWrapper";
 import InputSurface from "./InputSurface";
 import Input from "./Input";
 import Textarea from "./Textarea";
+import Radio from "./Radio";
+import Checkbox from "./Checkbox";
 
 export {
 	Button,
@@ -15,5 +17,7 @@ export {
 	LabelWrapper,
 	InputSurface,
 	Input,
-	Textarea
+	Textarea,
+	Radio,
+	Checkbox
 };

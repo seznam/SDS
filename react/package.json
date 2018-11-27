@@ -1,6 +1,6 @@
 {
 	"name": "@sammas/react",
-	"version": "0.1.0",
+	"version": "0.2.1",
 	"description": "React implementation of some common components done in Seznam.cz's design system Sammas.",
 	"author": {
 		"name": "Jakub Kraft",
