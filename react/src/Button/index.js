@@ -1,10 +1,8 @@
 import React from "react";
-import { withPureClick, blurAfterClick, spaceClick, withPreventDefault, classNames } from "@sammas/helpers";
+import { withPreventDefault, classNames } from "@sammas/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
 import Spinner from "../Spinner";
-
-
 
 const SIZES = {
 	"x-small": "sammas-button--xsmall sammas-typography_caption",
@@ -37,7 +35,7 @@ const Button = ({
 	disabled = false,
 	loading = false,
 	href,
-	onClick = null,
+	onClick,
 	noPreventDefault = false,
 	...props
 }) => {
@@ -62,29 +60,20 @@ const Button = ({
 	// technicaly, whatever is loading is also disabled at the moment
 	disabled = disabled || loading;
 
+	// a button does not go anywhere after a click on it, no matter what tag renders it
+	const click = onClick ? noPreventDefault ? onClick : withPreventDefault(onClick) : undefined;
+
 	// various conditional props
-	const conditionalProps = {};
-	if (!disabled) {
-		// inside of this !disabled condition, because an "a" is truly unclickable only if href is left out
-		if (isLink) {
-			conditionalProps.href = href;
-			const click = blurAfterClick(noPreventDefault ? onClick : withPreventDefault(onClick));
-			conditionalProps.onClick = withPureClick(click);
-			conditionalProps.onKeyPress = spaceClick(click);
-			conditionalProps.rel = "noreferrer noopener";
-		} else {
-			conditionalProps.onClick = blurAfterClick(onClick);
-		}
-	}
-	if (!isLink) { conditionalProps.type = "button"; }
+	const conditionalProps = isLink ? {} : { type: "button" };
 
 	return <Surface
-		tagName={isLink ? "a" : "button"}
-		surface={primary ? 5 : surface }
+		tagName="button"
+		surface={primary ? 6 : surface }
 		className={classes}
-		clickable={!disabled}
-		disabled={disabled}
 		role="button"
+		href={href}
+		onClick={click}
+		disabled={disabled}
 		{...conditionalProps}
 		{...props}
 	>

@@ -1,5 +1,4 @@
 import React from "react";
-import { withPureClick, blurAfterClick, spaceClick } from "@sammas/helpers";
 import Surface from "../Surface";
 
 /**
@@ -16,39 +15,16 @@ const Card = ({
 	tagName = "div",
 	surface = 5,
 	className = "",
-	disabled = false,
-	href,
-	onClick,
 	children,
 	...props
 }) => {
 	const MainTag = tagName;
 
-	// pokud má href, bude se renderovat jako odkaz, jinak tlačítko
-	const isLink = !!href;
-
-	// různé podmíněné atributy
-	const conditionalProps = {};
-	if (!disabled) {
-		// je tady a ne mimo podmínku o disabled, protože odkaz nejde jen tak zakázat, aby nefungoval, nesmí mít href
-		if (isLink) {
-			conditionalProps.href = href;
-			conditionalProps.onClick = blurAfterClick(onClick ? withPureClick(onClick) : null);
-			conditionalProps.onKeyPress = blurAfterClick(onClick ? spaceClick(onClick) : null);
-			conditionalProps.rel = "noreferrer noopener";
-		} else {
-			conditionalProps.onClick = blurAfterClick(onClick);
-		}
-	}
-
 	return <MainTag className={`sammas-card ${className}`}>
 		<Surface
 			className="sammas-card__content"
-			tagName={isLink ? "a" : "div"}
+			tagName="div"
 			surface={surface}
-			clickable={!disabled && (onClick || href)}
-			disabled={disabled}
-			{...conditionalProps}
 			{...props}
 		>
 			{children}

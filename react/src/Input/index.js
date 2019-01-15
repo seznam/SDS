@@ -3,10 +3,12 @@ import { classNames } from "@sammas/helpers";
 import InputSurface from "../InputSurface";
 import Icon from "../Icon";
 
+/* TODO: rest of documentation */
+
 /**
- * Komponenta Surface zapouzdřuje nastavení povrchu
- * @param {object} props Objekt s atributy komponenty
- * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Surface interně využívá
+ * Input is a standard input that may be accompanied by two icons that can be clickable
+ * @param {object} props An object with props
+ * @param {string} [props.className] Space separated list of CSS classes to be added to those that Input uses internaly
  */
 class Input extends React.Component {
 	constructor(props) {

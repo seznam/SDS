@@ -1,17 +1,30 @@
 @import "../common/colors.less";
 @import "../common/global-constants.less";
 
-/* vlastnosti společné všem povrchům */
+/* properties common to all surfaces */
 
 .sammas-surface {
+	position: relative;
 	border-radius: unit(4 / 16, rem);
+	border: 0;
 	box-sizing: border-box;
-	border: unit(@sammasBorderWidth / 16, rem) solid transparent; /* kvuli vysokemu kontrastu je treba mit border, i kdyz ho zrovna nevizualizujeme */
 	transition: @sammasOutlineTransition;
 	-webkit-tap-highlight-color: transparent;
 
 	&:focus {
-		outline: none; /* outline resime sami pomoci stinu, takze ten systemovy chceme pryc */
+		outline: none; /* we do our own outline so the system one needs to go */
+	}
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		border: unit(@sammasBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
+		border-radius: unit(4 / 16, rem);
 	}
 }
 
@@ -23,7 +36,7 @@
 	cursor: pointer;
 }
 
-/* povrch 00 - neviditelný */
+/* surface 00 - invisible */
 
 .sammas-surface--00,
 .sammas-surface--00.sammas-surface--clickable:hover {
@@ -40,16 +53,19 @@
 	box-shadow: none;
 }
 
-/* povrch 01 */
+/* surface 01 */
 
 .sammas-surface--01 {
 	background: transparent;
 	color: @sammasColorText;
-	border-color: @sammasColorBg224;
 	box-shadow: none;
 
+	&:before {
+		border-color: @sammasColorBg224;
+	}
+
 	&.sammas-surface--clickable {
-		&:hover {
+		&:hover:before {
 			border-color: @sammasColorBg192;
 		}
 
@@ -58,19 +74,23 @@
 		}
 
 		&:active {
-			border-color: @sammasColorBg160;
+			&:before {
+				border-color: @sammasColorBg160;
+			}
+
 			box-shadow: none;
 		}
 	}
-
+/*
 	&.sammas-surface--disabled {
 		border-color: @sammasColorBg224;
 	}
+*/
 }
 
-/* povrch 02 */
+/* surface 02 */
 
-@shadowSurface02Hover: 0 1px 3px 0 fade(@sammasColorShadow, 10%), 0 2px 8px 0 fade(@sammasColorShadow, 5%);
+@shadowSurface02Hover: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sammasColorShadow, 5%);
 
 .sammas-surface--02 {
 	background: @sammasColorBg255;
@@ -91,7 +111,7 @@
 		}
 
 		&:active {
-			box-shadow: 0 1px 1px 0 fade(@sammasColorShadow, 25%), 0 1px 2px 0 fade(@sammasColorShadow, 10%);
+			box-shadow: 0 unit(1 / 16, rem) unit(1 / 16, rem) 0 fade(@sammasColorShadow, 25%), 0 unit(1 / 16, rem) unit(2 / 16, rem) 0 fade(@sammasColorShadow, 10%);
 		}
 	}
 
@@ -100,10 +120,10 @@
 	}
 }
 
-/* povrch 03 */
+/* surface 03 */
 
-@shadowSurface03: 0 0 1px 0 fade(@sammasColorShadow, 25%);
-@shadowSurface03Hover: 0 0 1px 0 fade(@sammasColorShadow, 35%), 0 1px 4px 0 fade(@sammasColorShadow, 10%), 0 2px 8px 0 fade(@sammasColorShadow, 5%);
+@shadowSurface03: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 25%);
+@shadowSurface03Hover: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 35%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sammasColorShadow, 5%);
 
 .sammas-surface--03 {
 	background: @sammasColorBg255;
@@ -124,19 +144,19 @@
 		}
 
 		&:active {
-			box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 50%), 0 1px 3px 0 fade(@sammasColorShadow, 30%);
+			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 50%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 30%);
 		}
 	}
 
 	&.sammas-surface--disabled {
-		box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 25%);
+		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 25%);
 	}
 }
 
-/* povrch 04 */
+/* surface 04 */
 
-@shadowSurface04: 0 1px 3px 0 fade(@sammasColorShadow, 10%), 0 16px 24px -16px fade(@sammasColorShadow, 10%);
-@shadowSurface04Hover: 0 1px 6px 0 fade(@sammasColorShadow, 20%), 0 16px 32px -16px fade(@sammasColorShadow, 30%);
+@shadowSurface04: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 10%);
+@shadowSurface04Hover: 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 30%);
 
 .sammas-surface--04 {
 	background: @sammasColorBg255;
@@ -157,19 +177,19 @@
 		}
 
 		&:active {
-			box-shadow: 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 1px 3px 0 fade(@sammasColorShadow, 30%);
+			box-shadow: 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 30%);
 		}
 	}
 
 	&.sammas-surface--disabled {
-		box-shadow: 0 1px 3px 0 fade(@sammasColorShadow, 10%), 0 16px 24px -16px fade(@sammasColorShadow, 10%);
+		box-shadow: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 10%);
 	}
 }
 
-/* povrch 05 */
+/* surface 05 */
 
-@shadowSurface05: 0 0 1px 0 fade(@sammasColorShadow, 20%), 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 16px 24px -16px fade(@sammasColorShadow, 30%);
-@shadowSurface05Hover: 0 0 1px 0 fade(@sammasColorShadow, 30%), 0 1px 6px 0 fade(@sammasColorShadow, 30%), 0 16px 32px -16px fade(@sammasColorShadow, 50%);
+@shadowSurface05: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 30%);
+@shadowSurface05Hover: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 50%);
 
 .sammas-surface--05 {
 	background: @sammasColorBg255;
@@ -190,16 +210,59 @@
 		}
 
 		&:active {
-			box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 30%), 0 1px 6px 0 fade(@sammasColorShadow, 30%), 0 1px 4px 0 fade(@sammasColorShadow, 50%);
+			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 50%);
 		}
 	}
 
 	&.sammas-surface--disabled {
-		box-shadow: 0 0 1px 0 fade(@sammasColorShadow, 20%), 0 1px 4px 0 fade(@sammasColorShadow, 20%), 0 16px 24px -16px fade(@sammasColorShadow, 30%);
+		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 30%);
 	}
 }
 
 .sammas-surface--disabled {
 	cursor: default;
 	color: @sammasColorTextDisabled;
+}
+
+/* surface primary */
+
+@shadowSurfacePrimary: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sammasColorAccent, 40%);
+@shadowSurfacePrimaryHover: 0 unit(12 / 16, rem) unit(24 / 16, rem) unit(-6 / 16, rem) fade(@sammasColorAccent, 60%);
+
+.sammas-surface--primary {
+	background: @sammasColorAccent;
+	color: @sammasColorTextAccent;
+	box-shadow: @shadowSurfacePrimary;
+
+	&.sammas-surface--clickable {
+		&:hover {
+			background: @sammasColorAccentHover;
+			color: @sammasColorTextAccentHover;
+			box-shadow: @shadowSurfacePrimaryHover;
+		}
+
+		&:focus {
+			background: @sammasColorAccentFocus;
+			color: @sammasColorTextAccentFocus;
+			box-shadow: @shadowSurfacePrimary, @sammasShadowOutline;
+		}
+
+		&:hover:focus:not(:active) {
+			background: @sammasColorAccentHover;
+			color: @sammasColorTextAccentHover;
+			box-shadow: @shadowSurfacePrimaryHover, @sammasShadowOutline;
+		}
+
+		&:active {
+			background: @sammasColorAccentActive;
+			color: @sammasColorTextAccentActive;
+			box-shadow: none;
+		}
+	}
+
+	&.sammas-surface--disabled {
+		background: @sammasColorAccentDisabled;
+		color: @sammasColorTextAccentDisabled;
+		box-shadow: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sammasColorAccent, 40%);
+	}
 }

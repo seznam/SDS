@@ -4,12 +4,12 @@ import { classNames } from "@sammas/helpers";
 const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen"];
 
 /**
- * Komponenta Surface zapouzdřuje nastavení povrchu
- * @param {object} props Objekt s atributy komponenty
- * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Surface interně využívá
- * @param {string} [props.tagName="div"] Jakou komponentu nebo tag vybavujeme povrchem
- * @param {string} [props.disabled=false] Je vykreslovaný prvek zakázán
- * @param {string} [props.error=false] Je hodnota prvku neplatná?
+ * InputSurface encapsulates the visual style of an input of any given element/component
+ * @param {object} props An object with props
+ * @param {string} [props.className] Space separated list of CSS classes to be added to those that InputSurface uses internaly
+ * @param {string} [props.tagName="div"] Rendered element/component to be equipped with an input surface visual
+ * @param {string} [props.disabled=false] Is this form field disabled?
+ * @param {string} [props.error=false] Is this for field's value invalid?
  */
 const InputSurface = React.forwardRef(({
 	className = "",
