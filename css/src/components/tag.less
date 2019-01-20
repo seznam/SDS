@@ -1,0 +1,69 @@
+@import "../common/colors.less";
+
+.sammas-tag {
+	text-decoration: none;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
+	height: unit(48 / 16, rem);
+	max-width: 100%;
+	user-select: none;
+	position: relative;
+}
+
+.sammas-tag--small {
+	height: unit(40 / 16, rem);
+}
+
+.sammas-tag--xsmall {
+	height: unit(32 / 16, rem);
+	/*padding: 0 unit(6 / 16, rem);*/
+
+	.sammas-tag__content {
+		margin: 0 unit(8 / 16, rem);
+	}
+}
+
+.sammas-tag__content {
+	margin: unit(12 / 16, rem) unit(16 / 16, rem);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.sammas-tag__divider {
+	display: block;
+	width: unit(1 / 16, rem);
+	height: 80%;
+	background: @sammasColorBg240;
+}
+
+.sammas-tag__button {
+	background: none;
+	border: 0;
+	margin: unit(2 / 16, rem);
+	width: unit(36 / 16, rem);
+	height: unit(44 / 16, rem);
+	font-size: unit(16 / 16, rem);
+	border-radius: 4px;
+	cursor: pointer;
+	display: flex;
+	z-index: 1;
+	justify-content: center;
+	align-items: center;
+
+	&:not(:hover):not(:active):not(:focus):before {
+		display: block;
+		position: absolute;
+		content: "";
+		width: 1px;
+		height:24px;
+		background: #f0f0f0;
+    	right: 37px;
+	}
+
+	&:hover {
+		background: @sammasColorBg240;
+	}
+}
