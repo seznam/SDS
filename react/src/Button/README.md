@@ -17,7 +17,7 @@ An object with Button's properties. Button internally uses [Surface](../Surface/
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| [surface] | <code>number</code> | <code>5</code> | Surface level 0-5; if Button is primary, value of this prop is ignored |
+| [surface] | <code>1</code> \| <code>2</code> \| <code>3</code> \| <code>4</code> \| <code>5</code> | <code>5</code> | Surface level 0-5; if Button is primary, value of this prop is ignored |
 | [className] | <code>string</code> |  | Space separated list of CSS classes to be added to those that Button uses internaly |
 | [primary] | <code>boolean</code> | <code>false</code> | If set, Button is rendered in accent color, otherwise the color is derived from given Surface |
 | [size] | <code>&quot;x-small&quot;</code> \| <code>&quot;small&quot;</code> \| <code>&quot;regular&quot;</code> | <code>&quot;regular&quot;</code> |  |

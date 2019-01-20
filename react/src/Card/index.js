@@ -2,18 +2,11 @@ import React from "react";
 import Surface from "../Surface";
 
 /**
- * Komponenta Card pro obalování typicky jednotlivých položek nějakého seznamu
- * @param {object} props Objekt s atributy komponenty
- * @param {string} [props.tagName="div"] Jakou komponentu nebo tag bude používat Card jako obal
- * @param {number} [props.surface=5] Povrch 0-5
- * @param {string} [props.className] Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Card interně využívá
- * @param {boolean} [props.disabled=false] Pokud je nastaveno, Card je zakázaná a nereaguje
- * @param {string} [props.href] Pokud je uvedeno, bude se Card renderovat jako odkaz a kromě obyčejného kliknutí primárním tlačítkem myši se tak bude i chovat
- * @param {function} [props.onClick] Posluchač události click
+ * **WIP** A functional component Card represents a single card (usually in a list). It takes {@link CardProps} as a parameter and returns a React component instance.
+ * @param {CardProps} props An object with properties
  */
 const Card = ({
 	tagName = "div",
-	surface = 5,
 	className = "",
 	children,
 	...props
@@ -24,7 +17,6 @@ const Card = ({
 		<Surface
 			className="sammas-card__content"
 			tagName="div"
-			surface={surface}
 			{...props}
 		>
 			{children}
@@ -33,3 +25,10 @@ const Card = ({
 };
 
 export default Card;
+
+/**
+ * An object with Card's properties
+ * @typedef {Object} CardProps
+ * @property {string} [props.tagName="div"] Name of a component or tag Card should use as its container
+ * @property {string} [className] Space separated list of CSS classes to be added to those that Card uses internaly
+ */

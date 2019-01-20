@@ -11,22 +11,6 @@ const SIZES = {
 };
 
 /**
- * An object with Button's properties. Button internally uses {@link ../Surface/README.md#Surface|Surface} and takes also properties included in {@link ../Surface/README.md#SurfaceProps|SurfaceProps}.
- * @typedef {Object} ButtonProps
- * @property {number} [surface=5] Surface level 0-5; if Button is primary, value of this prop is ignored
- * @property {string} [className] Space separated list of CSS classes to be added to those that Button uses internaly
- * @property {boolean} [primary=false] If set, Button is rendered in accent color, otherwise the color is derived from given Surface
- * @property {("x-small"|"small"|"regular")} [size="regular"]
- * @property {string} [icon] Icon
- * @property {string} [text] Button's label
- * @property {boolean} [disabled=false] If true, Button is rendered as disabled and does not react to any action
- * @property {boolean} [loading=false] If true, Button is rendered with a Spinner inside and also behaves as disabled
- * @property {string} [href] If set, Button shall be rendered as an "a" tag and can be CTRL + clicked, bookmarked etc.
- * @property {function} [onClick] An onClick event listener (also triggered if the Button is focused and spacebar is pressed)
- * @property {boolean} [noPreventDefault=false] If true, even the default action for click event shall not be prevented (even if onClick and href are set at the same time!)
- */
-
-/**
  * A functional component Button represents a primary or secondary standalone button. It takes {@link ButtonProps} as a parameter and returns a React component instance.
  * @param {ButtonProps} props An object with properties
  */
@@ -92,4 +76,20 @@ export default Button;
 /**
  * @external Surface
  * @see https://github.com/Seznam/Sammas/react/src/Surface/README.md#Surface
+ */
+
+/**
+ * An object with Button's properties. Button internally uses {@link ../Surface/README.md#Surface|Surface} and takes also properties included in {@link ../Surface/README.md#SurfaceProps|SurfaceProps}.
+ * @typedef {Object} ButtonProps
+ * @property {1|2|3|4|5} [surface=5] Surface level 0-5; if Button is primary, value of this prop is ignored
+ * @property {string} [className] Space separated list of CSS classes to be added to those that Button uses internaly
+ * @property {boolean} [primary=false] If set, Button is rendered in accent color, otherwise the color is derived from given Surface
+ * @property {("x-small"|"small"|"regular")} [size="regular"]
+ * @property {string} [icon] Icon
+ * @property {string} [text] Button's label
+ * @property {boolean} [disabled=false] If true, Button is rendered as disabled and does not react to any action
+ * @property {boolean} [loading=false] If true, Button is rendered with a Spinner inside and also behaves as disabled
+ * @property {string} [href] If set, Button shall be rendered as an "a" tag and can be CTRL + clicked, bookmarked etc.
+ * @property {function} [onClick] An onClick event listener (also triggered if the Button is focused and spacebar is pressed)
+ * @property {boolean} [noPreventDefault=false] If true, even the default action for click event shall not be prevented (even if onClick and href are set at the same time!)
  */

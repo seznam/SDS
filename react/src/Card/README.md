@@ -1,12 +1,22 @@
 <a name="Card"></a>
 
 ## Card(props)
-Komponenta Card pro obalování typicky jednotlivých položek nějakého seznamu
+**WIP** A functional component Card represents a single card (usually in a list). It takes [CardProps](#CardProps) as a parameter and returns a React component instance.
 
 
-| Param | Type | Default | Description |
+| Param | Type | Description |
+| --- | --- | --- |
+| props | [<code>CardProps</code>](#CardProps) | An object with properties |
+
+<a name="CardProps"></a>
+
+## CardProps : <code>Object</code>
+An object with Card's properties
+
+**Properties**
+
+| Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| props | <code>object</code> |  | Objekt s atributy komponenty |
-| [props.tagName] | <code>string</code> | <code>&quot;\&quot;div\&quot;&quot;</code> | Jakou komponentu nebo tag bude používat Card jako obal |
-| [props.className] | <code>string</code> |  | Mezerami oddělený seznam CSS tříd, které se přidají k těm, které Card interně využívá |
+| [props.tagName] | <code>string</code> | <code>&quot;\&quot;div\&quot;&quot;</code> | Name of a component or tag Card should use as its container |
+| [className] | <code>string</code> |  | Space separated list of CSS classes to be added to those that Card uses internaly |
 

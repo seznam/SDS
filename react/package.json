@@ -14,12 +14,15 @@
 		"@babel/preset-react": "^7.0.0",
 		"eslint": "^5.8.0",
 		"eslint-plugin-react": "^7.11.1",
+		"foreach-cli": "^1.8.1",
+		"jsdoc-to-markdown": "^4.0.1",
 		"rollup": "^0.65.2",
 		"rollup-plugin-node-resolve": "^3.4.0"
 	},
 	"scripts": {
 		"build": "babel src --out-dir dist && ./node_modules/rollup/bin/rollup --config && cp package.json dist && cp README.md dist",
 		"clear": "rm -rf dist",
+		"docs": "./node_modules/foreach-cli/bin -g \"./src/**/*.js\" -x \"nodejs ./node_modules/jsdoc-to-markdown/bin/cli.js --partial ./docs/scope.hbs  --files #{path} --global-index-format none > #{dir}/README.md\"",
 		"post": "npm publish --access=public dist"
 	},
 	"main": "main.js",
