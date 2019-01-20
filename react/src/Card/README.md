@@ -11,7 +11,7 @@
 <a name="CardProps"></a>
 
 ## CardProps : <code>Object</code>
-An object with Card's properties
+An object with Card's properties. Card internally uses [Surface](../Surface/README.md#Surface) and takes also properties included in [SurfaceProps](../Surface/README.md#SurfaceProps).
 
 **Properties**
 
