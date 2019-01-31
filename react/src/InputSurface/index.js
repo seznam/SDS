@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "@sammas/helpers";
+import { classNames } from "@sds/helpers";
 
 const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen"];
 
@@ -20,12 +20,12 @@ const InputSurface = React.forwardRef(({
 	...props
 }, ref) => {
 	const classes = classNames([
-		"sammas-inputsurface",
-		"sammas-typography_body",
+		"sds-inputsurface",
+		"sds-typography_body",
 		{
-			"sammas-inputsurface--disabled": disabled,
-			"sammas-inputsurface--error": error,
-			"sammas-inputsurface--focused": focused
+			"sds-inputsurface--disabled": disabled,
+			"sds-inputsurface--error": error,
+			"sds-inputsurface--focused": focused
 		},
 		className
 	]);

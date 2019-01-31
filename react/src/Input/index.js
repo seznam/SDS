@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "@sammas/helpers";
+import { classNames } from "@sds/helpers";
 import InputSurface from "../InputSurface";
 import Icon from "../Icon";
 
@@ -46,22 +46,22 @@ class Input extends React.Component {
 		} = this.props;
 
 		const classes = classNames([
-			"sammas-input",
-			"sammas-typography_body",
+			"sds-input",
+			"sds-typography_body",
 			{
-				"sammas-input_icon-left": iconLeft,
-				"sammas-input_icon-right": iconRight
+				"sds-input_icon-left": iconLeft,
+				"sds-input_icon-right": iconRight
 			},
 			className
 		]);
 
-		const leftIcon = iconLeft ? <Icon symbol={iconLeft} className="sammas-input__sammas-icon_left" /> : null;
-		const rightIcon = iconRight ? <Icon symbol={iconRight} className="sammas-input__sammas-icon_right" /> : null;
+		const leftIcon = iconLeft ? <Icon symbol={iconLeft} className="sds-input__sds-icon_left" /> : null;
+		const rightIcon = iconRight ? <Icon symbol={iconRight} className="sds-input__sds-icon_right" /> : null;
 
 		return <InputSurface tagName="div" className={classes} focused={this.state.focused} error={error}>
-			<input {...props} className="sammas-typography_body" onFocus={this.handleFocus} onBlur={this.handleBlur} />
-			{iconLeft ? (onIconLeftClick ? <button type="button" tabIndex="-1" className="sammas-input__sammas-icon_left sammas-typography_body" onClick={onIconLeftClick}>{leftIcon}</button> : leftIcon) : null}
-			{iconRight ? (onIconRightClick ? <button type="button" tabIndex="-1" className="sammas-input__sammas-icon_right sammas-typography_body" onClick={onIconRightClick}>{rightIcon}</button> : rightIcon) : null}
+			<input {...props} className="sds-typography_body" onFocus={this.handleFocus} onBlur={this.handleBlur} />
+			{iconLeft ? (onIconLeftClick ? <button type="button" tabIndex="-1" className="sds-input__sds-icon_left sds-typography_body" onClick={onIconLeftClick}>{leftIcon}</button> : leftIcon) : null}
+			{iconRight ? (onIconRightClick ? <button type="button" tabIndex="-1" className="sds-input__sds-icon_right sds-typography_body" onClick={onIconRightClick}>{rightIcon}</button> : rightIcon) : null}
 		</InputSurface>;
 	}
 }

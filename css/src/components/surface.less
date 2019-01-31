@@ -3,12 +3,12 @@
 
 /* properties common to all surfaces */
 
-.sammas-surface {
+.sds-surface {
 	position: relative;
 	border-radius: unit(4 / 16, rem);
 	border: 0;
 	box-sizing: border-box;
-	transition: @sammasOutlineTransition;
+	transition: @sdsOutlineTransition;
 	-webkit-tap-highlight-color: transparent;
 
 	&:focus {
@@ -23,246 +23,246 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		border: unit(@sammasBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
+		border: unit(@sdsBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
 		border-radius: unit(4 / 16, rem);
 	}
 }
 
-.sammas-surface--sharp {
+.sds-surface--sharp {
 	border-radius: 0;
 }
 
-.sammas-surface--clickable {
+.sds-surface--clickable {
 	cursor: pointer;
 }
 
 /* surface 00 - invisible */
 
-.sammas-surface--00,
-.sammas-surface--00.sammas-surface--clickable:hover {
+.sds-surface--00,
+.sds-surface--00.sds-surface--clickable:hover {
 	background: transparent;
-	color: @sammasColorText;
+	color: @sdsColorText;
 	box-shadow: none;
 }
 
-.sammas-surface--00.sammas-surface--clickable:focus {
-	box-shadow: @sammasShadowOutline;
+.sds-surface--00.sds-surface--clickable:focus {
+	box-shadow: @sdsShadowOutline;
 }
 
-.sammas-surface--00.sammas-surface--clickable:active {
+.sds-surface--00.sds-surface--clickable:active {
 	box-shadow: none;
 }
 
 /* surface 01 */
 
-.sammas-surface--01 {
+.sds-surface--01 {
 	background: transparent;
-	color: @sammasColorText;
+	color: @sdsColorText;
 	box-shadow: none;
 
 	&:before {
-		border-color: @sammasColorBg224;
+		border-color: @sdsColorBg224;
 	}
 
-	&.sammas-surface--clickable {
+	&.sds-surface--clickable {
 		&:hover:before {
-			border-color: @sammasColorBg192;
+			border-color: @sdsColorBg192;
 		}
 
 		&:focus {
-			box-shadow: @sammasShadowOutline;
+			box-shadow: @sdsShadowOutline;
 		}
 
 		&:active {
 			&:before {
-				border-color: @sammasColorBg160;
+				border-color: @sdsColorBg160;
 			}
 
 			box-shadow: none;
 		}
 	}
 /*
-	&.sammas-surface--disabled {
-		border-color: @sammasColorBg224;
+	&.sds-surface--disabled {
+		border-color: @sdsColorBg224;
 	}
 */
 }
 
 /* surface 02 */
 
-@shadowSurface02Hover: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sammasColorShadow, 5%);
+@shadowSurface02Hover: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sdsColorShadow, 5%);
 
-.sammas-surface--02 {
-	background: @sammasColorBg255;
-	color: @sammasColorText;
+.sds-surface--02 {
+	background: @sdsColorBg255;
+	color: @sdsColorText;
 	box-shadow: none;
 
-	&.sammas-surface--clickable {
+	&.sds-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface02Hover;
 		}
 
 		&:focus {
-			box-shadow: @sammasShadowOutline;
+			box-shadow: @sdsShadowOutline;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @sammasShadowOutline, @shadowSurface02Hover;
+			box-shadow: @sdsShadowOutline, @shadowSurface02Hover;
 		}
 
 		&:active {
-			box-shadow: 0 unit(1 / 16, rem) unit(1 / 16, rem) 0 fade(@sammasColorShadow, 25%), 0 unit(1 / 16, rem) unit(2 / 16, rem) 0 fade(@sammasColorShadow, 10%);
+			box-shadow: 0 unit(1 / 16, rem) unit(1 / 16, rem) 0 fade(@sdsColorShadow, 25%), 0 unit(1 / 16, rem) unit(2 / 16, rem) 0 fade(@sdsColorShadow, 10%);
 		}
 	}
 
-	&.sammas-surface--disabled {
+	&.sds-surface--disabled {
 		box-shadow: none;
 	}
 }
 
 /* surface 03 */
 
-@shadowSurface03: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 25%);
-@shadowSurface03Hover: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 35%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sammasColorShadow, 5%);
+@shadowSurface03: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 25%);
+@shadowSurface03Hover: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 35%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sdsColorShadow, 5%);
 
-.sammas-surface--03 {
-	background: @sammasColorBg255;
-	color: @sammasColorText;
+.sds-surface--03 {
+	background: @sdsColorBg255;
+	color: @sdsColorText;
 	box-shadow: @shadowSurface03;
 
-	&.sammas-surface--clickable {
+	&.sds-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface03Hover;
 		}
 
 		&:focus {
-			box-shadow: @sammasShadowOutline, @shadowSurface03;
+			box-shadow: @sdsShadowOutline, @shadowSurface03;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @sammasShadowOutline, @shadowSurface03Hover;
+			box-shadow: @sdsShadowOutline, @shadowSurface03Hover;
 		}
 
 		&:active {
-			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 50%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 30%);
+			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 50%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 30%);
 		}
 	}
 
-	&.sammas-surface--disabled {
-		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 25%);
+	&.sds-surface--disabled {
+		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 25%);
 	}
 }
 
 /* surface 04 */
 
-@shadowSurface04: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 10%);
-@shadowSurface04Hover: 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 30%);
+@shadowSurface04: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 10%);
+@shadowSurface04Hover: 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 30%);
 
-.sammas-surface--04 {
-	background: @sammasColorBg255;
-	color: @sammasColorText;
+.sds-surface--04 {
+	background: @sdsColorBg255;
+	color: @sdsColorText;
 	box-shadow: @shadowSurface04;
 
-	&.sammas-surface--clickable {
+	&.sds-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface04Hover;
 		}
 
 		&:focus {
-			box-shadow: @sammasShadowOutline, @shadowSurface04;
+			box-shadow: @sdsShadowOutline, @shadowSurface04;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @sammasShadowOutline, @shadowSurface04Hover;
+			box-shadow: @sdsShadowOutline, @shadowSurface04Hover;
 		}
 
 		&:active {
-			box-shadow: 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 30%);
+			box-shadow: 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 30%);
 		}
 	}
 
-	&.sammas-surface--disabled {
-		box-shadow: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sammasColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 10%);
+	&.sds-surface--disabled {
+		box-shadow: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 10%);
 	}
 }
 
 /* surface 05 */
 
-@shadowSurface05: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 30%);
-@shadowSurface05Hover: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 50%);
+@shadowSurface05: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 30%);
+@shadowSurface05Hover: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 50%);
 
-.sammas-surface--05 {
-	background: @sammasColorBg255;
-	color: @sammasColorText;
+.sds-surface--05 {
+	background: @sdsColorBg255;
+	color: @sdsColorText;
 	box-shadow: @shadowSurface05;
 
-	&.sammas-surface--clickable {
+	&.sds-surface--clickable {
 		&:hover {
 			box-shadow: @shadowSurface05Hover;
 		}
 
 		&:focus {
-			box-shadow: @sammasShadowOutline, @shadowSurface05;
+			box-shadow: @sdsShadowOutline, @shadowSurface05;
 		}
 
 		&:hover:focus:not(:active) {
-			box-shadow: @sammasShadowOutline, @shadowSurface05Hover;
+			box-shadow: @sdsShadowOutline, @shadowSurface05Hover;
 		}
 
 		&:active {
-			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sammasColorShadow, 30%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 50%);
+			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 50%);
 		}
 	}
 
-	&.sammas-surface--disabled {
-		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sammasColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sammasColorShadow, 30%);
+	&.sds-surface--disabled {
+		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 30%);
 	}
 }
 
-.sammas-surface--disabled {
+.sds-surface--disabled {
 	cursor: default;
-	color: @sammasColorTextDisabled;
+	color: @sdsColorTextDisabled;
 }
 
 /* surface primary */
 
-@shadowSurfacePrimary: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sammasColorAccent, 40%);
-@shadowSurfacePrimaryHover: 0 unit(12 / 16, rem) unit(24 / 16, rem) unit(-6 / 16, rem) fade(@sammasColorAccent, 60%);
+@shadowSurfacePrimary: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sdsColorAccent, 40%);
+@shadowSurfacePrimaryHover: 0 unit(12 / 16, rem) unit(24 / 16, rem) unit(-6 / 16, rem) fade(@sdsColorAccent, 60%);
 
-.sammas-surface--primary {
-	background: @sammasColorAccent;
-	color: @sammasColorTextAccent;
+.sds-surface--primary {
+	background: @sdsColorAccent;
+	color: @sdsColorTextAccent;
 	box-shadow: @shadowSurfacePrimary;
 
-	&.sammas-surface--clickable {
+	&.sds-surface--clickable {
 		&:hover {
-			background: @sammasColorAccentHover;
-			color: @sammasColorTextAccentHover;
+			background: @sdsColorAccentHover;
+			color: @sdsColorTextAccentHover;
 			box-shadow: @shadowSurfacePrimaryHover;
 		}
 
 		&:focus {
-			background: @sammasColorAccentFocus;
-			color: @sammasColorTextAccentFocus;
-			box-shadow: @shadowSurfacePrimary, @sammasShadowOutline;
+			background: @sdsColorAccentFocus;
+			color: @sdsColorTextAccentFocus;
+			box-shadow: @shadowSurfacePrimary, @sdsShadowOutline;
 		}
 
 		&:hover:focus:not(:active) {
-			background: @sammasColorAccentHover;
-			color: @sammasColorTextAccentHover;
-			box-shadow: @shadowSurfacePrimaryHover, @sammasShadowOutline;
+			background: @sdsColorAccentHover;
+			color: @sdsColorTextAccentHover;
+			box-shadow: @shadowSurfacePrimaryHover, @sdsShadowOutline;
 		}
 
 		&:active {
-			background: @sammasColorAccentActive;
-			color: @sammasColorTextAccentActive;
+			background: @sdsColorAccentActive;
+			color: @sdsColorTextAccentActive;
 			box-shadow: none;
 		}
 	}
 
-	&.sammas-surface--disabled {
-		background: @sammasColorAccentDisabled;
-		color: @sammasColorTextAccentDisabled;
-		box-shadow: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sammasColorAccent, 40%);
+	&.sds-surface--disabled {
+		background: @sdsColorAccentDisabled;
+		color: @sdsColorTextAccentDisabled;
+		box-shadow: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sdsColorAccent, 40%);
 	}
 }

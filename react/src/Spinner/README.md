@@ -1,7 +1,7 @@
 <a name="Spinner"></a>
 
 ## Spinner(props)
-Icon component represents one of the built-in icons packed with Sammas
+Icon component represents one of the built-in icons packed with SDS
 
 
 | Param | Type | Description |

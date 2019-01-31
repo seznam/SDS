@@ -1,22 +1,22 @@
 @import "../common/colors.less";
 @import "../common/global-constants.less";
 
-.sammas-radiocheck {
+.sds-radiocheck {
 	cursor: pointer;
 	display: inline-flex;
 	max-width: 100%;
 	user-select: none;
-	color: @sammasColorText;
+	color: @sdsColorText;
 }
 
-.sammas-radiocheck__input {
+.sds-radiocheck__input {
 	position: absolute;
 	opacity: 0;
 	height: 0;
 	width: 0;
 }
 
-.sammas-radiocheck__switch {
+.sds-radiocheck__switch {
 	width: unit(24 / 16, rem);
 	height: unit(24 / 16, rem);
 	display: block;
@@ -25,50 +25,50 @@
 	pointer-events: none;
 }
 
-.sammas-radiocheck__switch__border {
+.sds-radiocheck__switch__border {
 	stroke-width: 1;
-	stroke: @sammasColorFormBorder;
-	fill: @sammasColorBg255;
+	stroke: @sdsColorFormBorder;
+	fill: @sdsColorBg255;
 }
 
-.sammas-radiocheck__switch__focus,
-.sammas-radiocheck__switch__error,
-.sammas-radiocheck__switch__mark {
+.sds-radiocheck__switch__focus,
+.sds-radiocheck__switch__error,
+.sds-radiocheck__switch__mark {
 	stroke: none;
 	fill: none;
 }
 
-.sammas-radiocheck__label {
+.sds-radiocheck__label {
 	margin: 0 0 0 unit(12 / 16, rem);
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 }
 
-input:focus ~ .sammas-radiocheck__switch {
-	.sammas-radiocheck__switch__focus {
+input:focus ~ .sds-radiocheck__switch {
+	.sds-radiocheck__switch__focus {
 		stroke-width: 2;
-		stroke: @sammasColorOutline;
+		stroke: @sdsColorOutline;
 	}
 }
 
-input:checked ~ .sammas-radiocheck__switch {
-	.sammas-radiocheck__switch__mark {
-		fill: @sammasColorText;
+input:checked ~ .sds-radiocheck__switch {
+	.sds-radiocheck__switch__mark {
+		fill: @sdsColorText;
 	}
 }
 
-.sammas-radiocheck--disabled {
-	color: @sammasColorTextDisabled;
+.sds-radiocheck--disabled {
+	color: @sdsColorTextDisabled;
 
-	.sammas-radiocheck__switch__border {
-		stroke: @sammasColorFormBorderDisabled;
+	.sds-radiocheck__switch__border {
+		stroke: @sdsColorFormBorderDisabled;
 	}
 }
 
-.sammas-radiocheck--error {
-	.sammas-radiocheck__switch__error {
+.sds-radiocheck--error {
+	.sds-radiocheck__switch__error {
 		stroke-width: 2;
-		stroke: @sammasColorError;
+		stroke: @sdsColorError;
 	}
 }

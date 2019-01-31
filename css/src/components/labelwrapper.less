@@ -1,6 +1,6 @@
 @import "../common/colors.less";
 
-.sammas-labelwrapper {
+.sds-labelwrapper {
 	display: inline-flex;
 	flex-direction: column;
 	vertical-align: middle;
@@ -10,13 +10,13 @@
 	}
 }
 
-.sammas-labelwrapper__description {
+.sds-labelwrapper__description {
 	height: unit(20 / 16, rem);
 	margin: unit(4 / 16, rem) 0 0 0;
-	color: @sammasColorPlaceholder;
+	color: @sdsColorPlaceholder;
 }
 
-.sammas-labelwrapper--column {
+.sds-labelwrapper--column {
 	& > label {
 		flex-direction: column;
 
@@ -30,7 +30,7 @@
 	}
 }
 
-.sammas-labelwrapper--row {
+.sds-labelwrapper--row {
 	& > label {
 		flex-direction: row;
 
@@ -40,8 +40,8 @@
 	}
 }
 
-.sammas-labelwrapper_error {
-	.sammas-labelwrapper__description {
-		color: @sammasColorError;
+.sds-labelwrapper_error {
+	.sds-labelwrapper__description {
+		color: @sdsColorError;
 	}
 }
