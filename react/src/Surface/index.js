@@ -1,5 +1,5 @@
 import React from "react";
-import { withPureClick, blurAfterClick, spaceClick, classNames } from "@sds/helpers";
+import { withPureClick, blurAfterClick, spaceClick, classNames } from "@sznds/helpers";
 
 const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen"];
 

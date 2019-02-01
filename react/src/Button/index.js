@@ -1,5 +1,5 @@
 import React from "react";
-import { withPreventDefault, classNames } from "@sds/helpers";
+import { withPreventDefault, classNames } from "@sznds/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
 import Spinner from "../Spinner";

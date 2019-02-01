@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "@sds/helpers";
+import { classNames } from "@sznds/helpers";
 
 const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen"];
 

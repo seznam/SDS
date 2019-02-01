@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "@sds/helpers";
+import { classNames } from "@sznds/helpers";
 import InputSurface from "../InputSurface";
 import Icon from "../Icon";
 

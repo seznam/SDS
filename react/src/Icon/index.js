@@ -1,5 +1,5 @@
 import React from "react";
-import { getIconString } from "@sds/icons";
+import { getIconString } from "@sznds/icons";
 
 /**
  * Icon component represents one of the built-in SVG icons packed with SDS

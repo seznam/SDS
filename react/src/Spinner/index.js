@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "@sds/helpers";
+import { classNames } from "@sznds/helpers";
 
 /**
  * Icon component represents one of the built-in icons packed with SDS

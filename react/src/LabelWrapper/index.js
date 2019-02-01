@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "@sds/helpers";
+import { classNames } from "@sznds/helpers";
 
 /**
  * LabelWrapper provides encapsulation for label, anything that is supposed to be a form field and optional description

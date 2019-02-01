@@ -15,5 +15,5 @@ export default {
 			modulesOnly: true
 		})
 	],
-	external: [ "react", "@sds/helpers", "@sds/icons" ]
+	external: [ "react", "@sznds/helpers", "@sznds/icons" ]
 };

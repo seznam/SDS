@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { classNames } from "@sds/helpers";
+import { classNames } from "@sznds/helpers";
 
 const TYPE_RADIO = 1;
 const TYPE_CHECK = 2;
