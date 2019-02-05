@@ -1,12 +1,12 @@
 import React from "react";
-import { classNames } from "@sammas/helpers";
+import { classNames } from "@sznds/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
 
 const SIZES = {
-	"x-small": "sammas-tag--xsmall sammas-typography_caption",
-	small: "sammas-tag--small sammas-typography_body--small",
-	regular: "sammas-typography_body"
+	"x-small": "sds-tag--xsmall sds-typography_caption",
+	small: "sds-tag--small sds-typography_body--small",
+	regular: "sds-typography_body"
 };
 
 /**
@@ -18,10 +18,11 @@ const Tag = ({
 	className = "",
 	size = "regular",
 	children,
+	onClick,
 	...props
 }) => {
 	const classes = classNames([
-		"sammas-tag",
+		"sds-tag",
 		SIZES[size in SIZES ? size : "regular"],
 		className
 	]);
@@ -31,8 +32,8 @@ const Tag = ({
 		className={classes}
 		{...props}
 	>
-		<div className="sammas-tag__content">{children}</div>
-		<button className="sammas-tag__button"><Icon symbol="close" /></button>
+		<div className="sds-tag__content">{children}</div>
+		<button className="sds-tag__button sds-helpers-button" type="button" onClick={onClick}><Icon symbol="close" /></button>
 	</Surface>;
 };
 
