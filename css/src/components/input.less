@@ -1,9 +1,9 @@
 @import "../common/colors.less";
 
-.sammas-input {
+.sds-input {
 	display: inline-flex;
 	padding: 0;
-	color: @sammasColorTextDisabled;
+	color: @sdsColorTextDisabled;
 
 	input {
 		height: unit(46 / 16, rem);
@@ -12,31 +12,31 @@
 		background: transparent;
 		outline: 0;
 		box-sizing: border-box;
-		color: @sammasColorText;
+		color: @sdsColorText;
 		order: 2;
 	}
 
-	&.sammas-input_icon-left {
+	&.sds-input_icon-left {
 		input {
 			padding-left: 0;
 		}
 	}
 
-	&.sammas-input_icon-right {
+	&.sds-input_icon-right {
 		input {
 			padding-right: 0;
 		}
 	}
 
-	.sammas-input__sammas-icon_left {
+	.sds-input__sds-icon_left {
 		order: 1;
 	}
 
-	.sammas-input__sammas-icon_right {
+	.sds-input__sds-icon_right {
 		order: 3;
 	}
 
-	.sammas-icon {
+	.sds-icon {
 		padding: unit(11 / 16, rem);
 		color: currentColor;
 		display: flex;
@@ -49,13 +49,13 @@
 		margin: 0;
 		padding: 0;
 		cursor: pointer;
-		color: @sammasColorTextDisabled;
+		color: @sdsColorTextDisabled;
 		width: unit(46 / 16, rem);
 		height: unit(46 / 16, rem);
-		transition: @sammasColorTransition;
+		transition: @sdsColorTransition;
 
 		&:hover, &:active, &:focus {
-			color: darken(@sammasColorTextDisabled, 23.5%);
+			color: darken(@sdsColorTextDisabled, 23.5%);
 		}
 	}
 }

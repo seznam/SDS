@@ -1,7 +1,7 @@
 @import "../common/colors.less";
 @import "../common/global-constants.less";
 
-.sammas-button {
+.sds-button {
 	text-decoration: none;
 	display: inline-flex;
 	justify-content: center;
@@ -23,16 +23,16 @@
 		left: 0;
 	}
 
-	.sammas-icon {
-		color: lighten(@sammasColorText, 62.6%);
+	.sds-icon {
+		color: lighten(@sdsColorText, 62.6%);
 		width: unit(24 / 16, rem);
 		height: unit(24 / 16, rem);
 		flex: 0 0 auto;
 	}
 
-	&.sammas-surface--disabled {
-		.sammas-icon {
-			color: lighten(@sammasColorTextDisabled, 12.5%);
+	&.sds-surface--disabled {
+		.sds-icon {
+			color: lighten(@sdsColorTextDisabled, 12.5%);
 		}
 	}
 
@@ -42,41 +42,41 @@
 	}
 }
 
-.sammas-button__text {
+.sds-button__text {
 	margin: 0 unit(12 / 16, rem);
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 }
 
-.sammas-button--small {
+.sds-button--small {
 	height: unit(40 / 16, rem);
 	font-weight: bold;
 	padding: 0 unit(8 / 16, rem);
 
-	.sammas-button__text {
+	.sds-button__text {
 		margin: 0 unit(8 / 16, rem);
 	}
 
-	.sammas-icon:not(:only-child):first-child {
+	.sds-icon:not(:only-child):first-child {
 		margin: 0 unit(4 / 16, rem);
 	}
 }
 
-.sammas-button--xsmall {
+.sds-button--xsmall {
 	height: unit(32 / 16, rem);
 	font-weight: normal;
 	padding: 0 unit(6 / 16, rem);
 
-	.sammas-button__text {
+	.sds-button__text {
 		margin: 0 unit(6 / 16, rem);
 	}
 
-	.sammas-icon:not(:only-child):first-child {
+	.sds-icon:not(:only-child):first-child {
 		margin: 0 unit(4 / 16, rem);
 	}
 
-	.sammas-icon {
+	.sds-icon {
 		width: unit(20 / 16, rem);
 		height: unit(20 / 16, rem);
 	}
@@ -84,22 +84,22 @@
 
 /* Button-specific changes to Surface rules - maybe there is a better way of doing this */
 
-.sammas-button {
-	&.sammas-surface--00, &.sammas-surface--01 {
+.sds-button {
+	&.sds-surface--00, &.sds-surface--01 {
 		font-weight: normal;
 	}
 }
 
 /* Button-specific changes to Spinner rules - maybe there is a better way of doing this */
 
-.sammas-button--loading {
-	color: @sammasColorAccent;
+.sds-button--loading {
+	color: @sdsColorAccent;
 
-	& > :not(.sammas-spinner) {
+	& > :not(.sds-spinner) {
 		opacity: 0;
 	}
 
-	& > .sammas-spinner {
+	& > .sds-spinner {
 		position: absolute;
 		left: ~"calc(50% - "unit(12 / 16, em)~")";
 		top: ~"calc(50% - "unit(12 / 16, em)~")";
@@ -108,8 +108,8 @@
 
 /* promary Button has a different color for icons */
 
-.sammas-button--primary {
-	.sammas-icon {
+.sds-button--primary {
+	.sds-icon {
 		color: currentColor;
 	}
 }

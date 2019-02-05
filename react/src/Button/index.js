@@ -1,13 +1,13 @@
 import React from "react";
-import { withPreventDefault, classNames } from "@sammas/helpers";
+import { withPreventDefault, classNames } from "@sznds/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
 import Spinner from "../Spinner";
 
 const SIZES = {
-	"x-small": "sammas-button--xsmall sammas-typography_caption",
-	small: "sammas-button--small sammas-typography_body--small",
-	regular: "sammas-typography_body"
+	"x-small": "sds-button--xsmall sds-typography_caption",
+	small: "sds-button--small sds-typography_body--small",
+	regular: "sds-typography_body"
 };
 
 /**
@@ -34,11 +34,11 @@ const Button = ({
 	}
 
 	const classes = classNames([
-		"sammas-button",
+		"sds-button",
 		SIZES[size in SIZES ? size : "regular"],
 		{
-			"sammas-button--primary": primary,
-			"sammas-button--loading": loading
+			"sds-button--primary": primary,
+			"sds-button--loading": loading
 		},
 		className
 	]);
@@ -67,7 +67,7 @@ const Button = ({
 		{...props}
 	>
 		{loading ? <Spinner /> : null}
-		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sammas-button__text">{text}</span> : null}
+		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sds-button__text">{text}</span> : null}
 	</Surface>;
 };
 
@@ -75,7 +75,7 @@ export default Button;
 
 /**
  * @external Surface
- * @see https://github.com/Seznam/Sammas/react/src/Surface/README.md#Surface
+ * @see https://github.com/Seznam/SDS/react/src/Surface/README.md#Surface
  */
 
 /**

@@ -1,7 +1,7 @@
 {
-	"name": "@sammas/icons",
-	"version": "0.0.1",
-	"description": "Icons for Sammas components.",
+	"name": "@sznds/icons",
+	"version": "0.1.0",
+	"description": "Icons for SDS components.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"

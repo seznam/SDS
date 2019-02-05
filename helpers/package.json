@@ -1,7 +1,7 @@
 {
-	"name": "@sammas/helpers",
+	"name": "@sznds/helpers",
 	"version": "0.0.1",
-	"description": "Helper Javascript functions for Sammas components. Framework agnostic ES6 and ES5 traspiled code.",
+	"description": "Helper Javascript functions for SDS components. Framework agnostic ES6 and ES5 traspiled code.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"

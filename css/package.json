@@ -1,7 +1,7 @@
 {
-	"name": "@sammas/css",
+	"name": "@sznds/css",
 	"version": "0.1.0",
-	"description": "CSS implementing the principles of Seznam.cz's design system Sammas.",
+	"description": "CSS implementing the principles of Seznam.cz's design system SDS.",
 	"license": "MIT",
 	"author": {
 		"name": "Jakub Kraft",
@@ -13,11 +13,11 @@
 		"less-plugin-clean-css": "^1.5.1"
 	},
 	"scripts": {
-		"build:css": "mkdir dist && lessc src/sammas.less dist/sammas-${npm_package_version}.css --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
-		"build:minified": "npm run build:css && lessc src/sammas.less dist/sammas-${npm_package_version}.min.css --clean-css=\"--s1 --advanced\" --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
+		"build:css": "mkdir dist && lessc src/sds.less dist/sds-${npm_package_version}.css --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
+		"build:minified": "npm run build:css && lessc src/sds.less dist/sds-${npm_package_version}.min.css --clean-css=\"--s1 --advanced\" --autoprefix=\"> 1%, last 2 versions, not ie 10\"",
 		"build": "npm run clear && npm run build:minified && cp -a -R src/. dist/ && cp package.json dist && cp README.md dist",
 		"clear": "rm -rf dist",
 		"post": "npm publish --access=public dist"
 	},
-	"main": "sammas-${npm_package_version}.min.css"
+	"main": "sds-${npm_package_version}.min.css"
 }

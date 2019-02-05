@@ -1,7 +1,7 @@
 {
-	"name": "@sammas/react",
-	"version": "0.2.1",
-	"description": "React implementation of some common components done in Seznam.cz's design system Sammas.",
+	"name": "@sznds/react",
+	"version": "0.1.2",
+	"description": "React implementation of some common components done in Seznam.cz's design system SDS.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"
@@ -28,9 +28,9 @@
 	"main": "main.js",
 	"module": "index.js",
 	"dependencies": {
-		"@sammas/css": "^0.0.4",
-		"@sammas/helpers": "^0.0.1",
-		"@sammas/icons": "^0.0.1",
+		"@sznds/css": "^0.1.0",
+		"@sznds/helpers": "^0.0.1",
+		"@sznds/icons": "^0.1.0",
 		"react": "^16.6.0"
 	}
 }
