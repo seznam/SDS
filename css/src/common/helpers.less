@@ -1,0 +1,15 @@
+.sds-helpers-button {
+	& > * {
+		/* no contents of a button should get its own clicks etc. */
+		pointer-events: none;
+		/* rules for IE11 that prevent the 1px movement of contents while button is active */
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+
+	/* remove the default focused look in Firefox */
+	&::-moz-focus-inner {
+		border: 0;
+	}
+}

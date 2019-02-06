@@ -35,6 +35,7 @@ const Button = ({
 
 	const classes = classNames([
 		"sds-button",
+		"sds-helpers-button",
 		SIZES[size in SIZES ? size : "regular"],
 		{
 			"sds-button--primary": primary,
