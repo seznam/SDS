@@ -21,13 +21,15 @@ const RadioCheck = ({
 	disabled = false,
 	error = false,
 	label = "",
+	size = "regular",
 	...props
 }) => {
 	const classes = classNames([
 		"sds-radiocheck",
 		{
 			"sds-radiocheck--error": error,
-			"sds-radiocheck--disabled": disabled
+			"sds-radiocheck--disabled": disabled,
+			"sds-radiocheck--small": size === "small"
 		},
 		className
 	]);
@@ -37,6 +39,11 @@ const RadioCheck = ({
 		conditionalProps["aria-disabled"] = "true";
 		conditionalProps.disabled = disabled;
 	}
+
+	const classesLabel = classNames([
+		"sds-radiocheck__label",
+		size === "small" ? "sds-typography_body--small" : "sds-typography_body"
+	]);
 
 	return <label className={classes} {...props}>
 		<input {...props} ref={forwardedRef} type={type === TYPE_CHECK ? "checkbox" : "radio"} className="sds-radiocheck__input" {...conditionalProps} />
@@ -53,7 +60,7 @@ const RadioCheck = ({
 				<circle cx="12" cy="12" r="5" className="sds-radiocheck__switch__mark" />
 			</Fragment>}
 		</svg>
-		{label ? <span className="sds-radiocheck__label sds-typography_body">{label}</span> : null}
+		{label ? <span className={classesLabel}>{label}</span> : null}
 	</label>;
 };
 

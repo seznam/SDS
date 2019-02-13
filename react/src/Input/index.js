@@ -42,26 +42,43 @@ class Input extends React.Component {
 			onIconLeftClick,
 			onIconRightClick,
 			error,
+			size = "regular",
+			style,
 			...props
 		} = this.props;
 
 		const classes = classNames([
 			"sds-input",
-			"sds-typography_body",
+			size === "regular" ? "sds-typography_body" : "sds-typography_body--small sds-input--small",
 			{
-				"sds-input_icon-left": iconLeft,
-				"sds-input_icon-right": iconRight
+				"sds-input--icon-left": iconLeft,
+				"sds-input--icon-right": iconRight
 			},
 			className
 		]);
 
-		const leftIcon = iconLeft ? <Icon symbol={iconLeft} className="sds-input__sds-icon_left" /> : null;
-		const rightIcon = iconRight ? <Icon symbol={iconRight} className="sds-input__sds-icon_right" /> : null;
+		const leftClasses = classNames([
+			"sds-input__button",
+			"sds-input__button--left",
+			"sds-typography_body",
+			{
+				"sds-input__button--enabled": onIconLeftClick
+			}
+		]);
 
-		return <InputSurface tagName="div" className={classes} focused={this.state.focused} error={error}>
-			<input {...props} className="sds-typography_body" onFocus={this.handleFocus} onBlur={this.handleBlur} />
-			{iconLeft ? (onIconLeftClick ? <button type="button" tabIndex="-1" className="sds-input__sds-icon_left sds-typography_body" onClick={onIconLeftClick}>{leftIcon}</button> : leftIcon) : null}
-			{iconRight ? (onIconRightClick ? <button type="button" tabIndex="-1" className="sds-input__sds-icon_right sds-typography_body" onClick={onIconRightClick}>{rightIcon}</button> : rightIcon) : null}
+		const rightClasses = classNames([
+			"sds-input__button",
+			"sds-input__button--right",
+			"sds-typography_body",
+			{
+				"sds-input__button--enabled": onIconRightClick
+			}
+		]);
+
+		return <InputSurface tagName="div" className={classes} focused={this.state.focused} error={error} size={size} style={style}>
+			<input {...props} className={size == "regular" ? "sds-typography_body" : "sds-typography_body--small"} onFocus={this.handleFocus} onBlur={this.handleBlur} />
+			{iconLeft ? <button type="button" tabIndex="-1" className={leftClasses} onClick={onIconLeftClick}><Icon symbol={iconLeft} /></button> : null}
+			{iconRight ? <button type="button" tabIndex="-1" className={rightClasses} onClick={onIconRightClick}><Icon symbol={iconRight} /></button> : null}
 		</InputSurface>;
 	}
 }

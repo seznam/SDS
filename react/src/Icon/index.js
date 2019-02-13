@@ -22,6 +22,6 @@ export default Icon;
 /**
  * An object with Icon's properties.
  * @typedef {Object} IconProps
- * @property {string} [props.symbol="alert"] Icon identifier
- * @property {string} [props.className] Space separated list of CSS classes to be added to those that Icon uses internaly
+ * @property {string} [symbol="alert"] Icon identifier
+ * @property {string} [className] Space separated list of CSS classes to be added to those that Icon uses internaly
  */

@@ -17,6 +17,6 @@ An object with Icon's properties.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| [props.symbol] | <code>string</code> | <code>&quot;\&quot;alert\&quot;&quot;</code> | Icon identifier |
-| [props.className] | <code>string</code> |  | Space separated list of CSS classes to be added to those that Icon uses internaly |
+| [symbol] | <code>string</code> | <code>&quot;\&quot;alert\&quot;&quot;</code> | Icon identifier |
+| [className] | <code>string</code> |  | Space separated list of CSS classes to be added to those that Icon uses internaly |
 

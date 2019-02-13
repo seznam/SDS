@@ -7,6 +7,7 @@
 	max-width: 100%;
 	user-select: none;
 	color: @sdsColorText;
+	align-items: center;
 }
 
 .sds-radiocheck__input {
@@ -70,5 +71,12 @@ input:checked ~ .sds-radiocheck__switch {
 	.sds-radiocheck__switch__error {
 		stroke-width: 2;
 		stroke: @sdsColorError;
+	}
+}
+
+.sds-radiocheck--small {
+	.sds-radiocheck__switch {
+		width: unit(16 / 16, rem);
+		height: unit(16 / 16, rem);
 	}
 }

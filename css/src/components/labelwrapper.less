@@ -3,45 +3,44 @@
 .sds-labelwrapper {
 	display: inline-flex;
 	flex-direction: column;
-	vertical-align: middle;
-
-	& > label {
-		display: flex;
-	}
 }
 
 .sds-labelwrapper__description {
-	height: unit(20 / 16, rem);
 	margin: unit(4 / 16, rem) 0 0 0;
 	color: @sdsColorPlaceholder;
 }
 
 .sds-labelwrapper--column {
-	& > label {
-		flex-direction: column;
-
-		& > span {
-			height: unit(22 / 16, rem);
-
-			& + * {
-				margin-top: unit(6 / 16, rem);
-			}
-		}
+	.sds-labelwrapper__label {
+		height: unit(22 / 16, rem);
+		margin: 0 0 unit(6 / 16, rem) 0;
 	}
 }
 
 .sds-labelwrapper--row {
-	& > label {
-		flex-direction: row;
+	flex-direction: row;
 
-		& > span {
-			margin: unit(12 / 16, rem) unit(12 / 16, rem) unit(12 / 16, rem) 0;
-		}
+	.sds-labelwrapper__label {
+		margin: unit(12 / 16, rem) unit(12 / 16, rem) unit(12 / 16, rem) 0;
 	}
 }
 
-.sds-labelwrapper_error {
+.sds-labelwrapper--error {
 	.sds-labelwrapper__description {
 		color: @sdsColorError;
+	}
+}
+
+.sds-labelwrapper--small {
+	&.sds-labelwrapper--column {
+		.sds-labelwrapper__label {
+			margin: 0 0 unit(4 / 16, rem) 0;
+		}
+	}
+
+	&.sds-labelwrapper--row {
+		.sds-labelwrapper__label {
+			margin: unit(8 / 16, rem) unit(8 / 16, rem) unit(8 / 16, rem) 0;
+		}
 	}
 }

@@ -5,11 +5,7 @@ const DISABLABLE = ["input", "textarea", "button", "select", "fieldset", "keygen
 
 /**
  * InputSurface encapsulates the visual style of an input of any given element/component
- * @param {object} props An object with props
- * @param {string} [props.className] Space separated list of CSS classes to be added to those that InputSurface uses internaly
- * @param {string} [props.tagName="div"] Rendered element/component to be equipped with an input surface visual
- * @param {string} [props.disabled=false] Is this form field disabled?
- * @param {string} [props.error=false] Is this for field's value invalid?
+ * @param {InputSurfaceProps} props An object with properties
  */
 const InputSurface = React.forwardRef(({
 	className = "",
@@ -17,11 +13,12 @@ const InputSurface = React.forwardRef(({
 	disabled = false,
 	error = false,
 	focused = false,
+	size = "regular",
 	...props
 }, ref) => {
 	const classes = classNames([
 		"sds-inputsurface",
-		"sds-typography_body",
+		size == "regular" ? "sds-typography_body" : "sds-typography_body--small sds-inputsurface--small",
 		{
 			"sds-inputsurface--disabled": disabled,
 			"sds-inputsurface--error": error,
@@ -41,3 +38,13 @@ const InputSurface = React.forwardRef(({
 });
 
 export default InputSurface;
+
+/**
+ * An object with InputSurface's properties.
+ * @typedef {Object} InputSurfaceProps
+ * @property {string} [className] Space separated list of CSS classes to be added to those that InputSurface uses internaly
+ * @property {string} [tagName="div"] Rendered element/component to be equipped with an input surface visual
+ * @property {string} [disabled=false] Is this form field disabled?
+ * @property {string} [error=false] Is this for field's value invalid?
+ * @property {("x-small"|"small"|"regular")} [size="regular"]
+ */

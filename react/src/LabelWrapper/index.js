@@ -1,6 +1,8 @@
 import React from "react";
 import { classNames } from "@sznds/helpers";
 
+/* TODO: rest of documentation */
+
 /**
  * LabelWrapper provides encapsulation for label, anything that is supposed to be a form field and optional description
  * @param {object} props An object with props
@@ -13,25 +15,24 @@ const LabelWrapper = ({
 	description = "",
 	errorDescription = "",
 	children,
+	size = "regular",
 	...props
 }) => {
 	const classes = classNames([
 		"sds-labelwrapper",
-		"sds-typography_body",
+		size === "regular" ? "sds-typography_body" : "sds-typography_body--small sds-labelwrapper--small",
 		layout === "column" ? "sds-labelwrapper--column" : "sds-labelwrapper--row",
-		{ "sds-labelwrapper_error": errorDescription },
+		{ "sds-labelwrapper--error": errorDescription },
 		className
 	]);
 
-	return <div className={classes} {...props}>
-		<label>
-			<span>{label}:</span>
-			<div className="sds-labelwrapper__div">
-				{children}
-				<p className="sds-labelwrapper__description sds-typography_body--small">{errorDescription ? errorDescription : description}</p>
-			</div>
-		</label>
-	</div>;
+	return <label className={classes} {...props}>
+		<span className="sds-labelwrapper__label">{label}:</span>
+		<div>
+			{children}
+			<p className="sds-labelwrapper__description sds-typography_body--small">{errorDescription ? errorDescription : description}</p>
+		</div>
+	</label>;
 };
 
 export default LabelWrapper;

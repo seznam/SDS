@@ -13,12 +13,17 @@
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
 	height: unit(48 / 16, rem);
-	padding: unit(12 / 16, rem);
+	padding: unit(11 / 16, rem);
 	transition: @sdsOutlineTransition;
 
 	::placeholder {
 		color: @sdsColorPlaceholder;
 	}
+}
+
+.sds-inputsurface--small {
+	height: unit(40 / 16, rem);
+	padding: unit(7 / 16, rem), unit(11 / 16, rem);
 }
 
 .sds-inputsurface:focus, .sds-inputsurface--focused {
