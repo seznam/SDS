@@ -14,15 +14,6 @@
 	user-select: none;
 	position: relative;
 
-	& > * {
-		/* no contents of a button should get its own clicks etc. */
-		pointer-events: none;
-		/* rules for IE11 that prevent the 1px movement of contents while button is active */
-		position: relative;
-		top: 0;
-		left: 0;
-	}
-
 	.sds-icon {
 		color: lighten(@sdsColorText, 62.6%);
 		width: unit(24 / 16, rem);
@@ -34,11 +25,6 @@
 		.sds-icon {
 			color: lighten(@sdsColorTextDisabled, 12.5%);
 		}
-	}
-
-	/* remove the default focused look in Firefox */
-	&::-moz-focus-inner {
-		border: 0;
 	}
 }
 
