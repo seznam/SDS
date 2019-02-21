@@ -27,13 +27,19 @@ const Tag = ({
 		className
 	]);
 
+	const classesButton = classNames([
+		"sds-tag__button",
+		"sds-helpers-button",
+		size === "regular" ? "sds-typography_body" : "sds-typography_body--small"
+	]);
+
 	return <Surface
 		surface={surface}
 		className={classes}
 		{...props}
 	>
 		<div className="sds-tag__content">{children}</div>
-		<button className="sds-tag__button sds-helpers-button" type="button" onClick={onClick}><Icon symbol="close" /></button>
+		<button className={classesButton} type="button" onClick={onClick}><Icon symbol="close" /></button>
 	</Surface>;
 };
 

@@ -27,5 +27,4 @@ An object with Button's properties. Button internally uses [Surface](../Surface/
 | [loading] | <code>boolean</code> | <code>false</code> | If true, Button is rendered with a Spinner inside and also behaves as disabled |
 | [href] | <code>string</code> |  | If set, Button shall be rendered as an "a" tag and can be CTRL + clicked, bookmarked etc. |
 | [onClick] | <code>function</code> |  | An onClick event listener (also triggered if the Button is focused and spacebar is pressed) |
-| [noPreventDefault] | <code>boolean</code> | <code>false</code> | If true, even the default action for click event shall not be prevented (even if onClick and href are set at the same time!) |
 

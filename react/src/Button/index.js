@@ -1,5 +1,5 @@
 import React from "react";
-import { withPreventDefault, classNames } from "@sznds/helpers";
+import { classNames } from "@sznds/helpers";
 import Surface from "../Surface";
 import Icon from "../Icon";
 import Spinner from "../Spinner";
@@ -24,8 +24,6 @@ const Button = ({
 	disabled = false,
 	loading = false,
 	href,
-	onClick,
-	noPreventDefault = false,
 	...props
 }) => {
 	// a Button without any contents is not allowed
@@ -50,9 +48,6 @@ const Button = ({
 	// technicaly, whatever is loading is also disabled at the moment
 	disabled = disabled || loading;
 
-	// a button does not go anywhere after a click on it, no matter what tag renders it
-	const click = onClick ? noPreventDefault ? onClick : withPreventDefault(onClick) : undefined;
-
 	// various conditional props
 	const conditionalProps = isLink ? {} : { type: "button" };
 
@@ -62,7 +57,6 @@ const Button = ({
 		className={classes}
 		role="button"
 		href={href}
-		onClick={click}
 		disabled={disabled}
 		{...conditionalProps}
 		{...props}
@@ -92,5 +86,4 @@ export default Button;
  * @property {boolean} [loading=false] If true, Button is rendered with a Spinner inside and also behaves as disabled
  * @property {string} [href] If set, Button shall be rendered as an "a" tag and can be CTRL + clicked, bookmarked etc.
  * @property {function} [onClick] An onClick event listener (also triggered if the Button is focused and spacebar is pressed)
- * @property {boolean} [noPreventDefault=false] If true, even the default action for click event shall not be prevented (even if onClick and href are set at the same time!)
  */

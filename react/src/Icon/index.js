@@ -10,9 +10,10 @@ const Icon = ({
 	className = "",
 	...props
 }) => {
+	// focusable="false" is necessary because of an IE bug, where every SVG without it appears in tab order (ie. to tab out of a button you need to tab twice)
 	return (
 		<span className={`sds-icon ${className}`} {...props}>
-			<svg x="0px" y="0px" viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: getIconString(symbol) }}></svg>
+			<svg x="0px" y="0px" viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: getIconString(symbol) }} focusable="false"></svg>
 		</span>
 	);
 };
