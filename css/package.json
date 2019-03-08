@@ -1,6 +1,6 @@
 {
 	"name": "@sznds/css",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "CSS implementing the principles of Seznam.cz's design system SDS.",
 	"license": "MIT",
 	"author": {
