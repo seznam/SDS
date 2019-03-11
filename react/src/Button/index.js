@@ -1,13 +1,24 @@
-import React from "react";
-import { classNames } from "@sznds/helpers";
-import Surface from "../Surface";
-import Icon from "../Icon";
-import Spinner from "../Spinner";
+import React from 'react';
+import { classNames } from '@sznds/helpers';
+import Surface, { SURFACE_LEVELS, DEFAULT_SURFACE, PRIMARY_SURFACE } from '../Surface';
+import Icon from '../Icon';
+import Spinner from '../Spinner';
+import PropTypes from 'prop-types';
 
+/**
+ * Default size of a Button component.
+ * @private
+ */
+const DEFAULT_SIZE = 'regular';
+
+/**
+ * CSS classes for available sizes of Buttons.
+ * @private
+ */
 const SIZES = {
-	"x-small": "sds-button--xsmall sds-typography_caption",
-	small: "sds-button--small sds-typography_body--small",
-	regular: "sds-typography_body"
+	'x-small': 'sds-button--xsmall sds-typography_caption',
+	'small': 'sds-button--small sds-typography_body--small',
+	'regular': 'sds-typography_body',
 };
 
 /**
@@ -15,12 +26,12 @@ const SIZES = {
  * @param {ButtonProps} props An object with properties
  */
 const Button = ({
-	surface = 5,
-	className = "",
+	surface = DEFAULT_SURFACE,
+	className = '',
 	primary = false,
-	size = "regular",
-	icon = "",
-	text = "",
+	size = DEFAULT_SIZE,
+	icon = '',
+	text = '',
 	disabled = false,
 	loading = false,
 	href,
@@ -28,42 +39,51 @@ const Button = ({
 }) => {
 	// a Button without any contents is not allowed
 	if (!icon && !text) {
-		throw new Error("Button has to have an icon or text.");
+		throw new Error('Button has to have an icon or text.');
 	}
 
 	const classes = classNames([
-		"sds-button",
-		"sds-helpers-button",
-		SIZES[size in SIZES ? size : "regular"],
+		'sds-button',
+		'sds-helpers-button',
+		SIZES[size in SIZES ? size : DEFAULT_SIZE],
 		{
-			"sds-button--primary": primary,
-			"sds-button--loading": loading
+			'sds-button--primary': primary,
+			'sds-button--loading': loading,
 		},
-		className
+		className,
 	]);
 
 	// a "button" is rendered without a href prop, an "a" otherwise
 	const isLink = !!href;
 
-	// technicaly, whatever is loading is also disabled at the moment
-	disabled = disabled || loading;
-
 	// various conditional props
-	const conditionalProps = isLink ? {} : { type: "button" };
+	const conditionalProps = isLink ? {} : { type: 'button' };
 
 	return <Surface
 		tagName="button"
-		surface={primary ? 6 : surface }
+		surface={primary ? PRIMARY_SURFACE : surface }
 		className={classes}
 		role="button"
 		href={href}
-		disabled={disabled}
+		disabled={disabled || loading}
 		{...conditionalProps}
 		{...props}
 	>
 		{loading ? <Spinner /> : null}
 		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sds-button__text">{text}</span> : null}
 	</Surface>;
+};
+
+Button.propTypes = {
+	surface: PropTypes.oneOf(SURFACE_LEVELS),
+	className: PropTypes.string,
+	primary: PropTypes.bool,
+	size: PropTypes.oneOf(['x-small', 'small', 'regular']),
+	icon: PropTypes.string,
+	text: PropTypes.string,
+	disabled: PropTypes.bool,
+	loading: PropTypes.bool,
+	href: PropTypes.string,
 };
 
 export default Button;

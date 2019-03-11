@@ -20,6 +20,6 @@ An object with InputSurface's properties.
 | [className] | <code>string</code> |  | Space separated list of CSS classes to be added to those that InputSurface uses internaly |
 | [tagName] | <code>string</code> | <code>&quot;\&quot;div\&quot;&quot;</code> | Rendered element/component to be equipped with an input surface visual |
 | [disabled] | <code>string</code> | <code>false</code> | Is this form field disabled? |
-| [error] | <code>string</code> | <code>false</code> | Is this for field's value invalid? |
-| [size] | <code>&quot;x-small&quot;</code> \| <code>&quot;small&quot;</code> \| <code>&quot;regular&quot;</code> | <code>&quot;regular&quot;</code> |  |
+| [error] | <code>string</code> | <code>false</code> | Is this form field's value invalid? |
+| [size] | <code>&quot;small&quot;</code> \| <code>&quot;regular&quot;</code> | <code>&quot;regular&quot;</code> |  |
 

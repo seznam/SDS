@@ -1,13 +1,14 @@
-import React from "react";
-import Surface from "../Surface";
+import React from 'react';
+import Surface from '../Surface';
+import PropTypes from 'prop-types';
 
 /**
  * **WIP** A functional component Card represents a single card (usually in a list). It takes {@link CardProps} as a parameter and returns a React component instance.
  * @param {CardProps} props An object with properties
  */
 const Card = ({
-	tagName = "div",
-	className = "",
+	tagName = 'div',
+	className = '',
 	children,
 	...props
 }) => {
@@ -22,6 +23,12 @@ const Card = ({
 			{children}
 		</Surface>
 	</MainTag>;
+};
+
+Card.propTypes = {
+	tagName: PropTypes.string,
+	className: PropTypes.string,
+	children: PropTypes.node,
 };
 
 export default Card;

@@ -7,13 +7,16 @@
 		"email": "jakub.kraft@firma.seznam.cz"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.1.2",
-		"@babel/core": "^7.1.2",
-		"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-		"@babel/preset-env": "^7.1.0",
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.3.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+		"@babel/preset-env": "^7.3.4",
 		"@babel/preset-react": "^7.0.0",
-		"eslint": "^5.8.0",
-		"eslint-plugin-react": "^7.11.1",
+		"@types/react": "^16.8.7",
+		"@types/react-dom": "^16.8.2",
+		"babel-eslint": "^10.0.1",
+		"eslint": "^5.15.1",
+		"eslint-plugin-react": "^7.12.4",
 		"foreach-cli": "^1.8.1",
 		"jsdoc-to-markdown": "^4.0.1",
 		"rollup": "^0.65.2",
@@ -31,6 +34,8 @@
 		"@sznds/css": "^0.2.2",
 		"@sznds/helpers": "^0.0.1",
 		"@sznds/icons": "^0.2.0",
-		"react": "^16.6.0"
+		"prop-types": "^15.7.2",
+		"react": "^16.8.4",
+		"react-dom": "^16.8.4"
 	}
 }
