@@ -1,5 +1,5 @@
 import React from 'react';
-import { withPureClick, blurAfterClick, spaceClick, classNames } from '@sznds/helpers';
+import { withPureClick, spaceClick, classNames } from '@sznds/helpers';
 import PropTypes from 'prop-types';
 
 /**
@@ -24,21 +24,16 @@ export const DEFAULT_SURFACE = 5;
 export const PRIMARY_SURFACE = 6;
 
 /**
- * The most usual scale of surface levels.
- */
-// eslint-disable-next-line no-magic-numbers
-export const SURFACE_LEVELS = [1, 2, 3, 4, 5];
-
-/**
  * The complete scale of surface levels.
  */
-export const ALL_SURFACE_LEVELS = [EMPTY_SURFACE, ...SURFACE_LEVELS, PRIMARY_SURFACE];
+// eslint-disable-next-line no-magic-numbers
+export const SURFACE_LEVELS = [EMPTY_SURFACE, 1, 2, 3, 4, 5, PRIMARY_SURFACE];
 
 /**
  * @param {number} depth Depth of the surface from 0 to 5
  * @private
  */
-const surfaceClassName = depth => `sds-surface--${(ALL_SURFACE_LEVELS.indexOf(depth) === -1 ? 'primary' : `0${depth}`)}`;
+const surfaceClassName = depth => `sds-surface--${(depth === PRIMARY_SURFACE ? 'primary' : `0${depth}`)}`;
 
 /**
  * Surface encapsulates the visual style of an elevated surface of any given element/component
@@ -49,31 +44,29 @@ const Surface = React.forwardRef(({
 	className = '',
 	tagName = 'div',
 	disabled = false,
-	sharp = false,
 	href,
 	onClick,
+	type,
 	...props
 }, ref) => {
-	const clickable = !disabled && (href || onClick);
-	const classes = classNames([
-		'sds-surface',
-		{
-			'sds-surface--clickable': clickable,
-			'sds-surface--disabled': disabled,
-			'sds-surface--sharp': sharp,
-		},
-		surfaceClassName(surface),
-		className,
-	]);
-
 	// we render a link only if a href parameter is set
 	const isLink = !!href;
 
 	// the rendered tag is either tagName or "a", if href is present
 	const MainTag = isLink ? 'a' : tagName;
 
-	// after click we lose focus, as requested by designers (not leaving focus ring after clicking - maybe bad for accesibility?)
-	const click = onClick ? blurAfterClick(onClick) : undefined;
+	// without action it is not clickable
+	const clickable = !disabled && (href || onClick || (MainTag === 'button' && type !== 'button'));
+
+	const classes = classNames([
+		'sds-surface',
+		{
+			'sds-surface--clickable': clickable,
+			'sds-surface--disabled': disabled,
+		},
+		surfaceClassName(surface),
+		className,
+	]);
 
 	// various conditional props
 	const conditionalProps = {};
@@ -87,30 +80,30 @@ const Surface = React.forwardRef(({
 	} else if (isLink) {
 		conditionalProps.href = href;
 		conditionalProps.rel = 'noreferrer noopener';
-		if (click) {
-			conditionalProps.onClick = withPureClick(click);
-			conditionalProps.onKeyPress = spaceClick(click);
+		if (onClick) {
+			conditionalProps.onClick = withPureClick(onClick);
+			conditionalProps.onKeyPress = spaceClick(onClick);
 		}
 	} else {
-		conditionalProps.onClick = click;
+		conditionalProps.onClick = onClick;
 	}
 	if (!clickable) {
 		conditionalProps.tabIndex = '-1';
 	}
 
-	return <MainTag className={classes} ref={ref} {...conditionalProps} {...props} />;
+	return <MainTag className={classes} ref={ref} type={type} {...conditionalProps} {...props} />;
 });
 
 Surface.displayName = 'Surface';
 
 Surface.propTypes = {
-	surface: PropTypes.oneOf(ALL_SURFACE_LEVELS),
+	surface: PropTypes.oneOf(SURFACE_LEVELS),
 	className: PropTypes.string,
 	tagName: PropTypes.string,
 	disabled: PropTypes.bool,
-	sharp: PropTypes.bool,
 	href: PropTypes.string,
 	onClick: PropTypes.func,
+	type: PropTypes.string,
 };
 
 export default Surface;
@@ -118,7 +111,7 @@ export default Surface;
 /**
  * An object with Surface's properties.
  * @typedef {Object} SurfaceProps
- * @property {0|1|2|3|4|5|6} [surface=5] Surface level 0-5; any other value results in a primary surface
+ * @property {0|1|2|3|4|5|6} [surface=5] Surface level 0-6; 0 is transparent, 6 is primary surface
  * @property {string} [className] Space separated list of CSS classes to be added to those that Surface uses internaly
  * @property {string} [tagName="div"] Rendered element/component to be equipped with a surface visual
  * @property {boolean} [primary=false] If set, Button is rendered in accent color, otherwise the color is derived from given Surface

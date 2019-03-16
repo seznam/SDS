@@ -61,7 +61,7 @@ const Button = ({
 
 	return <Surface
 		tagName="button"
-		surface={primary ? PRIMARY_SURFACE : surface }
+		surface={primary ? PRIMARY_SURFACE : surface}
 		className={classes}
 		role="button"
 		href={href}
