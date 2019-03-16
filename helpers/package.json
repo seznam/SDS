@@ -1,6 +1,6 @@
 {
 	"name": "@sznds/helpers",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Helper Javascript functions for SDS components. Framework agnostic ES6 and ES5 traspiled code.",
 	"author": {
 		"name": "Jakub Kraft",
