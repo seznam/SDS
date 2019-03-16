@@ -15,8 +15,11 @@ export const withPureClick = onClick => {
  * Higher order function to wrap around a click event handler that blurs the clicked element after the passed function is executed
  * @param {function} onClick The event handler to be called
  * @returns {function} new handler
+ * @deprecated
  */
 export const blurAfterClick = onClick => {
+	console.warn("Function blurAfterClick is deprecated and will be removed in the near future.");
+
 	return e => {
 		if (onClick) { onClick(e); }
 		e.currentTarget.blur && typeof e.currentTarget.blur === "function" && e.currentTarget.blur();
