@@ -1,5 +1,10 @@
 .sds-card {
 	display: block;
+	border-radius: unit(@sdsBorderRadius / 16, rem);
+
+	&:before {
+		border-radius: unit(@sdsBorderRadius / 16, rem);
+	}
 }
 
 .sds-card__content {

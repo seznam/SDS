@@ -13,6 +13,11 @@
 	padding: 0 unit(12 / 16, rem);
 	user-select: none;
 	position: relative;
+	border-radius: unit(@sdsBorderRadius / 16, rem);
+
+	&:before {
+		border-radius: unit(@sdsBorderRadius / 16, rem);
+	}
 
 	.sds-icon {
 		color: lighten(@sdsColorText, 62.6%);

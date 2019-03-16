@@ -11,6 +11,11 @@
 	max-width: 100%;
 	user-select: none;
 	position: relative;
+	border-radius: unit(@sdsBorderRadius / 16, rem);
+
+	&:before {
+		border-radius: unit(@sdsBorderRadius / 16, rem);
+	}
 }
 
 .sds-tag__content {

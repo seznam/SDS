@@ -5,7 +5,6 @@
 
 .sds-surface {
 	position: relative;
-	border-radius: unit(4 / 16, rem);
 	border: 0;
 	box-sizing: border-box;
 	transition: @sdsOutlineTransition;
@@ -24,13 +23,8 @@
 		top: 0;
 		bottom: 0;
 		border: unit(@sdsBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
-		border-radius: unit(4 / 16, rem);
 		pointer-events: none;
 	}
-}
-
-.sds-surface--sharp {
-	border-radius: 0;
 }
 
 .sds-surface--clickable {
