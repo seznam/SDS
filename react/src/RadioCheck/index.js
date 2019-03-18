@@ -77,7 +77,7 @@ const RadioCheck = ({
 RadioCheck.propTypes = {
 	className: PropTypes.string,
 	type: PropTypes.oneOf([TYPE_CHECK, TYPE_RADIO]),
-	forwardedRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+	forwardedRef: PropTypes.shape({ current: PropTypes.any }),
 	disabled: PropTypes.bool,
 	error: PropTypes.bool,
 	label: PropTypes.string,
