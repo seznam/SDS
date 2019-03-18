@@ -1,0 +1,170 @@
+@import "../common/colors.less";
+@import "../common/global-constants.less";
+
+.sds-navitem {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
+	user-select: none;
+	position: relative;
+	box-sizing: border-box;
+	padding: 0;
+	background: @sdsColorBg255;
+	color: @sdsColorText;
+	border-radius: unit(@sdsBorderRadius / 16, rem);
+	border: 0;
+	cursor: pointer;
+	height: unit(40 / 16, rem);
+	overflow: hidden;
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		border: unit(@sdsBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
+		border-radius: unit(@sdsBorderRadius / 16, rem);
+		pointer-events: none;
+	}
+
+	&:focus {
+		outline: none; /* we do our own outline so the system one needs to go */
+		box-shadow: @sdsShadowOutline;
+		z-index: 1;
+	}
+}
+
+.sds-navitem__text {
+	margin: 0 unit(16 / 16, rem);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.sds-navitem--selected {
+	font-weight: bold;
+}
+
+.sds-navitem--horizontal {
+	flex-direction: column;
+}
+
+.sds-navitem--vertical {
+	flex-direction: row;
+	width: 100%;
+	justify-content: start;
+}
+
+.sds-navitem__icon {
+	width: unit(16 / 16, rem);
+	height: unit(16 / 16, rem);
+}
+
+/* level 1 - main menu */
+.sds-navitem--level1 {
+	&.sds-navitem--horizontal {
+		height: unit(72 / 16, rem);
+	}
+
+	&.sds-navitem--selected {
+		background: @sdsColorBg240;
+		color: @sdsColorHighlightText;
+	}
+
+	&:hover {
+		background: @sdsColorBg240;
+		color: @sdsColorHighlightText;
+	}
+
+	&:active {
+		background: @sdsColorBg224;
+		color: @sdsColorHighlightText;
+		box-shadow: none;
+	}
+}
+
+/* level 2 - submenu */
+.sds-navitem--level2 {
+	&.sds-navitem--selected {
+		background: @sdsColorBg240;
+		color: @sdsColorHighlightText;
+	}
+
+	&:hover {
+		background: @sdsColorBg240;
+		color: @sdsColorHighlightText;
+	}
+
+	&:active {
+		background: @sdsColorBg224;
+		color: @sdsColorHighlightText;
+	}
+}
+
+/* level 3 - tabs */
+.sds-navitem--level3 {
+	height: unit(48 / 16, rem);
+
+	&.sds-navitem--selected {
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			pointer-events: none;
+		}
+
+		&.sds-navitem--horizontal {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+
+			&:first-child {
+				border-bottom-left-radius: unit(@sdsBorderRadius / 16, rem);
+			}
+
+			&:last-child {
+				border-bottom-right-radius: unit(@sdsBorderRadius / 16, rem);
+			}
+
+			&:after {
+				border-bottom: unit(2 / 16, rem) solid currentColor;
+			}
+		}
+
+		&.sds-navitem--vertical {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+
+			&:first-child {
+				border-top-left-radius: unit(@sdsBorderRadius / 16, rem);
+			}
+
+			&:last-child {
+				border-bottom-left-radius: unit(@sdsBorderRadius / 16, rem);
+			}
+
+			&:after {
+				border-left: unit(2 / 16, rem) solid currentColor;
+			}
+		}
+	}
+
+	&:before {
+		border-radius: 0;
+	}
+
+	&:hover {
+		color: @sdsColorHighlightText;
+	}
+
+	&:active {
+		color: @sdsColorHighlightText;
+	}
+}
