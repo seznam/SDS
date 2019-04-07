@@ -9,6 +9,8 @@ const LEVEL_CLASSES = {
 	3: 'sds-typography_body',
 };
 
+const DEFAULT_LAYOUT = 'horizontal';
+
 /**
  * A functional component NavItem represents an item of a level 1 or 2 menu or a tab, which is level 3.
  * @param {NavItemProps} props An object with properties
@@ -17,12 +19,13 @@ const NavItem = ({
 	className = '',
 	icon = '',
 	submenu = false,
+	open = false,
 	selected = false,
 	href,
 	onClick,
 	children,
 	level = 1,
-	layout = 'horizontal',
+	layout = DEFAULT_LAYOUT,
 	...props
 }) => {
 	const MainTag = href ? 'a' : 'button';
@@ -54,9 +57,19 @@ const NavItem = ({
 		conditionalProps.onClick = onClick;
 	}
 
+	// what icon is really shown
+	const outIcon = level === 1
+		? icon && layout !== DEFAULT_LAYOUT
+			? icon
+			: selected
+				? 'dot'
+				: 'empty'
+		: null;
+
 	return <MainTag className={classes} {...conditionalProps} {...props}>
-		{icon && level === 1 ? <Icon symbol={icon} className="sds-navitem__icon" /> : null}
+		{outIcon ? <Icon symbol={outIcon} className={classNames(['sds-navitem__icon', { 'sds-navitem__icon--dot': outIcon === 'dot' }])} /> : null}
 		<span className="sds-navitem__text">{children}</span>
+		{submenu && level === 1 && layout !== DEFAULT_LAYOUT ? <Icon symbol={open ? 'arrowUp' : 'arrowDown'} className="sds-navitem__icon-submenu" /> : null}
 	</MainTag>;
 };
 
@@ -64,6 +77,7 @@ NavItem.propTypes = {
 	className: PropTypes.string,
 	icon: PropTypes.string,
 	submenu: PropTypes.bool,
+	open: PropTypes.bool,
 	selected: PropTypes.bool,
 	href: PropTypes.string,
 	onClick: PropTypes.func,

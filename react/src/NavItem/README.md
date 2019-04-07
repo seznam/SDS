@@ -19,6 +19,5 @@ An object with NavItem's properties.
 | --- | --- | --- |
 | [className] | <code>string</code> | Space separated list of CSS classes to be added to those that Button uses internaly |
 | [icon] | <code>string</code> | Icon |
-| [text] | <code>string</code> |  |
 | [onClick] | <code>function</code> | An onClick event listener (also triggered if the NavItem is focused and spacebar is pressed) |
 

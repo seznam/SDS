@@ -9,6 +9,7 @@ import Input from './Input';
 import Textarea from './Textarea';
 import Radio from './Radio';
 import Checkbox from './Checkbox';
+import NavItem from './NavItem';
 
 export {
 	Button,
@@ -22,4 +23,5 @@ export {
 	Textarea,
 	Radio,
 	Checkbox,
+	NavItem,
 };
