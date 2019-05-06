@@ -47,6 +47,14 @@
 .sds-navitem__text {
 	margin: unit(8 / 16, rem) unit(16 / 16, rem);
 	text-align: left;
+
+	&::after {
+		content: attr(data-text);
+		height: 0;
+		overflow: hidden;
+		font-weight: 700;
+		display: block;
+	}
 }
 
 .sds-navitem__icon--dot {
@@ -63,6 +71,11 @@
 
 	.sds-navitem__icon {
 		order: 1;
+	}
+
+	.sds-navitem__text {
+		display: block;
+		text-align: center;
 	}
 }
 
