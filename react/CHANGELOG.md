@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Přidáno
 - Komponenta NavItem.
 
+## [0.2.4] - 2019-03-18
+### Opraveno
+- PropTypes už neodkazují na Element, který na serveru není definován.
+
 ## [0.2.3] - 2019-03-17
 ### Přidáno
 - Tento changelog.
