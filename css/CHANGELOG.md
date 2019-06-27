@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [unreleased]
+## [0.2.4] - 2019-06-27
 ### Přidáno
 - Proměnná `@sdsColorMildText` pro lehce světlejší text.
 
