@@ -49,11 +49,8 @@ const Surface = React.forwardRef(({
 	type,
 	...props
 }, ref) => {
-	// we render a link only if a href parameter is set
-	const isLink = !!href;
-
 	// the rendered tag is either tagName or "a", if href is present
-	const MainTag = isLink ? 'a' : tagName;
+	const MainTag = href ? 'a' : tagName;
 
 	// without action it is not clickable
 	const clickable = !disabled && (href || onClick || (MainTag === 'button' && type !== 'button'));
@@ -77,7 +74,7 @@ const Surface = React.forwardRef(({
 			conditionalProps.disabled = true;
 		}
 	// inside of this !disabled condition, because an "a" is truly unclickable only if href is left out
-	} else if (isLink) {
+	} else if (href) {
 		conditionalProps.href = href;
 		conditionalProps.rel = 'noreferrer noopener';
 		if (onClick) {

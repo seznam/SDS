@@ -1,0 +1,179 @@
+@import "../common/colors.less";
+@import "../common/global-constants.less";
+
+.sds-navitem {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
+	user-select: none;
+	position: relative;
+	box-sizing: border-box;
+	padding: 0;
+	background: @sdsColorBg255;
+	color: @sdsColorMildText;
+	border-radius: unit(@sdsBorderRadius / 16, rem);
+	border: 0;
+	cursor: pointer;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		border: unit(@sdsBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
+		border-radius: unit(@sdsBorderRadius / 16, rem);
+		pointer-events: none;
+	}
+
+	&:focus {
+		outline: none; /* we do our own outline so the system one needs to go */
+		box-shadow: @sdsShadowOutline;
+		z-index: 1;
+	}
+
+	&:hover {
+		color: @sdsColorText;
+	}
+
+	&:active {
+		color: @sdsColorText;
+	}
+}
+
+.sds-navitem__text {
+	margin: unit(8 / 16, rem) unit(16 / 16, rem);
+	text-align: left;
+
+	&::after {
+		content: attr(data-text);
+		height: 0;
+		overflow: hidden;
+		font-weight: 700;
+		display: block;
+	}
+}
+
+.sds-navitem__icon--dot {
+	color: @sdsColorAccent;
+}
+
+.sds-navitem--selected {
+	font-weight: 700;
+	color: @sdsColorText;
+}
+
+.sds-navitem--horizontal {
+	flex-direction: column;
+
+	.sds-navitem__icon {
+		order: 1;
+	}
+
+	.sds-navitem__text {
+		display: block;
+		text-align: center;
+	}
+}
+
+.sds-navitem--vertical {
+	flex-direction: row;
+	width: 100%;
+	justify-content: start;
+}
+
+.sds-navitem__icon {
+	width: unit(16 / 16, rem);
+	height: unit(16 / 16, rem);
+}
+
+/* level 1 - main menu */
+
+.sds-navitem--level1 {
+	&.sds-navitem--horizontal {
+		height: unit(72 / 16, rem);
+		justify-content: start;
+
+		.sds-navitem__text {
+			margin: unit(24 / 16, rem) unit(16 / 16, rem) 0 unit(16 / 16, rem);
+		}
+
+		.sds-navitem__icon {
+			color: @sdsColorAccent;
+		}
+	}
+
+	&.sds-navitem--vertical {
+		.sds-navitem__text {
+			margin: unit(8 / 16, rem) 0;
+			flex: 1;
+
+			&:first-child {
+				margin-left: unit(8 / 16, rem);
+			}
+
+			&:last-child {
+				margin-right: unit(8 / 16, rem);
+			}
+		}
+
+		.sds-navitem__icon, .sds-navitem__icon-submenu {
+			flex-shrink: 0;
+			margin: unit(8 / 16, rem);
+		}
+	}
+}
+
+/* level 2 - submenu */
+
+.sds-navitem--level2 {
+	&.sds-navitem--selected {
+		background: @sdsColorBg240;
+	}
+
+	&:hover {
+		background: @sdsColorBg240;
+	}
+
+	&:active {
+		background: @sdsColorBg224;
+	}
+}
+
+/* level 3 - tabs */
+
+.sds-navitem--level3 {
+	&.sds-navitem--selected {
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			pointer-events: none;
+		}
+	}
+
+	&.sds-navitem--horizontal {
+		height: unit(48 / 16, rem);
+
+		&:after {
+			border-bottom: unit(2 / 16, rem) solid currentColor;
+			left: unit(15 / 16, rem);
+			right: unit(15 / 16, rem);
+		}
+	}
+
+	&.sds-navitem--vertical {
+		&:after {
+			border-left: unit(2 / 16, rem) solid currentColor;
+			top: unit(4 / 16, rem);
+			bottom: unit(4 / 16, rem);
+		}
+	}
+}
