@@ -39,7 +39,7 @@ const surfaceClassName = depth => `sds-surface--${(depth === PRIMARY_SURFACE ? '
  * Surface encapsulates the visual style of an elevated surface of any given element/component
  * @param {SurfaceProps} props An object with properties
  */
-const Surface = React.forwardRef(({
+const Surface = React.memo(React.forwardRef(({
 	surface = DEFAULT_SURFACE,
 	className = '',
 	tagName = 'div',
@@ -89,7 +89,7 @@ const Surface = React.forwardRef(({
 	}
 
 	return <MainTag className={classes} ref={ref} type={type} {...conditionalProps} {...props} />;
-});
+}));
 
 Surface.displayName = 'Surface';
 

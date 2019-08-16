@@ -7,20 +7,20 @@
 		"email": "jakub.kraft@firma.seznam.cz"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.2.3",
-		"@babel/core": "^7.3.4",
-		"@babel/plugin-proposal-object-rest-spread": "^7.3.4",
-		"@babel/preset-env": "^7.3.4",
+		"@babel/cli": "^7.5.5",
+		"@babel/core": "^7.5.5",
+		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+		"@babel/preset-env": "^7.5.5",
 		"@babel/preset-react": "^7.0.0",
-		"@types/react": "^16.8.7",
-		"@types/react-dom": "^16.8.2",
-		"babel-eslint": "^10.0.1",
-		"eslint": "^5.15.1",
-		"eslint-plugin-react": "^7.12.4",
+		"@types/react": "^16.8.24",
+		"@types/react-dom": "^16.8.5",
+		"babel-eslint": "^10.0.2",
+		"eslint": "^6.1.0",
+		"eslint-plugin-react": "^7.14.3",
 		"foreach-cli": "^1.8.1",
-		"jsdoc-to-markdown": "^4.0.1",
-		"rollup": "^0.65.2",
-		"rollup-plugin-node-resolve": "^3.4.0"
+		"jsdoc-to-markdown": "^5.0.0",
+		"rollup": "^1.18.0",
+		"rollup-plugin-node-resolve": "^5.2.0"
 	},
 	"scripts": {
 		"build": "babel src --out-dir dist && ./node_modules/rollup/bin/rollup --config && cp package.json dist && cp README.md dist",
@@ -34,8 +34,9 @@
 		"@sznds/css": "^0.2.4",
 		"@sznds/helpers": "^0.0.2",
 		"@sznds/icons": "^0.2.1",
+		"core-js": "^3.1.4",
 		"prop-types": "^15.7.2",
-		"react": "^16.8.4",
-		"react-dom": "^16.8.4"
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6"
 	}
 }

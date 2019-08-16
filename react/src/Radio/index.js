@@ -5,7 +5,7 @@ import RadioCheck, { TYPE_RADIO } from '../RadioCheck';
  * Radio provides encapsulation for label, anything that is supposed to be a form field and optional description
  * @param {RadioProps} props An object with properties
  */
-const Radio = React.forwardRef((props, ref) => <RadioCheck {...props} forwardedRef={ref} type={TYPE_RADIO} />);
+const Radio = React.memo(React.memo(React.forwardRef((props, ref) => <RadioCheck {...props} forwardedRef={ref} type={TYPE_RADIO} />)));
 
 Radio.displayName = 'Radio';
 
