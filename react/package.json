@@ -1,41 +1,49 @@
 {
-	"name": "@sznds/react",
-	"version": "0.2.5",
-	"description": "React implementation of some common components done in Seznam.cz's design system SDS.",
-	"author": {
-		"name": "Jakub Kraft",
-		"email": "jakub.kraft@firma.seznam.cz"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.2.3",
-		"@babel/core": "^7.3.4",
-		"@babel/plugin-proposal-object-rest-spread": "^7.3.4",
-		"@babel/preset-env": "^7.3.4",
-		"@babel/preset-react": "^7.0.0",
-		"@types/react": "^16.8.7",
-		"@types/react-dom": "^16.8.2",
-		"babel-eslint": "^10.0.1",
-		"eslint": "^5.15.1",
-		"eslint-plugin-react": "^7.12.4",
-		"foreach-cli": "^1.8.1",
-		"jsdoc-to-markdown": "^4.0.1",
-		"rollup": "^0.65.2",
-		"rollup-plugin-node-resolve": "^3.4.0"
-	},
-	"scripts": {
-		"build": "babel src --out-dir dist && ./node_modules/rollup/bin/rollup --config && cp package.json dist && cp README.md dist",
-		"clear": "rm -rf dist",
-		"docs": "./node_modules/foreach-cli/bin -g \"./src/**/*.js\" -x \"nodejs ./node_modules/jsdoc-to-markdown/bin/cli.js --partial ./docs/scope.hbs  --files #{path} --global-index-format none > #{dir}/README.md\"",
-		"post": "npm publish --access=public dist"
-	},
-	"main": "main.js",
-	"module": "index.js",
-	"dependencies": {
-		"@sznds/css": "^0.2.4",
-		"@sznds/helpers": "^0.0.2",
-		"@sznds/icons": "^0.2.1",
-		"prop-types": "^15.7.2",
-		"react": "^16.8.4",
-		"react-dom": "^16.8.4"
-	}
+  "name": "@sznds/react",
+  "version": "0.2.5",
+  "description": "React implementation of some common components done in Seznam.cz's design system SDS.",
+  "author": {
+    "name": "Jakub Kraft",
+    "email": "jakub.kraft@firma.seznam.cz"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-knobs": "^5.1.11",
+    "@storybook/addon-links": "^5.1.11",
+    "@storybook/addons": "^5.1.11",
+    "@storybook/react": "^5.1.11",
+    "@types/react": "^16.8.7",
+    "@types/react-dom": "^16.8.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "eslint": "^5.15.1",
+    "eslint-plugin-react": "^7.12.4",
+    "foreach-cli": "^1.8.1",
+    "jsdoc-to-markdown": "^4.0.1",
+    "rollup": "^0.65.2",
+    "rollup-plugin-node-resolve": "^3.4.0"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist && ./node_modules/rollup/bin/rollup --config && cp package.json dist && cp README.md dist",
+    "clear": "rm -rf dist",
+    "docs": "./node_modules/foreach-cli/bin -g \"./src/**/*.js\" -x \"nodejs ./node_modules/jsdoc-to-markdown/bin/cli.js --partial ./docs/scope.hbs  --files #{path} --global-index-format none > #{dir}/README.md\"",
+    "post": "npm publish --access=public dist",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "main": "main.js",
+  "module": "index.js",
+  "dependencies": {
+    "@sznds/css": "^0.2.4",
+    "@sznds/helpers": "^0.0.2",
+    "@sznds/icons": "^0.2.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
 }
