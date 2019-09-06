@@ -3,7 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [unreleased]
+## [0.3.0] - 2019-09-06
+### Změněno
+- Funkční komponenty jsou memoizované.
+- React a ReactDOM jsou devDependencies a peerDependencies (verze 16.8), ale ne dependencies.
+
+## [0.2.5] - 2019-06-27
 ### Přidáno
 - Komponenta NavItem.
 
