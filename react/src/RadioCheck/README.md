@@ -10,7 +10,7 @@ To be used as value for `type` property of RadioCheck component, if the desired 
 
 <a name="RadioCheck"></a>
 
-## RadioCheck(props)
+## RadioCheck
 A functional component RadioCheck represents a checkbox or a radiobutton with inline label or standalone. It takes [RadioCheckProps](#RadioCheckProps) as a parameter and returns a React component instance.
 
 

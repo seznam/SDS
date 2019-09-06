@@ -21,7 +21,7 @@ export const TYPE_CHECK = 2;
  * A functional component RadioCheck represents a checkbox or a radiobutton with inline label or standalone. It takes {@link RadioCheckProps} as a parameter and returns a React component instance.
  * @param {RadioCheckProps} props An object with properties
  */
-const RadioCheck = ({
+const RadioCheck = React.memo(({
 	className = '',
 	type = TYPE_CHECK,
 	forwardedRef,
@@ -72,7 +72,7 @@ const RadioCheck = ({
 		</svg>
 		{label ? <span className={classesLabel}>{label}</span> : null}
 	</label>;
-};
+});
 
 RadioCheck.propTypes = {
 	className: PropTypes.string,

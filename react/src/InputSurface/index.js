@@ -18,7 +18,7 @@ const DISABLABLE = ['input', 'textarea', 'button', 'select', 'fieldset', 'keygen
  * InputSurface encapsulates the visual style of an input of any given element/component
  * @param {InputSurfaceProps} props An object with properties
  */
-const InputSurface = React.forwardRef(({
+const InputSurface = React.memo(React.forwardRef(({
 	className = '',
 	tagName = 'div',
 	disabled = false,
@@ -51,7 +51,7 @@ const InputSurface = React.forwardRef(({
 	}
 
 	return <MainTag className={classes} ref={ref} {...conditionalProps} {...props} />;
-});
+}));
 
 InputSurface.displayName = 'InputSurface';
 

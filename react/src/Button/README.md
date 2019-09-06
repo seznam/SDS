@@ -1,6 +1,6 @@
 <a name="Button"></a>
 
-## Button(props)
+## Button
 A functional component Button represents a primary or secondary standalone button. It takes [ButtonProps](#ButtonProps) as a parameter and returns a React component instance.
 
 

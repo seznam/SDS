@@ -1,6 +1,6 @@
 <a name="Card"></a>
 
-## Card(props)
+## Card
 **WIP** A functional component Card represents a single card (usually in a list). It takes [CardProps](#CardProps) as a parameter and returns a React component instance.
 
 

@@ -24,7 +24,7 @@ const SIZES = {
  * Tag represents one selected and removable option of many (e.g. filter options). It takes {@link TagProps} as a parameter and returns a React component instance.
  * @param {TagProps} props An object with properties
  */
-const Tag = ({
+const Tag = React.memo(({
 	surface = DEFAULT_SURFACE,
 	className = '',
 	size = DEFAULT_SIZE,
@@ -52,7 +52,7 @@ const Tag = ({
 		<div className="sds-tag__content">{children}</div>
 		<button className={classesButton} type="button" onClick={onClick}><Icon symbol="close" /></button>
 	</Surface>;
-};
+});
 
 Tag.propTypes = {
 	surface: PropTypes.oneOf(SURFACE_LEVELS),
