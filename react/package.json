@@ -1,6 +1,6 @@
 {
-	"name": "@sznds/react-next",
-	"version": "0.0.2",
+	"name": "@sznds/react",
+	"version": "0.3.0",
 	"description": "React implementation of some common components done in Seznam.cz's design system SDS.",
 	"author": {
 		"name": "Jakub Kraft",
