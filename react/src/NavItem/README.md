@@ -1,6 +1,6 @@
 <a name="NavItem"></a>
 
-## NavItem(props)
+## NavItem
 A functional component NavItem represents an item of a level 1 or 2 menu or a tab, which is level 3.
 
 

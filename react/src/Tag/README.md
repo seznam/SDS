@@ -1,6 +1,6 @@
 <a name="Tag"></a>
 
-## Tag(props)
+## Tag
 Tag represents one selected and removable option of many (e.g. filter options). It takes [TagProps](#TagProps) as a parameter and returns a React component instance.
 
 

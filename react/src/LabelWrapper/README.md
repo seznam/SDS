@@ -1,6 +1,6 @@
 <a name="LabelWrapper"></a>
 
-## LabelWrapper(props)
+## LabelWrapper
 LabelWrapper provides encapsulation for label, anything that is supposed to be a form field and optional description. It takes [LabelWrapperProps](#LabelWrapperProps) as a parameter and returns a React component instance.
 
 

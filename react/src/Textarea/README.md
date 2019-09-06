@@ -1,6 +1,6 @@
 <a name="Textarea"></a>
 
-## Textarea(props)
+## Textarea
 A functional component Textarea represents a multiline text input field. It takes [TextareaProps](#TextareaProps) as a parameter and returns a React component instance.
 
 

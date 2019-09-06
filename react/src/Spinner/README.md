@@ -1,6 +1,6 @@
 <a name="Spinner"></a>
 
-## Spinner(props)
+## Spinner
 A functional component Spinner represents a loader visualisation. It takes [SpinnerProps](#SpinnerProps) as a parameter and returns a React component instance.
 
 
