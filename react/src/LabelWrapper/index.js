@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
  * Default size of a LabelWrapper component.
  * @private
  */
-const DEFAULT_SIZE = 'regular';
+export const DEFAULT_SIZE = 'regular';
 
 /**
  * Default layout of a LabelWrapper component.
  * @private
  */
-const DEFAULT_LAYOUT = 'column';
+export const DEFAULT_LAYOUT = 'column';
 
 /**
  * LabelWrapper provides encapsulation for label, anything that is supposed to be a form field and optional description. It takes {@link LabelWrapperProps} as a parameter and returns a React component instance.

@@ -9,11 +9,11 @@ const LEVEL_CLASSES = {
 	3: 'sds-typography_body',
 };
 
-const DEFAULT_LAYOUT = 'horizontal';
+export const DEFAULT_LAYOUT = 'horizontal';
 
-const LEVEL_MENU = 1;
-const LEVEL_SUBMENU = 2;
-const LEVEL_TABS = 3;
+export const LEVEL_MENU = 1;
+export const LEVEL_SUBMENU = 2;
+export const LEVEL_TABS = 3;
 
 /**
  * A functional component NavItem represents an item of a level 1 or 2 menu or a tab, which is level 3.
