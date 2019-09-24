@@ -18,7 +18,7 @@ export const DEFAULT_LAYOUT = 'column';
  * LabelWrapper provides encapsulation for label, anything that is supposed to be a form field and optional description. It takes {@link LabelWrapperProps} as a parameter and returns a React component instance.
  * @param {LabelWrapperProps} props An object with properties
  */
-const LabelWrapper = ({
+const LabelWrapper = React.memo(({
 	className = '',
 	label = '',
 	layout = DEFAULT_LAYOUT,
@@ -43,7 +43,7 @@ const LabelWrapper = ({
 			<p className="sds-labelwrapper__description sds-typography_body--small">{errorDescription ? errorDescription : description}</p>
 		</div>
 	</label>;
-};
+});
 
 LabelWrapper.propTypes = {
 	className: PropTypes.string,

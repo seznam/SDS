@@ -19,7 +19,7 @@ export const LEVEL_TABS = 3;
  * A functional component NavItem represents an item of a level 1 or 2 menu or a tab, which is level 3.
  * @param {NavItemProps} props An object with properties
  */
-const NavItem = ({
+const NavItem = React.memo(({
 	className = '',
 	icon = '',
 	submenu = false,
@@ -75,7 +75,7 @@ const NavItem = ({
 		<span className="sds-navitem__text" data-text={text}>{text}</span>
 		{submenu && level === 1 && layout !== DEFAULT_LAYOUT ? <Icon symbol={open ? 'arrowUp' : 'arrowDown'} className="sds-navitem__icon-submenu" /> : null}
 	</MainTag>;
-};
+});
 
 NavItem.propTypes = {
 	className: PropTypes.string,

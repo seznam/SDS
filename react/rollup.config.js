@@ -10,9 +10,10 @@ export default {
 	},
 	plugins: [
 		resolve({
-			module: true,
+			mainFields: ['module', 'main'],
 			extensions: ['.mjs', '.js', '.jsx', '.json'],
 			modulesOnly: true,
+			dedupe: [ 'react', 'react-dom' ],
 		}),
 	],
 	external: ['react', 'prop-types', '@sznds/helpers', '@sznds/icons'],

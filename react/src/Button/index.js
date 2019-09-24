@@ -25,7 +25,7 @@ const SIZES = {
  * A functional component Button represents a primary or secondary standalone button. It takes {@link ButtonProps} as a parameter and returns a React component instance.
  * @param {ButtonProps} props An object with properties
  */
-const Button = ({
+const Button = React.memo(({
 	surface = DEFAULT_SURFACE,
 	className = '',
 	primary = false,
@@ -72,7 +72,7 @@ const Button = ({
 		{loading ? <Spinner /> : null}
 		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sds-button__text">{text}</span> : null}
 	</Surface>;
-};
+});
 
 Button.propTypes = {
 	surface: PropTypes.oneOf(SURFACE_LEVELS),

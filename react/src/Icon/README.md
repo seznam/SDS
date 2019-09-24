@@ -1,6 +1,6 @@
 <a name="Icon"></a>
 
-## Icon(props)
+## Icon
 Icon component represents one of the built-in SVG icons packed with SDS
 
 
