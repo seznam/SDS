@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import InputSurface from './index';
 
+import readme from './README.md';
+
 // eslint-disable-next-line no-undef
 const stories = storiesOf('InputSurface', module);
 
@@ -15,4 +17,6 @@ stories.add('nastavitelný', () => (
 		error={boolean('Error', false)}
 		size={select('Size', ['small', 'regular'], 'regular')}
 	/>
-));
+), {
+	notes: { markdown: readme },
+});

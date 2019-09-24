@@ -7,26 +7,27 @@
     "email": "jakub.kraft@firma.seznam.cz"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-actions": "^5.1.11",
-    "@storybook/addon-knobs": "^5.1.11",
-    "@storybook/addon-links": "^5.1.11",
-    "@storybook/addons": "^5.1.11",
-    "@storybook/react": "^5.1.11",
-    "@types/react": "^16.8.7",
-    "@types/react-dom": "^16.8.2",
-    "babel-eslint": "^10.0.1",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-knobs": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addon-notes": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "eslint": "^5.15.1",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint": "^6.4.0",
+    "eslint-plugin-react": "^7.14.3",
     "foreach-cli": "^1.8.1",
-    "jsdoc-to-markdown": "^4.0.1",
-    "rollup": "^0.65.2",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "jsdoc-to-markdown": "^5.0.1",
+    "rollup": "^1.21.4",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "scripts": {
     "build": "babel src --out-dir dist && ./node_modules/rollup/bin/rollup --config && cp package.json dist && cp README.md dist",
@@ -43,7 +44,7 @@
     "@sznds/helpers": "^0.0.2",
     "@sznds/icons": "^0.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }

@@ -4,6 +4,8 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import LabelWrapper, { DEFAULT_SIZE, DEFAULT_LAYOUT } from './index';
 import Input from '../Input';
 
+import readme from './README.md';
+
 // eslint-disable-next-line no-undef
 const stories = storiesOf('LabelWrapper', module);
 
@@ -19,4 +21,6 @@ stories.add('nastavitelný', () => (
 	>
 		<Input />
 	</LabelWrapper>
-));
+), {
+	notes: { markdown: readme },
+});

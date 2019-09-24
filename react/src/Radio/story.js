@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import Radio from './index';
 
+import readme from './README.md';
+
 // eslint-disable-next-line no-undef
 const stories = storiesOf('Radio', module);
 
@@ -17,4 +19,6 @@ stories.add('nastavitelný', () => (
 		label={text('Label', '')}
 		onChange={action('change')}
 	/>
-));
+), {
+	notes: { markdown: readme },
+});

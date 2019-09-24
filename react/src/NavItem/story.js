@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import NavItem, { LEVEL_MENU, LEVEL_SUBMENU, LEVEL_TABS, DEFAULT_LAYOUT } from './index';
 
+import readme from './README.md';
+
 // eslint-disable-next-line no-undef
 const stories = storiesOf('NavItem', module);
 
@@ -21,4 +23,6 @@ stories.add('nastavitelný', () => (
 		level={select('Level', [LEVEL_MENU, LEVEL_SUBMENU, LEVEL_TABS], LEVEL_MENU)}
 		layout={select('Layout', ['horizontal', 'vertical'], DEFAULT_LAYOUT)}
 	/>
-));
+), {
+	notes: { markdown: readme },
+});

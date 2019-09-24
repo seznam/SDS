@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import Input from './index';
 
+import readme from './README.md';
+
 // eslint-disable-next-line no-undef
 const stories = storiesOf('Input', module);
 
@@ -18,7 +20,9 @@ stories.add('nastavitelný', () => (
 		iconLeft={text('IconLeft', 'search')}
 		iconRight={text('IconRight', 'clear')}
 	/>
-));
+), {
+	notes: { markdown: readme },
+});
 
 stories.add('s klikacími ikonami', () => <Input
 	iconLeft={text('IconLeft', 'search')}

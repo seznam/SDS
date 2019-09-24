@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import Textarea from './index';
 
+import readme from './README.md';
+
 // eslint-disable-next-line no-undef
 const stories = storiesOf('Textarea', module);
 
@@ -18,4 +20,6 @@ stories.add('nastavitelná', () => (
 		cols={text('Cols', '')}
 		rows={text('Rows', '')}
 	/>
-));
+), {
+	notes: { markdown: readme },
+});

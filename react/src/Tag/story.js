@@ -5,6 +5,8 @@ import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import Tag from './index';
 import { SURFACE_LEVELS, DEFAULT_SURFACE } from '../Surface';
 
+import readme from './README.md';
+
 // eslint-disable-next-line no-undef
 const stories = storiesOf('Tag', module);
 
@@ -18,4 +20,6 @@ stories.add('nastavitelný', () => (
 	>
 		Text
 	</Tag>
-));
+), {
+	notes: { markdown: readme },
+});

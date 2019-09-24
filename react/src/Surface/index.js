@@ -112,7 +112,6 @@ export default Surface;
  * @property {string} [className] Space separated list of CSS classes to be added to those that Surface uses internaly
  * @property {string} [tagName="div"] Rendered element/component to be equipped with a surface visual
  * @property {boolean} [disabled=false] If true, Surface is rendered as disabled and does not react to any action
- * @property {boolean} [sharp=false] If true, Surface does not have rounded edges and is suitable for full-width usage (header, footer, ...)
  * @property {string} [href] If set, Button shall be rendered as an "a" tag and can be CTRL + clicked, bookmarked etc.
  * @property {function} [onClick] An onClick event listener (also triggered if the Surface is focused and spacebar is pressed)
  */
