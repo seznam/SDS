@@ -37,7 +37,7 @@
 	"scripts": {
 		"build": "babel src --out-dir dist --no-comments && rollup --config && cp package.json dist && cp README.md dist",
 		"clear": "rm -rf dist",
-		"docs": "./node_modules/foreach-cli/bin -g \"./src/**/*.js\" -x \"nodejs ./node_modules/jsdoc-to-markdown/bin/cli.js --partial ./docs/scope.hbs  --files #{path} --global-index-format none > #{dir}/README.md\"",
+		"docs": "./node_modules/foreach-cli/bin -g \"./src/**/index.js\" -x \"nodejs ./node_modules/jsdoc-to-markdown/bin/cli.js --partial ./docs/scope.hbs  --files #{path} --global-index-format none > #{dir}/README.md\"",
 		"post": "npm publish --access=public dist",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
