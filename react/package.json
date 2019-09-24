@@ -7,30 +7,31 @@
 		"email": "jakub.kraft@firma.seznam.cz"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.5.5",
-		"@babel/core": "^7.5.5",
-		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-		"@babel/preset-env": "^7.5.5",
+		"@babel/cli": "^7.6.2",
+		"@babel/core": "^7.6.2",
+		"@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+		"@babel/preset-env": "^7.6.2",
 		"@babel/preset-react": "^7.0.0",
 		"@storybook/addon-actions": "^5.2.1",
-    "@storybook/addon-knobs": "^5.2.1",
-    "@storybook/addon-links": "^5.2.1",
-    "@storybook/addon-notes": "^5.2.1",
-    "@storybook/addons": "^5.2.1",
-    "@storybook/react": "^5.2.1",
-		"@types/react": "^16.8.24",
-		"@types/react-dom": "^16.8.5",
-		"babel-eslint": "^10.0.2",
+		"@storybook/addon-knobs": "^5.2.1",
+		"@storybook/addon-links": "^5.2.1",
+		"@storybook/addon-notes": "^5.2.1",
+		"@storybook/addons": "^5.2.1",
+		"@storybook/react": "^5.2.1",
+		"@types/react": "^16.9.2",
+		"@types/react-dom": "^16.9.0",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^8.0.6",
 		"babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-		"core-js": "^3.1.4",
-		"eslint": "^6.1.0",
+		"core-js": "^3.2.1",
+		"eslint": "^6.4.0",
 		"eslint-plugin-react": "^7.14.3",
 		"foreach-cli": "^1.8.1",
-		"jsdoc-to-markdown": "^5.0.0",
+		"jsdoc-to-markdown": "^5.0.1",
 		"prop-types": "^15.7.2",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
-		"rollup": "^1.18.0",
+		"rollup": "^1.21.4",
 		"rollup-plugin-node-resolve": "^5.2.0"
 	},
 	"scripts": {
@@ -49,7 +50,7 @@
 		"@sznds/icons": "^0.2.1"
 	},
 	"peerDependencies": {
-		"react": "16.8",
-		"react-dom": "16.8"
+		"react": "16.9",
+		"react-dom": "16.9"
 	}
 }
