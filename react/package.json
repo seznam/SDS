@@ -12,6 +12,12 @@
 		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
 		"@babel/preset-env": "^7.5.5",
 		"@babel/preset-react": "^7.0.0",
+		"@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-knobs": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addon-notes": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
 		"@types/react": "^16.8.24",
 		"@types/react-dom": "^16.8.5",
 		"babel-eslint": "^10.0.2",
@@ -31,7 +37,9 @@
 		"build": "babel src --out-dir dist --no-comments && rollup --config && cp package.json dist && cp README.md dist",
 		"clear": "rm -rf dist",
 		"docs": "./node_modules/foreach-cli/bin -g \"./src/**/*.js\" -x \"nodejs ./node_modules/jsdoc-to-markdown/bin/cli.js --partial ./docs/scope.hbs  --files #{path} --global-index-format none > #{dir}/README.md\"",
-		"post": "npm publish --access=public dist"
+		"post": "npm publish --access=public dist",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
 	},
 	"main": "main.js",
 	"module": "index.js",

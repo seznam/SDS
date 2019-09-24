@@ -111,9 +111,7 @@ export default Surface;
  * @property {0|1|2|3|4|5|6} [surface=5] Surface level 0-6; 0 is transparent, 6 is primary surface
  * @property {string} [className] Space separated list of CSS classes to be added to those that Surface uses internaly
  * @property {string} [tagName="div"] Rendered element/component to be equipped with a surface visual
- * @property {boolean} [primary=false] If set, Button is rendered in accent color, otherwise the color is derived from given Surface
  * @property {boolean} [disabled=false] If true, Surface is rendered as disabled and does not react to any action
- * @property {boolean} [sharp=false] If true, Surface does not have rounded edges and is suitable for full-width usage (header, footer, ...)
  * @property {string} [href] If set, Button shall be rendered as an "a" tag and can be CTRL + clicked, bookmarked etc.
  * @property {function} [onClick] An onClick event listener (also triggered if the Surface is focused and spacebar is pressed)
  */
