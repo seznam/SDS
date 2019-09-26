@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [unreleased]
+### Změněno
+- Různé komponenty potřebovaly drobné úpravy CSS po přepsaní na využívání komponenty `Typography`.
+
+## [0.2.6] - 2019-09-26
+### Přidáno
+- Třídy pro komponentu `Typography`.
+
+### Zastaráno
+- `sds-typography_*` třídy používané přímo jsou zastaralé ve prospěch `sds-typography--*` tříd, které využívá komponenta `Typography`.
+
 ## [0.2.4] - 2019-06-27
 ### Přidáno
 - Proměnná `@sdsColorMildText` pro lehce světlejší text.

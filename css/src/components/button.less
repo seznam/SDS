@@ -9,7 +9,6 @@
 	vertical-align: middle;
 	height: unit(48 / 16, rem);
 	max-width: 100%;
-	font-weight: bold;
 	padding: 0 unit(12 / 16, rem);
 	user-select: none;
 	position: relative;
@@ -38,11 +37,11 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	font-weight: bold;
 }
 
 .sds-button--small {
 	height: unit(40 / 16, rem);
-	font-weight: bold;
 	padding: 0 unit(8 / 16, rem);
 
 	.sds-button__text {
@@ -56,10 +55,10 @@
 
 .sds-button--xsmall {
 	height: unit(32 / 16, rem);
-	font-weight: normal;
 	padding: 0 unit(6 / 16, rem);
 
 	.sds-button__text {
+		font-weight: normal;
 		margin: 0 unit(6 / 16, rem);
 	}
 
@@ -75,8 +74,8 @@
 
 /* Button-specific changes to Surface rules - maybe there is a better way of doing this */
 
-.sds-button {
-	&.sds-surface--00, &.sds-surface--01 {
+.sds-surface--00, .sds-surface--01 {
+	.sds-button__text {
 		font-weight: normal;
 	}
 }

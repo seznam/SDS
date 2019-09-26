@@ -1,5 +1,6 @@
 import React from 'react';
 import { classNames } from '@sznds/helpers';
+import Typography from '../Typography';
 import Surface, { SURFACE_LEVELS, DEFAULT_SURFACE, PRIMARY_SURFACE } from '../Surface';
 import Icon from '../Icon';
 import Spinner from '../Spinner';
@@ -16,9 +17,15 @@ const DEFAULT_SIZE = 'regular';
  * @private
  */
 const SIZES = {
-	'x-small': 'sds-button--xsmall sds-typography_caption',
-	'small': 'sds-button--small sds-typography_body--small',
-	'regular': 'sds-typography_body',
+	'x-small': 'sds-button--xsmall',
+	'small': 'sds-button--small',
+	'regular': '',
+};
+
+const VARIANTS = {
+	'x-small': 'caption',
+	'small': 'body-small',
+	'regular': 'body',
 };
 
 /**
@@ -53,6 +60,8 @@ const Button = React.memo(({
 		className,
 	]);
 
+	const variant = VARIANTS[size in VARIANTS ? size : DEFAULT_SIZE];
+
 	// a "button" is rendered without a href prop, an "a" otherwise
 	const isLink = !!href;
 
@@ -70,7 +79,7 @@ const Button = React.memo(({
 		{...props}
 	>
 		{loading ? <Spinner /> : null}
-		{icon ? <Icon symbol={icon} /> : null}{text ? <span className="sds-button__text">{text}</span> : null}
+		{icon ? <Icon symbol={icon} /> : null}{text ? <Typography tagName="span" variant={variant} className="sds-button__text">{text}</Typography> : null}
 	</Surface>;
 });
 

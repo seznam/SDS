@@ -1,12 +1,13 @@
 import React from 'react';
 import { withPureClick, spaceClick, classNames } from '@sznds/helpers';
+import Typography from '../Typography';
 import Icon from '../Icon';
 import PropTypes from 'prop-types';
 
 const LEVEL_CLASSES = {
-	1: 'sds-typography_body',
-	2: 'sds-typography_body--small',
-	3: 'sds-typography_body',
+	1: 'body',
+	2: 'body-small',
+	3: 'body',
 };
 
 export const DEFAULT_LAYOUT = 'horizontal';
@@ -32,14 +33,11 @@ const NavItem = React.memo(({
 	layout = DEFAULT_LAYOUT,
 	...props
 }) => {
-	const MainTag = href ? 'a' : 'button';
-
 	const classes = classNames([
 		'sds-navitem',
 		'sds-helpers-button',
 		`sds-navitem--level${level}`,
 		`sds-navitem--${layout}`,
-		LEVEL_CLASSES[level],
 		{
 			'sds-navitem--submenu': submenu,
 			'sds-navitem--selected': selected,
@@ -70,11 +68,11 @@ const NavItem = React.memo(({
 				: 'empty'
 		: null;
 
-	return <MainTag className={classes} {...conditionalProps} {...props}>
+	return <Typography tagName={href ? 'a' : 'button'} variant={LEVEL_CLASSES[level]} className={classes} {...conditionalProps} {...props}>
 		{outIcon ? <Icon symbol={outIcon} className={classNames(['sds-navitem__icon', { 'sds-navitem__icon--dot': outIcon === 'dot' }])} /> : null}
 		<span className="sds-navitem__text" data-text={text}>{text}</span>
 		{submenu && level === 1 && layout !== DEFAULT_LAYOUT ? <Icon symbol={open ? 'arrowUp' : 'arrowDown'} className="sds-navitem__icon-submenu" /> : null}
-	</MainTag>;
+	</Typography>;
 });
 
 NavItem.propTypes = {

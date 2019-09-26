@@ -1,5 +1,6 @@
 import React from 'react';
 import { classNames } from '@sznds/helpers';
+import Typography from '../Typography';
 import PropTypes from 'prop-types';
 
 /**
@@ -30,19 +31,23 @@ const LabelWrapper = React.memo(({
 }) => {
 	const classes = classNames([
 		'sds-labelwrapper',
-		size === DEFAULT_SIZE ? 'sds-typography_body' : 'sds-typography_body--small sds-labelwrapper--small',
 		layout === DEFAULT_LAYOUT ? 'sds-labelwrapper--column' : 'sds-labelwrapper--row',
-		{ 'sds-labelwrapper--error': errorDescription },
+		{
+			'sds-labelwrapper--error': errorDescription,
+			'sds-labelwrapper--small': size !== DEFAULT_SIZE,
+		},
 		className,
 	]);
 
-	return <label className={classes} {...props}>
+	const variant = size === DEFAULT_SIZE ? 'body' : 'body-small';
+
+	return <Typography tagName="label" variant={variant} className={classes} {...props}>
 		<span className="sds-labelwrapper__label">{label}:</span>
 		<div>
 			{children}
-			<p className="sds-labelwrapper__description sds-typography_body--small">{errorDescription ? errorDescription : description}</p>
+			<Typography className="sds-labelwrapper__description" variant="body-small">{errorDescription ? errorDescription : description}</Typography>
 		</div>
-	</label>;
+	</Typography>;
 });
 
 LabelWrapper.propTypes = {

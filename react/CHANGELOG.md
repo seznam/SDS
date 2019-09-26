@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [unreleased]
+### Přidáno
+- Komponenta `Typography`.
+
+### Změněno
+- Všechny komponenty využívají interně komponentu `Typography`, místo aby samy přidávaly CSS třídy s nastavením písma.
+
 ## [0.3.0] - 2019-09-06
 ### Změněno
 - Funkční komponenty jsou memoizované.
@@ -10,7 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [0.2.5] - 2019-06-27
 ### Přidáno
-- Komponenta NavItem.
+- Komponenta `NavItem`.
 
 ## [0.2.4] - 2019-03-18
 ### Opraveno

@@ -18,8 +18,8 @@
 		"@storybook/addon-notes": "^5.2.1",
 		"@storybook/addons": "^5.2.1",
 		"@storybook/react": "^5.2.1",
-		"@types/react": "^16.9.2",
-		"@types/react-dom": "^16.9.0",
+		"@types/react": "^16.9.3",
+		"@types/react-dom": "^16.9.1",
 		"babel-eslint": "^10.0.3",
 		"babel-loader": "^8.0.6",
 		"babel-plugin-transform-react-remove-prop-types": "^0.4.24",
@@ -39,13 +39,13 @@
 		"clear": "rm -rf dist",
 		"docs": "./node_modules/foreach-cli/bin -g \"./src/**/index.js\" -x \"nodejs ./node_modules/jsdoc-to-markdown/bin/cli.js --partial ./docs/scope.hbs  --files #{path} --global-index-format none > #{dir}/README.md\"",
 		"post": "npm publish --access=public dist",
-		"storybook": "start-storybook -p 6006",
+		"storybook": "start-storybook -s ./.storybook/static -p 6006",
 		"build-storybook": "build-storybook"
 	},
 	"main": "main.js",
 	"module": "index.js",
 	"dependencies": {
-		"@sznds/css": "^0.2.4",
+		"@sznds/css": "^0.2.6",
 		"@sznds/helpers": "^0.0.2",
 		"@sznds/icons": "^0.2.1"
 	},

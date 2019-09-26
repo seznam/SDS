@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { classNames } from '@sznds/helpers';
+import Typography from '../Typography';
 import PropTypes from 'prop-types';
 
 /**
@@ -48,11 +49,6 @@ const RadioCheck = React.memo(({
 		conditionalProps.disabled = disabled;
 	}
 
-	const classesLabel = classNames([
-		'sds-radiocheck__label',
-		size === 'small' ? 'sds-typography_body--small' : 'sds-typography_body',
-	]);
-
 	return <label className={classes} {...props}>
 		<input {...props} ref={forwardedRef} type={type === TYPE_CHECK ? 'checkbox' : 'radio'} className="sds-radiocheck__input" {...conditionalProps} />
 		<svg viewBox="0 0 24 24" className="sds-radiocheck__switch">
@@ -70,7 +66,7 @@ const RadioCheck = React.memo(({
 					<circle cx="12" cy="12" r="5" className="sds-radiocheck__switch__mark" />
 				</Fragment>}
 		</svg>
-		{label ? <span className={classesLabel}>{label}</span> : null}
+		{label ? <Typography tagName="span" variant={size === 'small' ? 'body-small' : 'body'} className="sds-radiocheck__label">{label}</Typography> : null}
 	</label>;
 });
 

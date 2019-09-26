@@ -1,5 +1,6 @@
 import React from 'react';
 import { classNames } from '@sznds/helpers';
+import Typography from '../Typography';
 import Surface, { SURFACE_LEVELS, DEFAULT_SURFACE } from '../Surface';
 import Icon from '../Icon';
 import PropTypes from 'prop-types';
@@ -15,9 +16,15 @@ const DEFAULT_SIZE = 'regular';
  * @private
  */
 const SIZES = {
-	'x-small': 'sds-tag--xsmall sds-typography_caption',
-	'small': 'sds-tag--small sds-typography_body--small',
-	'regular': 'sds-typography_body',
+	'x-small': 'sds-tag--xsmall',
+	'small': 'sds-tag--small',
+	'regular': '',
+};
+
+const VARIANTS = {
+	'x-small': 'caption',
+	'small': 'body-small',
+	'regular': 'body',
 };
 
 /**
@@ -38,10 +45,11 @@ const Tag = React.memo(({
 		className,
 	]);
 
+	const variant = VARIANTS[size in VARIANTS ? size : DEFAULT_SIZE];
+
 	const classesButton = classNames([
 		'sds-tag__button',
 		'sds-helpers-button',
-		size === DEFAULT_SIZE ? 'sds-typography_body' : 'sds-typography_body--small',
 	]);
 
 	return <Surface
@@ -49,7 +57,7 @@ const Tag = React.memo(({
 		className={classes}
 		{...props}
 	>
-		<div className="sds-tag__content">{children}</div>
+		<Typography tagName="div" variant={variant} className="sds-tag__content">{children}</Typography>
 		<button className={classesButton} type="button" onClick={onClick}><Icon symbol="close" /></button>
 	</Surface>;
 });

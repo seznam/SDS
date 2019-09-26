@@ -1,6 +1,6 @@
 {
 	"name": "@sznds/css",
-	"version": "0.2.4",
+	"version": "0.2.6",
 	"description": "CSS implementing the principles of Seznam.cz's design system SDS.",
 	"license": "MIT",
 	"author": {
@@ -8,8 +8,8 @@
 		"email": "jakub.kraft@firma.seznam.cz"
 	},
 	"devDependencies": {
-		"less": "^3.8.1",
-		"less-plugin-autoprefix": "^1.5.1",
+		"less": "^3.10.3",
+		"less-plugin-autoprefix": "^2.0.0",
 		"less-plugin-clean-css": "^1.5.1"
 	},
 	"scripts": {

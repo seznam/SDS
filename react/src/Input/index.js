@@ -1,5 +1,6 @@
 import React from 'react';
 import { classNames } from '@sznds/helpers';
+import Typography from '../Typography';
 import InputSurface from '../InputSurface';
 import Icon from '../Icon';
 import PropTypes from 'prop-types';
@@ -53,8 +54,8 @@ class Input extends React.Component {
 
 		const classes = classNames([
 			'sds-input',
-			size === DEFAULT_SIZE ? 'sds-typography_body' : 'sds-typography_body--small sds-input--small',
 			{
+				'sds-input--small': size !== DEFAULT_SIZE,
 				'sds-input--icon-left': iconLeft,
 				'sds-input--icon-right': iconRight,
 			},
@@ -64,7 +65,6 @@ class Input extends React.Component {
 		const leftClasses = classNames([
 			'sds-input__button',
 			'sds-input__button--left',
-			'sds-typography_body',
 			{
 				'sds-input__button--enabled': onIconLeftClick,
 			},
@@ -73,14 +73,13 @@ class Input extends React.Component {
 		const rightClasses = classNames([
 			'sds-input__button',
 			'sds-input__button--right',
-			'sds-typography_body',
 			{
 				'sds-input__button--enabled': onIconRightClick,
 			},
 		]);
 
 		return <InputSurface tagName="div" className={classes} focused={this.state.focused} error={error} size={size} style={style}>
-			<input {...props} className={size === DEFAULT_SIZE ? 'sds-typography_body' : 'sds-typography_body--small'} onFocus={this.handleFocus} onBlur={this.handleBlur} />
+			<Typography tagName="input" {...props} variant={size === DEFAULT_SIZE ? 'body' : 'body-small'} onFocus={this.handleFocus} onBlur={this.handleBlur} />
 			{iconLeft ? <button type="button" tabIndex="-1" className={leftClasses} onClick={onIconLeftClick}><Icon symbol={iconLeft} /></button> : null}
 			{iconRight ? <button type="button" tabIndex="-1" className={rightClasses} onClick={onIconRightClick}><Icon symbol={iconRight} /></button> : null}
 		</InputSurface>;

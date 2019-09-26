@@ -1,5 +1,6 @@
 import React from 'react';
 import { classNames } from '@sznds/helpers';
+import Typography from '../Typography';
 import PropTypes from 'prop-types';
 
 /**
@@ -29,8 +30,8 @@ const InputSurface = React.memo(React.forwardRef(({
 }, ref) => {
 	const classes = classNames([
 		'sds-inputsurface',
-		size === DEFAULT_SIZE ? 'sds-typography_body' : 'sds-typography_body--small sds-inputsurface--small',
 		{
+			'sds-inputsurface--small': size !== DEFAULT_SIZE,
 			'sds-inputsurface--disabled': disabled,
 			'sds-inputsurface--error': error,
 			'sds-inputsurface--focused': focused,
@@ -38,7 +39,7 @@ const InputSurface = React.memo(React.forwardRef(({
 		className,
 	]);
 
-	const MainTag = tagName;
+	const variant = size === DEFAULT_SIZE ? 'body' : 'body-small';
 
 	// různé podmíněné atributy
 	const conditionalProps = {};
@@ -50,7 +51,7 @@ const InputSurface = React.memo(React.forwardRef(({
 		conditionalProps.disabled = disabled;
 	}
 
-	return <MainTag className={classes} ref={ref} {...conditionalProps} {...props} />;
+	return <Typography tagName={tagName} variant={variant} className={classes} ref={ref} {...conditionalProps} {...props} />;
 }));
 
 InputSurface.displayName = 'InputSurface';
