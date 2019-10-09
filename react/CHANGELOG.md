@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Změněno
 - Všechny komponenty využívají interně komponentu `Typography`, místo aby samy přidávaly CSS třídy s nastavením písma.
+- Komponenta `Input` přepsána na memoizovanou funkci (aniž by se měnila její výsledná podoba v DOMu a CSS).
 
 ## [0.3.0] - 2019-09-06
 ### Změněno
