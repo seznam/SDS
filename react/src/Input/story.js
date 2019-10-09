@@ -19,6 +19,8 @@ stories.add('nastavitelný', () => (
 		placeholder={text('Placeholder', '')}
 		iconLeft={text('IconLeft', 'search')}
 		iconRight={text('IconRight', 'clear')}
+		onFocus={action('focus')}
+		onBlur={action('blur')}
 	/>
 ), {
 	notes: { markdown: readme },

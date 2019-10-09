@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import InputSurface from '../InputSurface';
@@ -15,76 +15,63 @@ const DEFAULT_SIZE = 'regular';
  * Input is a standard input that may be accompanied by two icons that can be clickable.
  * @param {InputProps} props An object with properties
  */
-class Input extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			focused: false,
-		};
-		this.handleFocus = this.handleFocus.bind(this);
-		this.handleBlur = this.handleBlur.bind(this);
-	}
+const Input = React.memo(({
+	className = '',
+	iconLeft,
+	iconRight,
+	onIconLeftClick,
+	onIconRightClick,
+	error,
+	size = DEFAULT_SIZE,
+	style,
+	onFocus,
+	onBlur,
+	...props
+}) => {
+	const [focused, setFocused] = useState(false);
 
-	handleFocus(evt) {
-		this.setState(() => ({
-			focused: true,
-		}));
-		this.props.onFocus && typeof this.props.onFocus === 'function' && this.props.onFocus(evt);
-	}
+	const handleFocus = function(evt) {
+		setFocused(true);
+		onFocus && typeof onFocus === 'function' && onFocus(evt);
+	};
 
-	handleBlur(evt) {
-		this.setState(() => ({
-			focused: false,
-		}));
-		this.props.onBlur && typeof this.props.onBlur === 'function' && this.props.onBlur(evt);
-	}
+	const handleBlur = function(evt) {
+		setFocused(false);
+		onBlur && typeof onBlur === 'function' && onBlur(evt);
+	};
 
-	render() {
-		const {
-			className = '',
-			iconLeft,
-			iconRight,
-			onIconLeftClick,
-			onIconRightClick,
-			error,
-			size = DEFAULT_SIZE,
-			style,
-			...props
-		} = this.props;
+	const classes = classNames([
+		'sds-input',
+		{
+			'sds-input--small': size !== DEFAULT_SIZE,
+			'sds-input--icon-left': iconLeft,
+			'sds-input--icon-right': iconRight,
+		},
+		className,
+	]);
 
-		const classes = classNames([
-			'sds-input',
-			{
-				'sds-input--small': size !== DEFAULT_SIZE,
-				'sds-input--icon-left': iconLeft,
-				'sds-input--icon-right': iconRight,
-			},
-			className,
-		]);
+	const leftClasses = classNames([
+		'sds-input__button',
+		'sds-input__button--left',
+		{
+			'sds-input__button--enabled': onIconLeftClick,
+		},
+	]);
 
-		const leftClasses = classNames([
-			'sds-input__button',
-			'sds-input__button--left',
-			{
-				'sds-input__button--enabled': onIconLeftClick,
-			},
-		]);
+	const rightClasses = classNames([
+		'sds-input__button',
+		'sds-input__button--right',
+		{
+			'sds-input__button--enabled': onIconRightClick,
+		},
+	]);
 
-		const rightClasses = classNames([
-			'sds-input__button',
-			'sds-input__button--right',
-			{
-				'sds-input__button--enabled': onIconRightClick,
-			},
-		]);
-
-		return <InputSurface tagName="div" className={classes} focused={this.state.focused} error={error} size={size} style={style}>
-			<Typography tagName="input" {...props} variant={size === DEFAULT_SIZE ? 'body' : 'body-small'} onFocus={this.handleFocus} onBlur={this.handleBlur} />
-			{iconLeft ? <button type="button" tabIndex="-1" className={leftClasses} onClick={onIconLeftClick}><Icon symbol={iconLeft} /></button> : null}
-			{iconRight ? <button type="button" tabIndex="-1" className={rightClasses} onClick={onIconRightClick}><Icon symbol={iconRight} /></button> : null}
-		</InputSurface>;
-	}
-}
+	return <InputSurface tagName="div" className={classes} focused={focused} error={error} size={size} style={style}>
+		<Typography tagName="input" {...props} variant={size === DEFAULT_SIZE ? 'body' : 'body-small'} onFocus={handleFocus} onBlur={handleBlur} />
+		{iconLeft ? <button type="button" tabIndex="-1" className={leftClasses} onClick={onIconLeftClick}><Icon symbol={iconLeft} /></button> : null}
+		{iconRight ? <button type="button" tabIndex="-1" className={rightClasses} onClick={onIconRightClick}><Icon symbol={iconRight} /></button> : null}
+	</InputSurface>;
+});
 
 Input.propTypes = {
 	className: PropTypes.string,
