@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [unreleased]
 ### Změněno
 - Různé komponenty potřebovaly drobné úpravy CSS po přepsaní na využívání komponenty `Typography`.
+- Oprava velikosti ikon u komponenty `Input`.
 
 ## [0.2.6] - 2019-09-26
 ### Přidáno
