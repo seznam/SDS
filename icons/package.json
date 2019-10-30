@@ -10,9 +10,11 @@
 		"babel-cli": "^6.26.0",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
-		"eslint": "^5.1.0"
+		"eslint": "^5.1.0",
+		"xmldom": "^0.1.27"
 	},
 	"scripts": {
+		"generate": "node generate.js",
 		"build": "npx babel index.js -o icons.js",
 		"post": "npm publish --access=public"
 	},
