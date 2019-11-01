@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [unreleased]
+## [0.2.7] - 2019-11-01
 ### Změněno
 - Různé komponenty potřebovaly drobné úpravy CSS po přepsaní na využívání komponenty `Typography`.
 - Oprava velikosti ikon u komponenty `Input`.
