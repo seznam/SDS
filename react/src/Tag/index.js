@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import Surface, { SURFACE_LEVELS, DEFAULT_SURFACE } from '../Surface';
@@ -31,7 +31,7 @@ const VARIANTS = {
  * Tag represents one selected and removable option of many (e.g. filter options). It takes {@link TagProps} as a parameter and returns a React component instance.
  * @param {TagProps} props An object with properties
  */
-const Tag = React.memo(({
+const Tag = memo(({
 	surface = DEFAULT_SURFACE,
 	className = '',
 	size = DEFAULT_SIZE,

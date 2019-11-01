@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import Surface, { SURFACE_LEVELS, DEFAULT_SURFACE, PRIMARY_SURFACE } from '../Surface';
@@ -32,7 +32,7 @@ const VARIANTS = {
  * A functional component Button represents a primary or secondary standalone button. It takes {@link ButtonProps} as a parameter and returns a React component instance.
  * @param {ButtonProps} props An object with properties
  */
-const Button = React.memo(({
+const Button = memo(({
 	surface = DEFAULT_SURFACE,
 	className = '',
 	primary = false,

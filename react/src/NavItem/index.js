@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { withPureClick, spaceClick, classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import Icon from '../Icon';
@@ -20,7 +20,7 @@ export const LEVEL_TABS = 3;
  * A functional component NavItem represents an item of a level 1 or 2 menu or a tab, which is level 3.
  * @param {NavItemProps} props An object with properties
  */
-const NavItem = React.memo(({
+const NavItem = memo(({
 	className = '',
 	icon = '',
 	submenu = false,

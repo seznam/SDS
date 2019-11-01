@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import PropTypes from 'prop-types';
@@ -19,7 +19,7 @@ const DISABLABLE = ['input', 'textarea', 'button', 'select', 'fieldset', 'keygen
  * InputSurface encapsulates the visual style of an input of any given element/component
  * @param {InputSurfaceProps} props An object with properties
  */
-const InputSurface = React.memo(React.forwardRef(({
+const InputSurface = memo(forwardRef(({
 	className = '',
 	tagName = 'div',
 	disabled = false,

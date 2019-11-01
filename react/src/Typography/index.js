@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { classNames } from '@sznds/helpers';
 import PropTypes from 'prop-types';
 
@@ -15,7 +15,7 @@ export const COMPONENT_MAPPING = {
 	'caption-small': 'p',
 };
 
-const Typography = React.forwardRef(function Typography({
+const Typography = forwardRef(function Typography({
 	className,
 	tagName,
 	variant = 'body',

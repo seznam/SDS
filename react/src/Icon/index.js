@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { getIconString } from '@sznds/icons';
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  * Icon component represents one of the built-in SVG icons packed with SDS
  * @param {IconProps} props An object with properties
  */
-const Icon = React.memo(({
+const Icon = memo(({
 	symbol = 'alert',
 	className = '',
 	...props
