@@ -2,7 +2,7 @@ const fs = require('fs');
 const DOMParser = require('xmldom').DOMParser;
 
 const rootDir = __dirname + '/svg';
-const moduleName = 'icons.js';
+const moduleName = 'index.js';
 const DEFAULT_SIZE = '24';
 const DEFAULT_VARIANT = 'OUTLINE';
 

@@ -45,7 +45,7 @@
 	"main": "main.js",
 	"module": "index.js",
 	"dependencies": {
-		"@sznds/css": "^0.2.6",
+		"@sznds/css": "0.2.8",
 		"@sznds/helpers": "^0.0.2",
 		"@sznds/icons": "^0.2.1"
 	},
