@@ -15,8 +15,8 @@ An object with Icon's properties.
 
 **Properties**
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| [symbol] | <code>string</code> | <code>&quot;\&quot;alert\&quot;&quot;</code> | Icon identifier |
-| [className] | <code>string</code> |  | Space separated list of CSS classes to be added to those that Icon uses internaly |
+| Name | Type | Description |
+| --- | --- | --- |
+| [symbol] | <code>object</code> | Object with icon information imported from sznds/icons |
+| [className] | <code>string</code> | Space separated list of CSS classes to be added to those that Icon uses internaly |
 

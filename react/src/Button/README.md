@@ -21,7 +21,7 @@ An object with Button's properties. Button internally uses [Surface](../Surface/
 | [className] | <code>string</code> |  | Space separated list of CSS classes to be added to those that Button uses internaly |
 | [primary] | <code>boolean</code> | <code>false</code> | If set, Button is rendered in accent color, otherwise the color is derived from given Surface |
 | [size] | <code>&quot;x-small&quot;</code> \| <code>&quot;small&quot;</code> \| <code>&quot;regular&quot;</code> | <code>&quot;regular&quot;</code> |  |
-| [icon] | <code>string</code> |  | Icon |
+| [icon] | <code>object</code> |  | Icon |
 | [text] | <code>string</code> |  | Button's label |
 | [disabled] | <code>boolean</code> | <code>false</code> | If true, Button is rendered as disabled and does not react to any action |
 | [loading] | <code>boolean</code> | <code>false</code> | If true, Button is rendered with a Spinner inside and also behaves as disabled |

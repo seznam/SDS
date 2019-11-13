@@ -3,9 +3,6 @@
 ## Input
 Input is a standard input that may be accompanied by two icons that can be clickable.
 
-<a name="new_Input_new"></a>
-
-### new Input(props)
 
 | Param | Type | Description |
 | --- | --- | --- |
