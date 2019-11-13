@@ -4,6 +4,7 @@ import Typography from '../Typography';
 import Surface, { SURFACE_LEVELS, DEFAULT_SURFACE } from '../Surface';
 import Icon from '../Icon';
 import PropTypes from 'prop-types';
+import { CLOSE } from '@sznds/icons';
 
 /**
  * Default size of a Tag component.
@@ -58,7 +59,7 @@ const Tag = memo(({
 		{...props}
 	>
 		<Typography tagName="div" variant={variant} className="sds-tag__content">{children}</Typography>
-		<button className={classesButton} type="button" onClick={onClick}><Icon symbol="close" /></button>
+		<button className={classesButton} type="button" onClick={onClick}><Icon symbol={CLOSE} /></button>
 	</Surface>;
 });
 

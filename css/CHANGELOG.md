@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.3.0] - 2019-11-13
+### Změněno
+- `NavItem` renderovaná jako `a` nemá podtržený text.
+- `Icon` má nyní rozměry zadané v `rem` a ne v `em` jednotkách. Řídí se tím, jaká velikost ze 4 možných je do ní předána (možno přetížit vlastním CSS pravidlem).
+
 ## [0.2.8] - 2019-11-01
 ### Změněno
 - Oprava překlepu.
