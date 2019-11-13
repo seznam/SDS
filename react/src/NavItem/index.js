@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { withPureClick, spaceClick, classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import Icon from '../Icon';
 import PropTypes from 'prop-types';
+import { EMPTY_SYMBOL_16, SELECTED_16, CHEVRON_UP_16, CHEVRON_DOWN_16 } from '@sznds/icons';
 
 const LEVEL_CLASSES = {
 	1: 'body',
@@ -20,7 +21,7 @@ export const LEVEL_TABS = 3;
  * A functional component NavItem represents an item of a level 1 or 2 menu or a tab, which is level 3.
  * @param {NavItemProps} props An object with properties
  */
-const NavItem = React.memo(({
+const NavItem = memo(({
 	className = '',
 	icon = '',
 	submenu = false,
@@ -64,14 +65,14 @@ const NavItem = React.memo(({
 		? icon && layout !== DEFAULT_LAYOUT
 			? icon
 			: selected
-				? 'dot'
-				: 'empty'
+				? SELECTED_16
+				: EMPTY_SYMBOL_16
 		: null;
 
 	return <Typography tagName={href ? 'a' : 'button'} variant={LEVEL_CLASSES[level]} className={classes} {...conditionalProps} {...props}>
 		{outIcon ? <Icon symbol={outIcon} className={classNames(['sds-navitem__icon', { 'sds-navitem__icon--dot': outIcon === 'dot' }])} /> : null}
 		<span className="sds-navitem__text" data-text={text}>{text}</span>
-		{submenu && level === 1 && layout !== DEFAULT_LAYOUT ? <Icon symbol={open ? 'arrowUp' : 'arrowDown'} className="sds-navitem__icon-submenu" /> : null}
+		{submenu && level === 1 && layout !== DEFAULT_LAYOUT ? <Icon symbol={open ? CHEVRON_UP_16 : CHEVRON_DOWN_16} className="sds-navitem__icon-submenu" /> : null}
 	</Typography>;
 });
 

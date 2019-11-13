@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Surface from '../Surface';
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  * **WIP** A functional component Card represents a single card (usually in a list). It takes {@link CardProps} as a parameter and returns a React component instance.
  * @param {CardProps} props An object with properties
  */
-const Card = React.memo(({
+const Card = memo(({
 	tagName = 'div',
 	className = '',
 	children,

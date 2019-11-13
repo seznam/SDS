@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import Surface, { SURFACE_LEVELS, DEFAULT_SURFACE, PRIMARY_SURFACE } from '../Surface';
@@ -32,12 +32,12 @@ const VARIANTS = {
  * A functional component Button represents a primary or secondary standalone button. It takes {@link ButtonProps} as a parameter and returns a React component instance.
  * @param {ButtonProps} props An object with properties
  */
-const Button = React.memo(({
+const Button = memo(({
 	surface = DEFAULT_SURFACE,
 	className = '',
 	primary = false,
 	size = DEFAULT_SIZE,
-	icon = '',
+	icon,
 	text = '',
 	disabled = false,
 	loading = false,
@@ -88,7 +88,7 @@ Button.propTypes = {
 	className: PropTypes.string,
 	primary: PropTypes.bool,
 	size: PropTypes.oneOf(['x-small', 'small', 'regular']),
-	icon: PropTypes.string,
+	icon: PropTypes.object,
 	text: PropTypes.string,
 	disabled: PropTypes.bool,
 	loading: PropTypes.bool,
@@ -109,7 +109,7 @@ export default Button;
  * @property {string} [className] Space separated list of CSS classes to be added to those that Button uses internaly
  * @property {boolean} [primary=false] If set, Button is rendered in accent color, otherwise the color is derived from given Surface
  * @property {("x-small"|"small"|"regular")} [size="regular"]
- * @property {string} [icon] Icon
+ * @property {object} [icon] Icon
  * @property {string} [text] Button's label
  * @property {boolean} [disabled=false] If true, Button is rendered as disabled and does not react to any action
  * @property {boolean} [loading=false] If true, Button is rendered with a Spinner inside and also behaves as disabled

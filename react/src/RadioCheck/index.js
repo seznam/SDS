@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, memo } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import PropTypes from 'prop-types';
@@ -22,7 +22,7 @@ export const TYPE_CHECK = 2;
  * A functional component RadioCheck represents a checkbox or a radiobutton with inline label or standalone. It takes {@link RadioCheckProps} as a parameter and returns a React component instance.
  * @param {RadioCheckProps} props An object with properties
  */
-const RadioCheck = React.memo(({
+const RadioCheck = memo(({
 	className = '',
 	type = TYPE_CHECK,
 	forwardedRef,

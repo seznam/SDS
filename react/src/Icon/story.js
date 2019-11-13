@@ -1,20 +1,25 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import Icon from './index';
-import { SEARCH_32 } from '@sznds/icons';
+import ICONS from '@sznds/icons';
 
 import readme from './README.md';
 
 // eslint-disable-next-line no-undef
 const stories = storiesOf('Icon', module);
 
+// sestavíme select ze vsech ikon
+const icons = {};
+for (let icon in ICONS) {
+	icons[ICONS[icon].title] = ICONS[icon].icon;
+}
+
 stories.addDecorator(withKnobs);
 
 stories.add('nastavitelná', () => (
 	<Icon
-		symbol={text('Symbol', SEARCH_32)}
-		size={select('Size', [8, 16, 24, 32], 24)}
+		symbol={select('Symbol', icons, ICONS['HOME_OUTLINE_24'].icon)}
 	/>
 ), {
 	notes: { markdown: readme },

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import RadioCheck, { TYPE_CHECK } from '../RadioCheck';
 
 /**
  * Checkbox provides encapsulation for label, anything that is supposed to be a form field and optional description
  * @param {CheckboxProps} props An object with properties
  */
-const Checkbox = React.memo(React.forwardRef((props, ref) => <RadioCheck {...props} forwardedRef={ref} type={TYPE_CHECK} />));
+const Checkbox = memo(forwardRef((props, ref) => <RadioCheck {...props} forwardedRef={ref} type={TYPE_CHECK} />));
 
 Checkbox.displayName = 'Checkbox';
 

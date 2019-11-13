@@ -32,30 +32,72 @@ function extractPath(file) {
 }
 
 // funkce, ktera sestavi kus JS podle parametru
-function buildIcon(size, icon, variant, path) {
+function buildIcon(size, icon, variant, path, title) {
 	const fullName = `${icon}_${variant}_${size}`;
+	let aliases = [`'${fullName}'`];
+
 	let out = `// ${path}
-export const ${fullName} = '${extractPath(`${rootDir}/${path}`)}';
+export const ${fullName} = {
+	d: '${extractPath(`${rootDir}/${path}`)}',
+	size: ${size},
+};
 `;
 
 	if (size === DEFAULT_SIZE) {
-		out += `export const ${icon}_${variant} = ${fullName};
+		const defaultSize = `${icon}_${variant}`;
+		out += `export const ${defaultSize} = ${fullName};
 `;
+		aliases.push(`'${defaultSize}'`);
 	}
 
 	if (variant === DEFAULT_VARIANT) {
-		out += `export const ${icon}_${size} = ${fullName};
+		const defaultVariant = `${icon}_${size}`;
+		out += `export const ${defaultVariant} = ${fullName};
 `;
+		aliases.push(`'${defaultVariant}'`);
 	}
 
 	if (variant === DEFAULT_VARIANT && size === DEFAULT_SIZE) {
+		const defaultAll = `${icon}`;
 		out += `export const ${icon} = ${fullName};
 `;
+		aliases.push(`'${defaultAll}'`);
 	}
 
 	return `${out}
+ICONS['${fullName}'] = {
+	title: '${title}',
+	icon: ${fullName},
+	aliases: [${aliases.join(', ')}],
+};
+
 `;
 }
+
+// zalozime objekt, kde budou vsechny ikony referencovane
+fs.appendFileSync(moduleName, `// objekt se vsemi ikonami
+const ICONS = {};
+
+`);
+
+// vyrobime symbol prazdne ikony ve vsech velikostech
+[8, 16, 24, 32].forEach(size => {
+	const name = `EMPTY_SYMBOL_${size}`;
+	const title = `empty icon ${size}x${size}`;
+
+	fs.appendFileSync(moduleName, `// ${title}
+export const ${name} = {
+	d: '',
+	size: ${size},
+};
+ICONS['${name}'] = {
+	title: '${title}',
+	icon: ${name},
+	aliases: ['${name}'],
+};
+
+`);
+});
 
 // najdi vsechny velikosti
 const dir = fs.opendirSync(rootDir);
@@ -74,10 +116,15 @@ while (dirent = dir.readSync()) {
 		while (iconDirent = iconDir.readSync()) {
 			const variant = iconDirent.name.split('.')[0].toUpperCase();
 
-			// sestav konstantu ikony do JS souboru
-			fs.appendFileSync(moduleName, buildIcon(size, icon, variant, `${dirent.name}/${sizeDirent.name}/${iconDirent.name}`));
+			// sestav konstanty ikony do JS souboru
+			fs.appendFileSync(moduleName, buildIcon(size, icon, variant, `${dirent.name}/${sizeDirent.name}/${iconDirent.name}`, `${sizeDirent.name} ${size}x${size}`));
 		}
 	}
 }
+
+fs.appendFileSync(moduleName, `// vsechny ikony v jednom objektu, urcene pro psani testu, stories a podobne, ne pro uziti v produkci
+export default ICONS;
+
+`);
 
 console.log(`${counter} icons done.`);

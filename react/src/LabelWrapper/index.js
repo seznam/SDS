@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import PropTypes from 'prop-types';
@@ -19,7 +19,7 @@ export const DEFAULT_LAYOUT = 'column';
  * LabelWrapper provides encapsulation for label, anything that is supposed to be a form field and optional description. It takes {@link LabelWrapperProps} as a parameter and returns a React component instance.
  * @param {LabelWrapperProps} props An object with properties
  */
-const LabelWrapper = React.memo(({
+const LabelWrapper = memo(({
 	className = '',
 	label = '',
 	layout = DEFAULT_LAYOUT,
@@ -42,7 +42,7 @@ const LabelWrapper = React.memo(({
 	const variant = size === DEFAULT_SIZE ? 'body' : 'body-small';
 
 	return <Typography tagName="label" variant={variant} className={classes} {...props}>
-		<span className="sds-labelwrapper__label">{label}:</span>
+		<span className="sds-labelwrapper__label">{label}</span>
 		<div>
 			{children}
 			<Typography className="sds-labelwrapper__description" variant="body-small">{errorDescription ? errorDescription : description}</Typography>

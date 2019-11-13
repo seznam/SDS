@@ -3,13 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [unreleased]
+## [0.5.0] - 2019-11-13
+### Přidáno
+- Přepis všech komponent využívajících interně komponentu `Icon`, aby nově pracovaly s ikonami ve formátu, který poskytuje balík `sznds/icons@0.3.0`.
+
+## [0.4.0] - 2019-11-01
 ### Přidáno
 - Komponenta `Typography`.
 
 ### Změněno
 - Všechny komponenty využívají interně komponentu `Typography`, místo aby samy přidávaly CSS třídy s nastavením písma.
 - Komponenta `Input` přepsána na memoizovanou funkci (aniž by se měnila její výsledná podoba v DOMu a CSS).
+- Komponenta `LabelWrapper` už automaticky nepřidává za text labelu dvojtečku.
 
 ## [0.3.0] - 2019-09-06
 ### Změněno

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { classNames } from '@sznds/helpers';
 import Typography from '../Typography';
 import InputSurface from '../InputSurface';
@@ -15,7 +15,7 @@ const DEFAULT_SIZE = 'regular';
  * Input is a standard input that may be accompanied by two icons that can be clickable.
  * @param {InputProps} props An object with properties
  */
-const Input = React.memo(({
+const Input = memo(({
 	className = '',
 	iconLeft,
 	iconRight,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, forwardRef } from 'react';
 import { withPureClick, spaceClick, classNames } from '@sznds/helpers';
 import PropTypes from 'prop-types';
 
@@ -39,7 +39,7 @@ const surfaceClassName = depth => `sds-surface--${(depth === PRIMARY_SURFACE ? '
  * Surface encapsulates the visual style of an elevated surface of any given element/component
  * @param {SurfaceProps} props An object with properties
  */
-const Surface = React.memo(React.forwardRef(({
+const Surface = memo(forwardRef(({
 	surface = DEFAULT_SURFACE,
 	className = '',
 	tagName = 'div',
