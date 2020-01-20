@@ -1,6 +1,6 @@
 {
 	"name": "@sznds/react",
-	"version": "0.5.1",
+	"version": "0.5.2",
 	"description": "React implementation of some common components done in Seznam.cz's design system SDS.",
 	"author": {
 		"name": "Jakub Kraft",
@@ -47,7 +47,7 @@
 	"dependencies": {
 		"@sznds/css": "0.3.0",
 		"@sznds/helpers": "^0.0.2",
-		"@sznds/icons": "^0.3.1"
+		"@sznds/icons": "^0.3.2"
 	},
 	"peerDependencies": {
 		"react": "16.9",
