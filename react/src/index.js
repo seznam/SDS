@@ -11,6 +11,8 @@ import Radio from './Radio';
 import Checkbox from './Checkbox';
 import NavItem from './NavItem';
 
+import { useModal } from './hooks';
+
 export {
 	Button,
 	Icon,
@@ -24,4 +26,5 @@ export {
 	Radio,
 	Checkbox,
 	NavItem,
+	useModal,
 };
