@@ -1,6 +1,6 @@
 {
 	"name": "@sznds/icons",
-	"version": "0.3.2",
+	"version": "0.4.0",
 	"description": "Icons for SDS components.",
 	"author": {
 		"name": "Jakub Kraft",
@@ -20,7 +20,8 @@
 	},
 	"files": [
 		"icons.js",
-		"index.js"
+		"index.js",
+		"tester.js"
 	],
 	"main": "icons.js",
 	"module": "index.js"
