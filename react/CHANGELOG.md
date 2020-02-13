@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.5.3] - 2020-02-13
+### Změněno
+- Stories do Storybooku upraveny, aby pracovaly s aktuální verzí balíku @sznds/icons.
+
 ## [0.5.2] - 2020-01-20
 ### Změněno
 - Zvednutá verze balíku @sznds/icons.

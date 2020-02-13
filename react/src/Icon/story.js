@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import Icon from './index';
-import ICONS from '@sznds/icons';
+import ICONS from '@sznds/icons/tester';
 
 import readme from './README.md';
 

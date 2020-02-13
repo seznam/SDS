@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import Button from './index';
 import { SURFACE_LEVELS, DEFAULT_SURFACE } from '../Surface';
-import ICONS from '@sznds/icons';
+import ICONS from '@sznds/icons/tester';
 
 import readme from './README.md';
 
