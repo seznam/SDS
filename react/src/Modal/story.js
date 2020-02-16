@@ -14,23 +14,27 @@ import readme from './README.md';
 
 const Dialog = ({
 	clickOutClose = true,
-	open,
+	open = false,
 	children,
-	handleClose
-}) => {
-	return open ? <Modal open={open} onClose={handleClose}>
+	handleClose,
+}) => open
+	? <Modal open={open} onClose={handleClose}>
 		<ModalBackdrop {...(clickOutClose ? { onClick: handleClose } : {})} />
 		<ModalContent>
 			{children}
+			<ModalCloseButton onClick={handleClose} />
 		</ModalContent>
-		<ModalCloseButton onClick={handleClose} />
-	</Modal> : null;
-}
+	</Modal>
+	: null;
+
+Dialog.displayName = 'Dialog';
 
 Dialog.propTypes = {
 	children: PropTypes.element.isRequired,
 	isActive: PropTypes.bool.isRequired,
 	handleClose: PropTypes.func.isRequired,
+	clickOutClose: PropTypes.bool,
+	open: PropTypes.bool,
 };
 
 // eslint-disable-next-line no-undef
@@ -48,6 +52,7 @@ stories.add('příklad dialogu', () => {
 			<Dialog
 				open={open}
 				handleClose={() => setOpen(false)}
+				clickOutClose={boolean('ClickOutClose', true)}
 			>
 				<p>asldasjd alsdkjkasdjlkasjd lkasjdlakjs</p>
 				<p>asldasjd alsdkjkasdjlkasjd <a href="https://drd.cz/">lkasjdlakjs</a></p>

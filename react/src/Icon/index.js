@@ -11,6 +11,7 @@ const Icon = memo(({
 	className = '',
 	...props
 }) => {
+	// eslint-disable-next-line id-length
 	const { d, size } = symbol;
 
 	// focusable="false" is necessary because of an IE bug, where every SVG without it appears in tab order (ie. to tab out of a button you need to tab twice)
@@ -20,6 +21,8 @@ const Icon = memo(({
 		</svg>
 	</span>;
 });
+
+Icon.displayName = 'Icon';
 
 Icon.propTypes = {
 	symbol: PropTypes.string,

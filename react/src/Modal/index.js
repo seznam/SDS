@@ -19,38 +19,40 @@ const Modal = memo(({
 		if ((event.key === 'Esc' || event.key === 'Escape') && onClose) {
 			onClose();
 		}
-	}
+	};
 
 	useEffect(() => {
 		setActivator(document.activeElement);
 		document.addEventListener('keydown', handleEscape);
 
 		tabbables.forEach(tabbable => {
-			tabbable.setAttribute("data-old-tabindex", tabbable.tabIndex);
-			tabbable.tabIndex = "-1";
+			tabbable.setAttribute('data-old-tabindex', tabbable.tabIndex);
+			tabbable.tabIndex = '-1';
 		});
 
 		return () => {
 			document.removeEventListener('keydown', handleEscape);
 
 			tabbables.forEach(tabbable => {
-				tabbable.tabIndex = tabbable.getAttribute("data-old-tabindex");
+				tabbable.tabIndex = tabbable.getAttribute('data-old-tabindex');
 			});
 			setTabbables([]);
 
 			if (activator && activator.focus) {
 				activator.focus();
 			}
-		}
+		};
 	}, []);
 
 	return createPortal(
-		<div  className={classes} {...props}>
+		<div className={classes} {...props}>
 			{children}
 		</div>,
-		document.body
+		document.body,
 	);
 });
+
+Modal.displayName = 'Modal';
 
 Modal.propTypes = {
 	className: PropTypes.string,

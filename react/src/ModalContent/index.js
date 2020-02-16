@@ -22,6 +22,8 @@ const ModalContent = memo(({
 	</div>;
 });
 
+ModalContent.displayName = 'ModalContent';
+
 ModalContent.propTypes = {
 	className: PropTypes.string,
 	tagName: PropTypes.string,

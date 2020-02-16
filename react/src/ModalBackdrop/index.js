@@ -11,8 +11,10 @@ const ModalBackdrop = memo(({
 		className,
 	]);
 
-	return <div  className={classes} {...props} />;
+	return <div className={classes} {...props} />;
 });
+
+ModalBackdrop.displayName = 'ModalBackdrop';
 
 ModalBackdrop.propTypes = {
 	className: PropTypes.string,

@@ -63,6 +63,8 @@ const Tag = memo(({
 	</Surface>;
 });
 
+Tag.displayName = 'Tag';
+
 Tag.propTypes = {
 	surface: PropTypes.oneOf(SURFACE_LEVELS),
 	className: PropTypes.string,

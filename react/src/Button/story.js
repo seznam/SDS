@@ -10,10 +10,12 @@ import readme from './README.md';
 
 // sestavíme select ze vsech ikon
 const icons = {
-	'no icon': null
+	'no icon': null,
 };
-for (let icon in ICONS) {
-	if (ICONS[icon].icon.size === 24) {
+const BUTTON_ICON_SIZE = 24;
+
+for (const icon in ICONS) {
+	if (ICONS[icon].icon.size === BUTTON_ICON_SIZE) {
 		icons[ICONS[icon].title] = ICONS[icon].icon;
 	}
 }
@@ -37,6 +39,6 @@ stories.add('nastavitelný', () => (
 });
 
 stories.add('s textem', () => <Button onClick={action('klik')} text="Stiskni mě" />)
-	.add('s ikonou', () => <Button onClick={action('klik')} icon={select('Icon', icons, ICONS['SEARCH_OUTLINE_24'].icon)} />)
+	.add('s ikonou', () => <Button onClick={action('klik')} icon={select('Icon', icons, ICONS.SEARCH_OUTLINE_24.icon)} />)
 	.add('primární', () => <Button onClick={action('klik')} text="Primární tlačítko" primary />)
 	.add('zakázaný', () => <Button onClick={action('klik')} text="Zakázané tlačítko" disabled />);

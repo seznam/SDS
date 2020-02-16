@@ -1,3 +1,4 @@
+/* modal */
 .sds-modal {
 	position: fixed;
 	width: 100%;
@@ -5,8 +6,12 @@
 	left: 0;
 	top: 0;
 	color: red;
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* modalbackdrop */
 .sds-modalbackdrop {
 	position: absolute;
 	width: 100%;
@@ -16,11 +21,24 @@
 	background: rgba(0, 0, 0, 0.7);
 }
 
+/* modalcontent */
 .sds-modalcontent {
 	position: relative;
 	background: #ffffff;
+	min-width: 640px;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 16px 24px -16px rgba(0,0,0,0.1);
 }
 
 .sds-modalcontent:focus {
 	outline: 0;
+}
+
+/* modalclosebutton */
+.sds-modalclosebutton {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: 16px;
+	top: 16px;
 }
