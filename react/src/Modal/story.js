@@ -6,6 +6,7 @@ import Modal from './index';
 import ModalBackdrop from '../ModalBackdrop';
 import ModalContent from '../ModalContent';
 import ModalCloseButton from '../ModalCloseButton';
+import Button from '../Button';
 import { useModal } from '../hooks';
 
 import './index.css';
@@ -48,7 +49,7 @@ stories.add('příklad dialogu', () => {
 		<div>
 			<p>Bafuikasdasf asdkjhasdj <a href="https://drd.cz/">asdasd</a></p>
 			<p>Bafuikasdasf asdkjhasdj <a href="https://drd.cz/">asdasd</a></p>
-			<button onClick={toggle}>Show Modal</button>
+			<Button onClick={toggle} text="Show Modal" />
 			<Dialog
 				open={open}
 				handleClose={() => setOpen(false)}

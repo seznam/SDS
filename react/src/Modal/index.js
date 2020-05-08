@@ -58,6 +58,7 @@ Modal.propTypes = {
 	className: PropTypes.string,
 	tagName: PropTypes.string,
 	onClose: PropTypes.func,
+	children: PropTypes.node,
 };
 
 export default Modal;

@@ -27,6 +27,7 @@ ModalContent.displayName = 'ModalContent';
 ModalContent.propTypes = {
 	className: PropTypes.string,
 	tagName: PropTypes.string,
+	children: PropTypes.node,
 };
 
 export default ModalContent;
