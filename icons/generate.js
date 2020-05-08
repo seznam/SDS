@@ -1,18 +1,6 @@
 const fs = require('fs');
 const DOMParser = require('xmldom').DOMParser;
 
-const rootDir = __dirname + '/svg';
-const moduleName = 'index.js';
-const DEFAULT_SIZE = '24';
-const DEFAULT_VARIANT = 'OUTLINE';
-
-let counter = 0;
-
-// pokud uz modul existuje, tak starou verzi smazeme
-try {
-	fs.unlinkSync(moduleName);
-} catch (ex) {}
-
 // funkce pro vytazeni definice jedine path z SVG souboru
 function extractPath(file) {
 	let out = '';
@@ -34,51 +22,68 @@ function extractPath(file) {
 // funkce, ktera sestavi kus JS podle parametru
 function buildIcon(size, icon, variant, path, title) {
 	const fullName = `${icon}_${variant}_${size}`;
-	let aliases = [`'${fullName}'`];
+	let aliases = [fullName];
 
 	let out = `// ${path}
 export const ${fullName} = {
 	d: '${extractPath(`${rootDir}/${path}`)}',
 	size: ${size},
 };
+
 `;
 
 	if (size === DEFAULT_SIZE) {
 		const defaultSize = `${icon}_${variant}`;
 		out += `export const ${defaultSize} = ${fullName};
 `;
-		aliases.push(`'${defaultSize}'`);
+		aliases.push(defaultSize);
 	}
 
 	if (variant === DEFAULT_VARIANT) {
 		const defaultVariant = `${icon}_${size}`;
 		out += `export const ${defaultVariant} = ${fullName};
 `;
-		aliases.push(`'${defaultVariant}'`);
+		aliases.push(defaultVariant);
 	}
 
 	if (variant === DEFAULT_VARIANT && size === DEFAULT_SIZE) {
 		const defaultAll = `${icon}`;
 		out += `export const ${icon} = ${fullName};
 `;
-		aliases.push(`'${defaultAll}'`);
+		aliases.push(defaultAll);
 	}
 
-	return `${out}
-ICONS['${fullName}'] = {
-	title: '${title}',
-	icon: ${fullName},
-	aliases: [${aliases.join(', ')}],
-};
-
-`;
+	return {
+		icons: out,
+		data: {
+			title,
+			fullName,
+			aliases,
+		},
+	};
 }
 
-// zalozime objekt, kde budou vsechny ikony referencovane
-fs.appendFileSync(moduleName, `// objekt se vsemi ikonami
-const ICONS = {};
+// adresar, kde jsou zdrojove ikony v SVG
+const rootDir = __dirname + '/svg';
+// vysledny modul s ikonami
+const moduleName = 'index.js';
+// modul pro potreby testu a podobne, kde se importuji i exportuji vsechny ikony, takze je opravdu velky a v produkcnim buildu nema co delat
+const testerName = 'tester.js';
 
-`);
+// pro defaultni hodnoty affixu definujeme konstanty i bez nich
+const DEFAULT_SIZE = '24';
+const DEFAULT_VARIANT = 'OUTLINE';
+
+let testerImports = [];
+let testerData = [];
+
+let counter = 0;
+
+// pokud uz moduly existuji, tak stare verze smazeme
+try {
+	fs.unlinkSync(moduleName);
+	fs.unlinkSync(testerName);
+} catch (ex) {}
 
 // vyrobime symbol prazdne ikony ve vsech velikostech
 [8, 16, 24, 32].forEach(size => {
@@ -90,13 +95,14 @@ export const ${name} = {
 	d: '',
 	size: ${size},
 };
-ICONS['${name}'] = {
-	title: '${title}',
-	icon: ${name},
-	aliases: ['${name}'],
-};
 
 `);
+	testerImports.push(name);
+	testerData.push({
+		title,
+		fullName: name,
+		aliases: [name],
+	});
 });
 
 // najdi vsechny velikosti
@@ -117,12 +123,43 @@ while (dirent = dir.readSync()) {
 			const variant = iconDirent.name.split('.')[0].toUpperCase();
 
 			// sestav konstanty ikony do JS souboru
-			fs.appendFileSync(moduleName, buildIcon(size, icon, variant, `${dirent.name}/${sizeDirent.name}/${iconDirent.name}`, `${sizeDirent.name} ${size}x${size}`));
+			const iconSources = buildIcon(size, icon, variant, `${dirent.name}/${sizeDirent.name}/${iconDirent.name}`, `${sizeDirent.name} ${size}x${size}`);
+			fs.appendFileSync(moduleName, iconSources.icons);
+
+			// pridame k importum do testovaciho souboru
+			testerImports = [...testerImports, ...iconSources.data.aliases];
+			testerData.push(iconSources.data);
 		}
 	}
 }
 
-fs.appendFileSync(moduleName, `// vsechny ikony v jednom objektu, urcene pro psani testu, stories a podobne, ne pro uziti v produkci
+// generovani souboru pro testy
+
+fs.appendFileSync(testerName, `import {
+${testerImports.join(`,
+`)}
+} from './index';
+
+`);
+
+// zalozime objekt, kde budou vsechny ikony referencovane
+fs.appendFileSync(testerName, `// objekt se vsemi ikonami
+const ICONS = {};
+
+`);
+
+// vyrobime vsechny polozky objektu ICONS
+testerData.forEach(({ fullName, title, aliases }) => {
+	fs.appendFileSync(testerName, `ICONS['${fullName}'] = {
+	title: '${title}',
+	icon: ${fullName},
+	aliases: ['${aliases.join(`', '`)}'],
+};
+
+`);
+});
+
+fs.appendFileSync(testerName, `// vsechny ikony v jednom objektu, urcene pro psani testu, stories a podobne, ne pro uziti v produkci
 export default ICONS;
 
 `);

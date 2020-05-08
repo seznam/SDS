@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import Input from './index';
-import ICONS from '@sznds/icons';
+import ICONS from '@sznds/icons/tester';
 
 import readme from './README.md';
 
