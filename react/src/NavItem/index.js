@@ -76,6 +76,8 @@ const NavItem = memo(({
 	</Typography>;
 });
 
+NavItem.displayName = 'NavItem';
+
 NavItem.propTypes = {
 	className: PropTypes.string,
 	icon: PropTypes.string,

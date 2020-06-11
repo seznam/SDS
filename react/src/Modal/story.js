@@ -5,6 +5,7 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import Modal from './index';
 import ModalBackdrop from '../ModalBackdrop';
 import ModalContent from '../ModalContent';
+import ModalHeader from '../ModalHeader';
 import ModalCloseButton from '../ModalCloseButton';
 import Button from '../Button';
 import { useModal } from '../hooks';
@@ -18,10 +19,12 @@ const Dialog = ({
 	open = false,
 	children,
 	handleClose,
+	title = '',
 }) => open
 	? <Modal open={open} onClose={handleClose}>
 		<ModalBackdrop {...(clickOutClose ? { onClick: handleClose } : {})} />
 		<ModalContent>
+			{title === '' ? null : <ModalHeader>{title}</ModalHeader>}
 			{children}
 			<ModalCloseButton onClick={handleClose} />
 		</ModalContent>
@@ -36,6 +39,7 @@ Dialog.propTypes = {
 	handleClose: PropTypes.func.isRequired,
 	clickOutClose: PropTypes.bool,
 	open: PropTypes.bool,
+	title: PropTypes.string,
 };
 
 // eslint-disable-next-line no-undef
@@ -54,6 +58,7 @@ stories.add('příklad dialogu', () => {
 				open={open}
 				handleClose={() => setOpen(false)}
 				clickOutClose={boolean('ClickOutClose', true)}
+				title="Titulek dialogu"
 			>
 				<p>asldasjd alsdkjkasdjlkasjd lkasjdlakjs</p>
 				<p>asldasjd alsdkjkasdjlkasjd <a href="https://drd.cz/">lkasjdlakjs</a></p>

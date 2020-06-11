@@ -42,3 +42,8 @@
 	right: 16px;
 	top: 16px;
 }
+
+/* modalheader */
+.sds-modalheader {
+	padding: 24px 24px 16px;
+}

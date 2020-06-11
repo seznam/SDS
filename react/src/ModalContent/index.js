@@ -17,7 +17,7 @@ const ModalContent = memo(({
 		ref.current.focus();
 	}, []);
 
-	return <div ref={ref} className={classes} {...props} tabIndex={0}>
+	return <div role="dialog" ref={ref} className={classes} {...props} tabIndex={0}>
 		{children}
 	</div>;
 });
