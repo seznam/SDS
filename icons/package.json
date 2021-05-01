@@ -1,15 +1,16 @@
 {
 	"name": "@sznds/icons",
-	"version": "0.4.1",
+	"version": "0.4.3",
 	"description": "Icons for SDS components.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"
 	},
 	"devDependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-plugin-transform-object-rest-spread": "^6.26.0",
-		"babel-preset-env": "^1.7.0",
+		"@babel/cli": "^7.13.0",
+		"@babel/core": "^7.13.1",
+		"@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+		"@babel/preset-env": "^7.13.5",
 		"eslint": "^5.1.0",
 		"xmldom": "^0.1.27"
 	},

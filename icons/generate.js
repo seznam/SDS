@@ -22,6 +22,7 @@ function extractPath(file) {
 // funkce, ktera sestavi kus JS podle parametru
 function buildIcon(size, icon, variant, path, title) {
 	const fullName = `${icon}_${variant}_${size}`;
+
 	let aliases = [fullName];
 
 	let out = `// ${path}
@@ -120,7 +121,7 @@ while (dirent = dir.readSync()) {
 		let iconDirent = null;
 		// najdi vsechny varianty ikony v dane velikosti
 		while (iconDirent = iconDir.readSync()) {
-			const variant = iconDirent.name.split('.')[0].toUpperCase();
+			const variant = iconDirent.name.split('.')[0].replace(/\s/g, '_').toUpperCase();
 
 			// sestav konstanty ikony do JS souboru
 			const iconSources = buildIcon(size, icon, variant, `${dirent.name}/${sizeDirent.name}/${iconDirent.name}`, `${sizeDirent.name} ${size}x${size}`);
