@@ -33,9 +33,14 @@ export const ${fullName} = {
 
 `;
 
+	let outTypes = `export const ${fullName}: ISDSIcon;
+`;
+
 	if (size === DEFAULT_SIZE) {
 		const defaultSize = `${icon}_${variant}`;
 		out += `export const ${defaultSize} = ${fullName};
+`;
+		outTypes += `export const ${defaultSize}: ISDSIcon;
 `;
 		aliases.push(defaultSize);
 	}
@@ -44,6 +49,8 @@ export const ${fullName} = {
 		const defaultVariant = `${icon}_${size}`;
 		out += `export const ${defaultVariant} = ${fullName};
 `;
+		outTypes += `export const ${defaultVariant}: ISDSIcon;
+`;
 		aliases.push(defaultVariant);
 	}
 
@@ -51,11 +58,14 @@ export const ${fullName} = {
 		const defaultAll = `${icon}`;
 		out += `export const ${icon} = ${fullName};
 `;
+		outTypes += `export const ${icon}: ISDSIcon;
+`;
 		aliases.push(defaultAll);
 	}
 
 	return {
 		icons: out,
+		types: outTypes,
 		data: {
 			title,
 			fullName,
@@ -68,6 +78,8 @@ export const ${fullName} = {
 const rootDir = __dirname + '/svg';
 // vysledny modul s ikonami
 const moduleName = 'index.js';
+// datove typy pro TS
+const dtsName = 'index.d.ts';
 // modul pro potreby testu a podobne, kde se importuji i exportuji vsechny ikony, takze je opravdu velky a v produkcnim buildu nema co delat
 const testerName = 'tester.js';
 
@@ -83,8 +95,16 @@ let counter = 0;
 // pokud uz moduly existuji, tak stare verze smazeme
 try {
 	fs.unlinkSync(moduleName);
+	fs.unlinkSync(dtsName);
 	fs.unlinkSync(testerName);
 } catch (ex) {}
+
+// do typu deklarujeme interface pro objekty ikon
+fs.appendFileSync(dtsName, `export interface ISDSIcon {
+	d: string;
+	size: number;
+};
+`);
 
 // vyrobime symbol prazdne ikony ve vsech velikostech
 [8, 16, 24, 32].forEach(size => {
@@ -97,6 +117,8 @@ export const ${name} = {
 	size: ${size},
 };
 
+`);
+	fs.appendFileSync(dtsName, `export const ${name}: ISDSIcon;
 `);
 	testerImports.push(name);
 	testerData.push({
@@ -126,6 +148,7 @@ while (dirent = dir.readSync()) {
 			// sestav konstanty ikony do JS souboru
 			const iconSources = buildIcon(size, icon, variant, `${dirent.name}/${sizeDirent.name}/${iconDirent.name}`, `${sizeDirent.name} ${size}x${size}`);
 			fs.appendFileSync(moduleName, iconSources.icons);
+			fs.appendFileSync(dtsName, iconSources.types);
 
 			// pridame k importum do testovaciho souboru
 			testerImports = [...testerImports, ...iconSources.data.aliases];

@@ -1,18 +1,18 @@
 {
 	"name": "@sznds/icons",
-	"version": "0.4.3",
+	"version": "0.4.4",
 	"description": "Icons for SDS components.",
 	"author": {
 		"name": "Jakub Kraft",
 		"email": "jakub.kraft@firma.seznam.cz"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.13.0",
-		"@babel/core": "^7.13.1",
+		"@babel/cli": "^7.13.16",
+		"@babel/core": "^7.14.0",
 		"@babel/plugin-syntax-object-rest-spread": "^7.8.3",
-		"@babel/preset-env": "^7.13.5",
-		"eslint": "^5.1.0",
-		"xmldom": "^0.1.27"
+		"@babel/preset-env": "^7.14.1",
+		"eslint": "^7.26.0",
+		"xmldom": "^0.6.0"
 	},
 	"scripts": {
 		"generate": "node generate.js",
@@ -22,8 +22,10 @@
 	"files": [
 		"icons.js",
 		"index.js",
+		"index.d.ts",
 		"tester.js"
 	],
 	"main": "icons.js",
-	"module": "index.js"
+	"module": "index.js",
+	"types": "index.d.ts"
 }

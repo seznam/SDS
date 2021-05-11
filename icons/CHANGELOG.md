@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.4.4] - 2020-05-11
+### Přidáno
+- Definice typů pro TypeScript.
+
 ## [0.4.1] - 2020-02-13
 ### Změněno
 - Objekt `ICONS` se všemi ikonami přesunut do samostatného souboru `tester.js`, který mohou využívats stories, testy a podobně, aniž by v hlavním modulu překážel a zvyšoval jeho velikost.
