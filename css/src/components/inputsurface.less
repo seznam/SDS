@@ -1,19 +1,19 @@
 @import "../common/colors.less";
 @import "../common/global-constants.less";
 
-@shadowInputSurface: inset 0 unit(2 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 15%);
-@shadowErrorInputSurface: inset 0 0 0 unit(1 / 16, rem) @sdsColorError;
+@shadowInputSurface: inset 0 unit((2 / 16), rem) unit((3 / 16), rem) 0 fade(@sdsColorShadow, 15%);
+@shadowErrorInputSurface: inset 0 0 0 unit((1 / 16), rem) @sdsColorError;
 
 .sds-inputsurface {
-	border: unit(1 / 16, rem) solid lighten(@sdsColorFormBorder, 12.5%);
-	border-radius: unit(4 / 16, rem);
+	border: unit((1 / 16), rem) solid lighten(@sdsColorFormBorder, 12.5%);
+	border-radius: unit((4 / 16), rem);
 	background: @sdsColorBg255;
 	color: @sdsColorText;
 	box-shadow: @shadowInputSurface;
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: transparent;
-	height: unit(48 / 16, rem);
-	padding: unit(11 / 16, rem);
+	height: unit((48 / 16), rem);
+	padding: unit((11 / 16), rem);
 	transition: @sdsOutlineTransition;
 
 	::placeholder {
@@ -22,8 +22,8 @@
 }
 
 .sds-inputsurface--small {
-	height: unit(40 / 16, rem);
-	padding: unit(7 / 16, rem), unit(11 / 16, rem);
+	height: unit((40 / 16), rem);
+	padding: unit((7 / 16), rem), unit((11 / 16), rem);
 }
 
 .sds-inputsurface:focus, .sds-inputsurface--focused {
@@ -33,7 +33,7 @@
 
 .sds-inputsurface--error {
 	border-color: @sdsColorError;
-	box-shadow: inset 0 0 0 unit(1 / 16, rem) @sdsColorError, @shadowInputSurface;
+	box-shadow: inset 0 0 0 unit((1 / 16), rem) @sdsColorError, @shadowInputSurface;
 
 	&:focus, &.sds-inputsurface--focused {
 		box-shadow: @sdsShadowOutline, @shadowErrorInputSurface, @shadowInputSurface;

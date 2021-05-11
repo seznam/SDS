@@ -12,7 +12,7 @@
 	padding: 0;
 	background: @sdsColorBg255;
 	color: @sdsColorMildText;
-	border-radius: unit(@sdsBorderRadius / 16, rem);
+	border-radius: unit((@sdsBorderRadius / 16), rem);
 	border: 0;
 	cursor: pointer;
 	text-decoration: none;
@@ -25,8 +25,8 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		border: unit(@sdsBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
-		border-radius: unit(@sdsBorderRadius / 16, rem);
+		border: unit((@sdsBorderWidth / 16), rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
+		border-radius: unit((@sdsBorderRadius / 16), rem);
 		pointer-events: none;
 	}
 
@@ -46,7 +46,7 @@
 }
 
 .sds-navitem__text {
-	margin: unit(8 / 16, rem) unit(16 / 16, rem);
+	margin: unit((8 / 16), rem) unit((16 / 16), rem);
 	text-align: left;
 
 	&::after {
@@ -87,19 +87,19 @@
 }
 
 .sds-navitem__icon {
-	width: unit(16 / 16, rem);
-	height: unit(16 / 16, rem);
+	width: unit((16 / 16), rem);
+	height: unit((16 / 16), rem);
 }
 
 /* level 1 - main menu */
 
 .sds-navitem--level1 {
 	&.sds-navitem--horizontal {
-		height: unit(72 / 16, rem);
+		height: unit((72 / 16), rem);
 		justify-content: start;
 
 		.sds-navitem__text {
-			margin: unit(24 / 16, rem) unit(16 / 16, rem) 0 unit(16 / 16, rem);
+			margin: unit((24 / 16), rem) unit((16 / 16), rem) 0 unit((16 / 16), rem);
 		}
 
 		.sds-navitem__icon {
@@ -109,21 +109,21 @@
 
 	&.sds-navitem--vertical {
 		.sds-navitem__text {
-			margin: unit(8 / 16, rem) 0;
+			margin: unit((8 / 16), rem) 0;
 			flex: 1;
 
 			&:first-child {
-				margin-left: unit(8 / 16, rem);
+				margin-left: unit((8 / 16), rem);
 			}
 
 			&:last-child {
-				margin-right: unit(8 / 16, rem);
+				margin-right: unit((8 / 16), rem);
 			}
 		}
 
 		.sds-navitem__icon, .sds-navitem__icon-submenu {
 			flex-shrink: 0;
-			margin: unit(8 / 16, rem);
+			margin: unit((8 / 16), rem);
 		}
 	}
 }
@@ -161,20 +161,20 @@
 	}
 
 	&.sds-navitem--horizontal {
-		height: unit(48 / 16, rem);
+		height: unit((48 / 16), rem);
 
 		&:after {
-			border-bottom: unit(2 / 16, rem) solid currentColor;
-			left: unit(15 / 16, rem);
-			right: unit(15 / 16, rem);
+			border-bottom: unit((2 / 16), rem) solid currentColor;
+			left: unit((15 / 16), rem);
+			right: unit((15 / 16), rem);
 		}
 	}
 
 	&.sds-navitem--vertical {
 		&:after {
-			border-left: unit(2 / 16, rem) solid currentColor;
-			top: unit(4 / 16, rem);
-			bottom: unit(4 / 16, rem);
+			border-left: unit((2 / 16), rem) solid currentColor;
+			top: unit((4 / 16), rem);
+			bottom: unit((4 / 16), rem);
 		}
 	}
 }

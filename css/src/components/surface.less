@@ -22,7 +22,7 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		border: unit(@sdsBorderWidth / 16, rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
+		border: unit((@sdsBorderWidth / 16), rem) solid transparent; /* because of high contrast mode there has to be a border even though it is not visualised */
 		pointer-events: none;
 	}
 }
@@ -85,7 +85,7 @@
 
 /* surface 02 */
 
-@shadowSurface02Hover: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sdsColorShadow, 5%);
+@shadowSurface02Hover: 0 unit((1 / 16), rem) unit((3 / 16), rem) 0 fade(@sdsColorShadow, 10%), 0 unit((2 / 16), rem) unit((8 / 16), rem) 0 fade(@sdsColorShadow, 5%);
 
 .sds-surface--02 {
 	background: @sdsColorBg255;
@@ -106,7 +106,7 @@
 		}
 
 		&:active {
-			box-shadow: 0 unit(1 / 16, rem) unit(1 / 16, rem) 0 fade(@sdsColorShadow, 25%), 0 unit(1 / 16, rem) unit(2 / 16, rem) 0 fade(@sdsColorShadow, 10%);
+			box-shadow: 0 unit((1 / 16), rem) unit((1 / 16), rem) 0 fade(@sdsColorShadow, 25%), 0 unit((1 / 16), rem) unit((2 / 16), rem) 0 fade(@sdsColorShadow, 10%);
 		}
 	}
 
@@ -117,8 +117,8 @@
 
 /* surface 03 */
 
-@shadowSurface03: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 25%);
-@shadowSurface03Hover: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 35%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(2 / 16, rem) unit(8 / 16, rem) 0 fade(@sdsColorShadow, 5%);
+@shadowSurface03: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 25%);
+@shadowSurface03Hover: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 35%), 0 unit((1 / 16), rem) unit((4 / 16), rem) 0 fade(@sdsColorShadow, 10%), 0 unit((2 / 16), rem) unit((8 / 16), rem) 0 fade(@sdsColorShadow, 5%);
 
 .sds-surface--03 {
 	background: @sdsColorBg255;
@@ -139,19 +139,19 @@
 		}
 
 		&:active {
-			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 50%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 30%);
+			box-shadow: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 50%), 0 unit((1 / 16), rem) unit((3 / 16), rem) 0 fade(@sdsColorShadow, 30%);
 		}
 	}
 
 	&.sds-surface--disabled {
-		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 25%);
+		box-shadow: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 25%);
 	}
 }
 
 /* surface 04 */
 
-@shadowSurface04: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 10%);
-@shadowSurface04Hover: 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 30%);
+@shadowSurface04: 0 unit((1 / 16), rem) unit((3 / 16), rem) 0 fade(@sdsColorShadow, 10%), 0 unit((16 / 16), rem) unit((24 / 16), rem) unit((-16 / 16), rem) fade(@sdsColorShadow, 10%);
+@shadowSurface04Hover: 0 unit((1 / 16), rem) unit((6 / 16), rem) 0 fade(@sdsColorShadow, 20%), 0 unit((16 / 16), rem) unit((32 / 16), rem) unit((-16 / 16), rem) fade(@sdsColorShadow, 30%);
 
 .sds-surface--04 {
 	background: @sdsColorBg255;
@@ -172,19 +172,19 @@
 		}
 
 		&:active {
-			box-shadow: 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 30%);
+			box-shadow: 0 unit((1 / 16), rem) unit((4 / 16), rem) 0 fade(@sdsColorShadow, 20%), 0 unit((1 / 16), rem) unit((3 / 16), rem) 0 fade(@sdsColorShadow, 30%);
 		}
 	}
 
 	&.sds-surface--disabled {
-		box-shadow: 0 unit(1 / 16, rem) unit(3 / 16, rem) 0 fade(@sdsColorShadow, 10%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 10%);
+		box-shadow: 0 unit((1 / 16), rem) unit((3 / 16), rem) 0 fade(@sdsColorShadow, 10%), 0 unit((16 / 16), rem) unit((24 / 16), rem) unit((-16 / 16), rem) fade(@sdsColorShadow, 10%);
 	}
 }
 
 /* surface 05 */
 
-@shadowSurface05: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 30%);
-@shadowSurface05Hover: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(16 / 16, rem) unit(32 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 50%);
+@shadowSurface05: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 20%), 0 unit((1 / 16), rem) unit((4 / 16), rem) 0 fade(@sdsColorShadow, 20%), 0 unit((16 / 16), rem) unit((24 / 16), rem) unit((-16 / 16), rem) fade(@sdsColorShadow, 30%);
+@shadowSurface05Hover: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 30%), 0 unit((1 / 16), rem) unit((6 / 16), rem) 0 fade(@sdsColorShadow, 30%), 0 unit((16 / 16), rem) unit((32 / 16), rem) unit((-16 / 16), rem) fade(@sdsColorShadow, 50%);
 
 .sds-surface--05 {
 	background: @sdsColorBg255;
@@ -205,12 +205,12 @@
 		}
 
 		&:active {
-			box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(1 / 16, rem) unit(6 / 16, rem) 0 fade(@sdsColorShadow, 30%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 50%);
+			box-shadow: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 30%), 0 unit((1 / 16), rem) unit((6 / 16), rem) 0 fade(@sdsColorShadow, 30%), 0 unit((1 / 16), rem) unit((4 / 16), rem) 0 fade(@sdsColorShadow, 50%);
 		}
 	}
 
 	&.sds-surface--disabled {
-		box-shadow: 0 0 unit(1 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(1 / 16, rem) unit(4 / 16, rem) 0 fade(@sdsColorShadow, 20%), 0 unit(16 / 16, rem) unit(24 / 16, rem) unit(-16 / 16, rem) fade(@sdsColorShadow, 30%);
+		box-shadow: 0 0 unit((1 / 16), rem) 0 fade(@sdsColorShadow, 20%), 0 unit((1 / 16), rem) unit((4 / 16), rem) 0 fade(@sdsColorShadow, 20%), 0 unit((16 / 16), rem) unit((24 / 16), rem) unit((-16 / 16), rem) fade(@sdsColorShadow, 30%);
 	}
 }
 
@@ -221,8 +221,8 @@
 
 /* surface primary */
 
-@shadowSurfacePrimary: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sdsColorAccent, 40%);
-@shadowSurfacePrimaryHover: 0 unit(12 / 16, rem) unit(24 / 16, rem) unit(-6 / 16, rem) fade(@sdsColorAccent, 60%);
+@shadowSurfacePrimary: 0 unit((8 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@sdsColorAccent, 40%);
+@shadowSurfacePrimaryHover: 0 unit((12 / 16), rem) unit((24 / 16), rem) unit((-6 / 16), rem) fade(@sdsColorAccent, 60%);
 
 .sds-surface--primary {
 	background: @sdsColorAccent;
@@ -258,6 +258,6 @@
 	&.sds-surface--disabled {
 		background: @sdsColorAccentDisabled;
 		color: @sdsColorTextAccentDisabled;
-		box-shadow: 0 unit(8 / 16, rem) unit(24 / 16, rem) unit(-8 / 16, rem) fade(@sdsColorAccent, 40%);
+		box-shadow: 0 unit((8 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@sdsColorAccent, 40%);
 	}
 }

@@ -7,19 +7,19 @@
 	justify-content: center;
 	align-items: center;
 	vertical-align: middle;
-	height: unit(48 / 16, rem);
+	height: unit((48 / 16), rem);
 	max-width: 100%;
 	user-select: none;
 	position: relative;
-	border-radius: unit(@sdsBorderRadius / 16, rem);
+	border-radius: unit((@sdsBorderRadius / 16), rem);
 
 	&:before {
-		border-radius: unit(@sdsBorderRadius / 16, rem);
+		border-radius: unit((@sdsBorderRadius / 16), rem);
 	}
 }
 
 .sds-tag__content {
-	margin: unit(12 / 16, rem) unit(16 / 16, rem);
+	margin: unit((12 / 16), rem) unit((16 / 16), rem);
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
@@ -29,11 +29,11 @@
 	position: relative;
 	background: none;
 	border: 0;
-	margin: unit(2 / 16, rem);
-	width: unit(36 / 16, rem);
-	height: unit(44 / 16, rem);
-	font-size: unit(16 / 16, rem);
-	border-radius: unit(2 / 16, rem);
+	margin: unit((2 / 16), rem);
+	width: unit((36 / 16), rem);
+	height: unit((44 / 16), rem);
+	font-size: unit((16 / 16), rem);
+	border-radius: unit((2 / 16), rem);
 	cursor: pointer;
 	display: flex;
 	z-index: 1;
@@ -42,10 +42,10 @@
 
 	&:before {
 		position: absolute;
-		width: unit(1 / 16, rem);
-		height: unit(24 / 16, rem);
+		width: unit((1 / 16), rem);
+		height: unit((24 / 16), rem);
 		background: @sdsColorBg240;
-    	left: unit(-1 / 16, rem);
+    	left: unit((-1 / 16), rem);
 	}
 
 	&:not(:hover):not(:active):not(:focus):before {
@@ -69,31 +69,31 @@
 }
 
 .sds-tag--small {
-	height: unit(40 / 16, rem);
+	height: unit((40 / 16), rem);
 
 	.sds-tag__button {
-		width: unit(28 / 16, rem);
-		height: unit(36 / 16, rem);
+		width: unit((28 / 16), rem);
+		height: unit((36 / 16), rem);
 
 		&:before {
-			height: unit(20 / 16, rem);
+			height: unit((20 / 16), rem);
 		}
 	}
 }
 
 .sds-tag--xsmall {
-	height: unit(32 / 16, rem);
+	height: unit((32 / 16), rem);
 
 	.sds-tag__content {
-		margin: 0 unit(8 / 16, rem);
+		margin: 0 unit((8 / 16), rem);
 	}
 
 	.sds-tag__button {
-		width: unit(28 / 16, rem);
-		height: unit(28 / 16, rem);
+		width: unit((28 / 16), rem);
+		height: unit((28 / 16), rem);
 
 		&:before {
-			height: unit(16 / 16, rem);
+			height: unit((16 / 16), rem);
 		}
 	}
 }
